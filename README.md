@@ -65,3 +65,28 @@ Documented pain points across 4 swim lanes; redesigned process cut cycle time fr
 ---
 
 ## Professional background
+
+| | | | |
+|---|---|---|---|
+| **IoT Analytics** | **Graduate Research** | **Government Consultancy** | **MSc Business Analytics** |
+| Bajaj Electricals | Maynooth University | Age Friendly Ireland | Maynooth (2024–2026) |
+| 15% uptime gain | Census data analysis | 349k records · policy impact | Graduating 2026 |
+
+---
+
+## Currently
+
+- 📚 Completing MSc Business Analytics at Maynooth University (2026)
+- 💼 Targeting **Business Analyst**, **Data Analyst**, and **Systems Analyst** roles across Ireland
+- 🔨 Building out process analysis and requirements documentation portfolio pieces
+- 📬 Open to opportunities — [connect on LinkedIn](https://www.linkedin.com/in/basantsingh-) or visit [my portfolio](https://basant-kumar-portfolio.netlify.app)
+
+---
+
+## GitHub stats
+
+![Basant's GitHub stats](https://github-readme-stats.vercel.app/api?username=basant-kumarr&show_icons=true&hide_border=true&count_private=true&theme=default)
+
+---
+
+*"The goal is not to have more data. The goal is to make better decisions."*
