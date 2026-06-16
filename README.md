@@ -25,7 +25,7 @@ With 4+ years of experience across IoT analytics, government-client consultancy,
 Analysed **349,155 CSO Census records** to project Irish housing accessibility gaps through 2050.  
 Key finding: **22.3% of Irish households** will face accessibility barriers by 2050 — previously unknown at county level.  
 Delivered directly to government policy stakeholders. Enabled county-level intervention targeting for the first time.  
-→ [View repo](https://github.com/basant-kumarr) &nbsp;|&nbsp; [Live portfolio](https://basant-kumar-portfolio.netlify.app)
+→ [View repo](https://github.com/basant-kumarr/housing-accessibility-ireland) &nbsp;|&nbsp; [Live portfolio](https://basant-kumar-portfolio.netlify.app)
 
 ---
 
