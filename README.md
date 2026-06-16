@@ -29,6 +29,8 @@ Delivered directly to government policy stakeholders. Enabled county-level inter
 
 ---
 
+---
+
 ### 🔍 Financial Fraud Detection — FCA-Compliant Production System
 Built an XGBoost fraud detection model on **111,144 Mastercard transactions**.  
 Identified **437 additional fraud cases** missed by the baseline system — 99.9% AUC-ROC, 97.2% precision.  
