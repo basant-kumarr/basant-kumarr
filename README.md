@@ -7,13 +7,13 @@ Data & Business Analyst · Turning complex data into decisions that move busines
 
 What I do
 
-I sit at the intersection of business problems and data — asking the right questions before touching a single dataset, and translating findings into language that makes stakeholders act.
+I sit at the intersection of business problems and data, asking the right questions before touching a single dataset, and translating findings into language that makes stakeholders act.
 
 With 4+ years of experience across IoT analytics, government-client consultancy, and financial data modelling, I specialise in:
 
 
-Requirements elicitation & stakeholder management — translating business needs into structured, traceable requirements
-Process analysis — As-Is / To-Be modelling using BPMN 2.0 to find where processes break and how to fix them
+Requirements elicitation & stakeholder management, translating business needs into structured, traceable requirements
+Process analysis, As-Is / To-Be modelling using BPMN 2.0 to find where processes break and how to fix them
 Data analysis & visualisation — SQL, Python, Power BI, Tableau — always in service of a business decision
 Predictive modelling — XGBoost, SHAP explainability, production-grade framing for regulated environments
 
@@ -24,7 +24,7 @@ Featured projects
 🏛️ Housing Accessibility — Age Friendly Ireland (Government Client)
 
 Analysed 349,155 CSO Census records to project Irish housing accessibility gaps through 2050.
-Key finding: 22.3% of Irish households will face accessibility barriers by 2050 — previously unknown at county level.
+Key finding: 22.3% of Irish households will face accessibility barriers by 2050, previously unknown at county level.
 Delivered directly to government policy stakeholders. Enabled county-level intervention targeting for the first time.
 → View repo  |  Live portfolio
 
