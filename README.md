@@ -29,7 +29,6 @@ Delivered directly to government policy stakeholders. Enabled county-level inter
 
 ---
 
----
 
 ### 🔍 Financial Fraud Detection — FCA-Compliant Production System
 Built an XGBoost fraud detection model on **111,144 Mastercard transactions**.  
