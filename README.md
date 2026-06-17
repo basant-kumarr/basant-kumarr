@@ -1,92 +1,225 @@
-# Hi, I'm Basant Kumar 👋
+<!-- ════════════════════════════════════════════════════ -->
+<!--                  THE INTELLIGENCE ENGINE              -->
+<!-- ════════════════════════════════════════════════════ -->
 
-**Data & Business Analyst** · Turning complex data into decisions that move businesses forward.
+<div align="center">
 
-📍 Ireland &nbsp;|&nbsp; 🎓 MSc Business Analytics — Maynooth University &nbsp;|&nbsp; 🌐 [basant-kumar-portfolio.netlify.app](https://basant-kumar-portfolio.netlify.app)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:010409,50:00A3FF,100:33D6FF&height=200&section=header&text=BASANT%20KUMAR&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=THE%20INTELLIGENCE%20ENGINE&descSize=18&descAlignY=60&descColor=B6C2D9" width="100%"/>
 
----
+<br>
 
-## What I do
+**Business Analytics · Data Analytics · Decision Intelligence · Artificial Intelligence**
 
-I sit at the intersection of business problems and data — asking the right questions before touching a single dataset, and translating findings into language that makes stakeholders act.
+<br>
 
-With 4+ years of experience across IoT analytics, government-client consultancy, and financial data modelling, I specialise in:
+> ### *"Building systems that transform data into decisions."*
 
-- **Requirements elicitation & stakeholder management** — translating business needs into structured, traceable requirements
-- **Process analysis** — As-Is / To-Be modelling using BPMN 2.0 to find where processes break and how to fix them
-- **Data analysis & visualisation** — SQL, Python, Power BI, Tableau — always in service of a business decision
-- **Predictive modelling** — XGBoost, SHAP explainability, production-grade framing for regulated environments
+<br>
 
----
+[![Portfolio](https://img.shields.io/badge/Portfolio-The_Intelligence_Engine-00A3FF?style=for-the-badge&logo=netlify&logoColor=white&labelColor=010409)](https://basant-kumar-portfolio.netlify.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-00A3FF?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=010409)](https://www.linkedin.com/in/basantsingh-/)
+[![Email](https://img.shields.io/badge/Email-Get_in_touch-00A3FF?style=for-the-badge&logo=gmail&logoColor=white&labelColor=010409)](mailto:basantsingh607@gmail.com)
 
-## Featured projects
+</div>
 
-### 🏛️ Housing Accessibility — Age Friendly Ireland (Government Client)
-Analysed **349,155 CSO Census records** to project Irish housing accessibility gaps through 2050.  
-Key finding: **22.3% of Irish households** will face accessibility barriers by 2050 — previously unknown at county level.  
-Delivered directly to government policy stakeholders. Enabled county-level intervention targeting for the first time.  
-→ [View repo](https://github.com/basant-kumarr/housing-accessibility-ireland) &nbsp;|&nbsp; [Live portfolio](https://basant-kumar-portfolio.netlify.app)
+<br>
 
----
+<!-- ════════════════════════════════════════════════════ -->
+<!--                 LIVE INTELLIGENCE DASHBOARD          -->
+<!-- ════════════════════════════════════════════════════ -->
 
-### 🔍 Financial Fraud Detection — FCA-Compliant Production System
-Built an XGBoost fraud detection model on **111,144 Mastercard transactions**.  
-Identified **437 additional fraud cases** missed by the baseline system — 99.9% AUC-ROC, 97.2% precision.  
-SHAP explainability integrated for regulatory compliance. Framed for FCA audit requirements.  
-→ [View repo](https://github.com/basant-kumarr/fraud-detection-xgboost)
+## ◈ &nbsp;Intelligence Dashboard
 
----
+<table>
+<tr>
+<td align="center" width="20%">
+<h2>4+</h2>
+Years<br>Experience
+</td>
+<td align="center" width="20%">
+<h2>5+</h2>
+Intelligence<br>Systems
+</td>
+<td align="center" width="20%">
+<h2>15+</h2>
+Certifications
+</td>
+<td align="center" width="20%">
+<h2>3</h2>
+Research<br>Projects
+</td>
+<td align="center" width="20%">
+<h2>12+</h2>
+Technologies
+</td>
+</tr>
+</table>
 
-### 📊 Sales Demand Forecasting
-Time-series forecasting model supporting inventory planning decisions.  
-Business objective: reduce overstock and stockout costs through forward-looking demand signals.  
-→ [View repo](https://github.com/basant-kumarr/sales-demand-forecasting)
+<br>
 
----
+<!-- ════════════════════════════════════════════════════ -->
+<!--                      THE JOURNEY                     -->
+<!-- ════════════════════════════════════════════════════ -->
 
-### 📋 Process Analysis — BPMN 2.0 Portfolio
-As-Is / To-Be process modelling for the Age Friendly Ireland data pipeline.  
-Documented pain points across 4 swim lanes; redesigned process cut cycle time from **2–4 weeks to under 48 hours**.  
-→ [View repo](https://github.com/basant-kumarr/process-analysis-portfolio)
+## ◈ &nbsp;The Journey
 
----
+```
+   ENGINEERING          Bajaj Electricals · IoT analytics, KPI dashboards
+        │               15% uptime gain · 20% cost reduction
+        ▼
+   ENTREPRENEURSHIP     Shopify venture · CAC, conversion & ROI analytics
+        │               End-to-end commercial decision-making
+        ▼
+   RESEARCH             Maynooth University · Age Friendly Ireland
+        │               349,155 census records · government client
+        ▼
+   ANALYTICS            Fraud detection · Forecasting · Process modelling
+        │               Production-grade, FCA-compliant systems
+        ▼
+   ARTIFICIAL           Decision intelligence · Explainable AI
+   INTELLIGENCE         Systems that recommend, not just report
+```
 
-## Technical skills
+<br>
 
-| Domain | Tools & Methods |
-|---|---|
-| **Data Analysis** | Python (pandas, numpy, scikit-learn), SQL (joins, aggregations, window functions), Excel (Power Query, PivotTables) |
-| **Visualisation** | Power BI (DAX, row-level security), Tableau, Matplotlib, Seaborn |
-| **Business Analysis** | Requirements gathering, BPMN 2.0, MoSCoW prioritisation, user stories, stakeholder workshops |
-| **Modelling** | XGBoost, SHAP explainability, time-series forecasting, regression |
-| **Methodology** | Agile / Scrum, gap analysis, process mapping, business case development |
-| **Other** | Git, Jira, Confluence, Netlify, VS Code |
+<!-- ════════════════════════════════════════════════════ -->
+<!--              FEATURED INTELLIGENCE SYSTEMS          -->
+<!-- ════════════════════════════════════════════════════ -->
 
----
+## ◈ &nbsp;Featured Intelligence Systems
 
-## Professional background
+<table>
+<tr>
+<td width="50%" valign="top">
 
-| | | | |
-|---|---|---|---|
-| **IoT Analytics** | **Graduate Research** | **Government Consultancy** | **MSc Business Analytics** |
-| Bajaj Electricals | Maynooth University | Age Friendly Ireland | Maynooth (2024–2026) |
-| 15% uptime gain | Census data analysis | 349k records · policy impact | Graduating 2026 |
+### ▤ Housing Accessibility — Ireland
+**Problem** — Government client needed county-level housing accessibility projections; only national totals existed.
+**Tools** — Python · CSO Census data · Population modelling
+**Impact** — Analysed **349,155 records**; projected **22.3%** of households facing barriers by 2050, enabling targeted policy for the first time.
 
----
+[`→ View system`](https://github.com/basant-kumarr/housing-accessibility-ireland)
 
-## Currently
+</td>
+<td width="50%" valign="top">
 
-- 📚 Completing MSc Business Analytics at Maynooth University (2026)
-- 💼 Targeting **Business Analyst**, **Data Analyst**, and **Systems Analyst** roles across Ireland
-- 🔨 Building out process analysis and requirements documentation portfolio pieces
-- 📬 Open to opportunities — [connect on LinkedIn](https://www.linkedin.com/in/basantsingh-) or visit [my portfolio](https://basant-kumar-portfolio.netlify.app)
+### ▤ Financial Fraud Detection
+**Problem** — Baseline fraud model was missing genuine fraud cases in Mastercard transaction data.
+**Tools** — XGBoost · SHAP · Python · scikit-learn
+**Impact** — Identified **437 additional fraud cases**; **99.9% AUC-ROC**, **97.2% precision**, FCA-compliant with full explainability.
 
----
+[`→ View system`](https://github.com/basant-kumarr/fraud-detection-xgboost)
 
-## GitHub stats
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-![Basant's GitHub stats](https://github-readme-stats.vercel.app/api?username=basant-kumarr&show_icons=true&hide_border=true&count_private=true&theme=default)
+### ▤ Sales Demand Forecasting
+**Problem** — Inventory planning suffered from overstock and stockout costs.
+**Tools** — R · ARIMA · Prophet · Time-series modelling
+**Impact** — Forward-looking demand signals supporting smarter inventory decisions and reduced holding costs.
 
----
+[`→ View system`](https://github.com/basant-kumarr/sales-demand-forecasting)
 
-*"The goal is not to have more data. The goal is to make better decisions."*
+</td>
+<td width="50%" valign="top">
+
+### ▤ Business Process Analysis
+**Problem** — The Age Friendly Ireland data pipeline was slow, manual and undocumented.
+**Tools** — BPMN 2.0 · As-Is / To-Be modelling
+**Impact** — Redesigned process cut cycle time from **2–4 weeks to under 48 hours** across four swim lanes.
+
+[`→ View system`](https://github.com/basant-kumarr)
+
+</td>
+</tr>
+</table>
+
+### ▤ The Intelligence Engine — Portfolio
+**Problem** — Standard portfolios fail to communicate analytical depth to recruiters.
+**Tools** — Three.js · GSAP · WebGL · Glassmorphism
+**Impact** — A premium AI command-center experience presenting analytics as a professional discipline.
+
+[`→ Launch portfolio`](https://basant-kumar-portfolio.netlify.app)
+
+<br>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--               ANALYTICS TECHNOLOGY STACK            -->
+<!-- ════════════════════════════════════════════════════ -->
+
+## ◈ &nbsp;Analytics Technology Stack
+
+| Layer | Technologies |
+|:------|:-------------|
+| **Data Analytics** | `Python` · `pandas` · `NumPy` · `SQL` · `Excel (Power Query)` |
+| **Business Analysis** | `Requirements Elicitation` · `BPMN 2.0` · `MoSCoW` · `Gap Analysis` · `User Stories` |
+| **Machine Learning** | `XGBoost` · `scikit-learn` · `SHAP` · `ARIMA` · `Prophet` |
+| **Visualisation** | `Power BI (DAX)` · `Tableau` · `Matplotlib` · `Seaborn` |
+| **Databases** | `SQL Server` · `PostgreSQL` · `Query Optimisation` |
+| **Methods & Cloud** | `Agile / Scrum` · `Jira` · `Confluence` · `Git` · `Netlify` |
+
+<br>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--                    CURRENT MISSION                  -->
+<!-- ════════════════════════════════════════════════════ -->
+
+## ◈ &nbsp;Current Mission
+
+```
+▸ Business Analytics solutions for real-world decision-making
+▸ AI-powered decision intelligence systems
+▸ Data intelligence & reporting platforms
+▸ Forecasting and predictive models
+▸ Applied research at the analytics–AI frontier
+```
+
+**Status** — Completing MSc Business Analytics, Maynooth University (2026) · Open to Business Analyst, Data Analyst & Systems Analyst roles across Ireland.
+
+<br>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--                   GITHUB ANALYTICS                  -->
+<!-- ════════════════════════════════════════════════════ -->
+
+## ◈ &nbsp;GitHub Analytics
+
+<div align="center">
+
+<img height="180" src="https://github-readme-stats.vercel.app/api?username=basant-kumarr&show_icons=true&hide_border=true&count_private=true&title_color=33D6FF&icon_color=00A3FF&text_color=B6C2D9&bg_color=010409" />
+<img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=basant-kumarr&layout=compact&hide_border=true&title_color=33D6FF&text_color=B6C2D9&bg_color=010409" />
+
+<br>
+
+<img width="98%" src="https://github-readme-streak-stats.herokuapp.com/?user=basant-kumarr&hide_border=true&background=010409&stroke=00A3FF&ring=33D6FF&fire=33D6FF&currStreakLabel=33D6FF&sideLabels=B6C2D9&dates=7A8AA3&currStreakNum=ffffff&sideNums=ffffff" />
+
+</div>
+
+<br>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--                       CONNECT                       -->
+<!-- ════════════════════════════════════════════════════ -->
+
+## ◈ &nbsp;Connect
+
+<div align="center">
+
+<br>
+
+**The research and engineering headquarters behind The Intelligence Engine.**
+
+<br>
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-basant--kumar--portfolio.netlify.app-00A3FF?style=flat-square&logo=netlify&logoColor=white&labelColor=010409)](https://basant-kumar-portfolio.netlify.app)
+&nbsp;
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-basantsingh-00A3FF?style=flat-square&logo=linkedin&logoColor=white&labelColor=010409)](https://www.linkedin.com/in/basantsingh-/)
+&nbsp;
+[![Email](https://img.shields.io/badge/Email-basantsingh607@gmail.com-00A3FF?style=flat-square&logo=gmail&logoColor=white&labelColor=010409)](mailto:basantsingh607@gmail.com)
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:33D6FF,50:00A3FF,100:010409&height=120&section=footer" width="100%"/>
+
+</div>
