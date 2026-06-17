@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/banner.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/Banner.png" width="100%"/>
 
 <br>
 
@@ -51,20 +51,22 @@ Technologies
 
 ## ◈ &nbsp;The Journey
 
-ENGINEERING          Bajaj Electricals · IoT analytics, KPI dashboards
-│               15% uptime gain · 20% cost reduction
-▼
-ENTREPRENEURSHIP     Shopify venture · CAC, conversion & ROI analytics
-│               End-to-end commercial decision-making
-▼
-RESEARCH             Maynooth University · Age Friendly Ireland
-│               349,155 census records · government client
-▼
-ANALYTICS            Fraud detection · Forecasting · Process modelling
-│               Production-grade, FCA-compliant systems
-▼
-ARTIFICIAL           Decision intelligence · Explainable AI
-INTELLIGENCE         Systems that recommend, not just report
+```text
+ENGINEERING        →   Bajaj Electricals · IoT analytics, KPI dashboards
+                       15% uptime gain · 20% cost reduction
+       ▼
+ENTREPRENEURSHIP   →   Shopify venture · CAC, conversion & ROI analytics
+                       End-to-end commercial decision-making
+       ▼
+RESEARCH           →   Maynooth University · Age Friendly Ireland
+                       349,155 census records · government client
+       ▼
+ANALYTICS          →   Fraud detection · Forecasting · Process modelling
+                       Production-grade, FCA-compliant systems
+       ▼
+ARTIFICIAL         →   Decision intelligence · Explainable AI
+INTELLIGENCE           Systems that recommend, not just report
+```
 
 <br>
 
@@ -141,11 +143,13 @@ INTELLIGENCE         Systems that recommend, not just report
 
 ## ◈ &nbsp;Current Mission
 
+```text
 ▸ Business Analytics solutions for real-world decision-making
 ▸ AI-powered decision intelligence systems
 ▸ Data intelligence & reporting platforms
 ▸ Forecasting and predictive models
 ▸ Applied research at the analytics–AI frontier
+```
 
 **Status** — Completing MSc Business Analytics, Maynooth University (2026) · Open to Business Analyst, Data Analyst & Systems Analyst roles across Ireland.
 
