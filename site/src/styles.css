@@ -245,7 +245,7 @@ h2.section-title {
 .nav-links a:hover { color: var(--text); background: var(--surface-2); }
 .nav-links a[aria-current="true"] { color: var(--accent); }
 
-.nav-cta { display: none; }
+.nav .nav-cta { display: none; }
 
 .nav-toggle {
   display: inline-grid;
@@ -279,7 +279,8 @@ h2.section-title {
 .mobile-menu a:hover { color: var(--accent); }
 
 @media (min-width: 900px) {
-  .nav-links, .nav-cta { display: flex; }
+  .nav-links { display: flex; }
+  .nav .nav-cta { display: inline-flex; }
   .nav-toggle { display: none; }
   .mobile-menu { display: none !important; }
 }
