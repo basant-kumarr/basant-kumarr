@@ -237,6 +237,7 @@ if (bgField) {
       m.initAmbient(bgField, { reduced: reduceMotion, small: smallScreen });
       m.initTilt('.project', { reduced: reduceMotion });
       m.initParallax({ reduced: reduceMotion });
+      m.initMagnetic('[data-magnetic]', { reduced: reduceMotion });
     })
     .catch(() => { bgField.style.display = 'none'; });
 }

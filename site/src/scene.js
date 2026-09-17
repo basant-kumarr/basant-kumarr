@@ -190,3 +190,54 @@ export function initParallax({ reduced = false } = {}) {
     }
   };
 }
+
+/* ---------- magnetic call to action ----------
+   The button leans a few pixels toward the pointer as it approaches, then
+   settles back. Fine pointers only, and off entirely under reduced motion. */
+
+export function initMagnetic(selector, { reduced = false } = {}) {
+  if (reduced || !finePointer()) return null;
+  const els = Array.from(document.querySelectorAll(selector));
+  if (!els.length) return null;
+
+  const PULL = 0.28;      // fraction of the offset the button travels
+  const RANGE = 78;       // px beyond the button where the pull begins
+  const bound = [];
+
+  els.forEach((el) => {
+    let raf = 0, tx = 0, ty = 0;
+    const apply = () => { raf = 0; el.style.transform = `translate(${tx}px, ${ty}px)`; };
+
+    const move = (e) => {
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      const near = Math.abs(dx) < r.width / 2 + RANGE && Math.abs(dy) < r.height / 2 + RANGE;
+      const nx = near ? dx * PULL : 0;
+      const ny = near ? dy * PULL : 0;
+      if (Math.abs(nx - tx) < 0.3 && Math.abs(ny - ty) < 0.3) return;
+      tx = nx; ty = ny;
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+    const reset = () => {
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      tx = 0; ty = 0;
+      el.style.transform = '';
+    };
+
+    window.addEventListener('pointermove', move, { passive: true });
+    el.addEventListener('pointerleave', reset, { passive: true });
+    el.addEventListener('blur', reset);
+    bound.push([el, move, reset]);
+  });
+
+  return {
+    destroy() {
+      bound.forEach(([el, move, reset]) => {
+        window.removeEventListener('pointermove', move);
+        el.removeEventListener('pointerleave', reset);
+        el.removeEventListener('blur', reset);
+      });
+    }
+  };
+}

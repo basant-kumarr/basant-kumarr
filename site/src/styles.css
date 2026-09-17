@@ -1292,3 +1292,101 @@ section[id], article[id], #top { scroll-margin-top: 84px; }
   }
   .project:hover .project-motif canvas { transform: translateZ(0) scale(1.06); }
 }
+
+/* ---------- hero globe, larger and further off the edge ---------- */
+
+@media (min-width: 980px) {
+  .hero-visual {
+    right: -18%;
+    width: 72vw;
+    height: 72vw;
+    max-width: 900px;
+    max-height: 900px;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-visual { right: -12%; width: 64vw; height: 64vw; max-width: 980px; max-height: 980px; }
+}
+@media (min-width: 1600px) {
+  .hero-visual { right: -6%; max-width: 1060px; max-height: 1060px; }
+}
+
+/* ---------- education progression ---------- */
+
+.edu-path {
+  list-style: none;
+  position: relative;
+  margin: 0 0 22px;
+  padding: 2px 0 2px 26px;
+  display: grid;
+  gap: 11px;
+}
+.edu-path::before {
+  content: "";
+  position: absolute;
+  left: 5px; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg,
+    rgba(56,189,248,0.22) 0%, var(--accent) 55%, var(--accent-2) 100%);
+}
+.edu-path li {
+  position: relative;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.edu-path li.is-now { color: var(--text); font-weight: 600; }
+.edu-node {
+  position: absolute;
+  left: -25px; top: 5px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid rgba(56, 189, 248, 0.55);
+}
+.edu-path li.is-now .edu-node {
+  border-color: var(--accent-2);
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+/* A single point travelling the spine. One element, no canvas. */
+.edu-path::after {
+  content: "";
+  position: absolute;
+  left: 2.5px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+  animation: eduClimb 7s ease-in-out infinite;
+}
+@keyframes eduClimb {
+  0%, 8%    { top: 6px;  opacity: 0; }
+  14%       { opacity: 1; }
+  86%       { opacity: 1; }
+  92%, 100% { top: calc(100% - 12px); opacity: 0; }
+}
+
+/* ---------- layered certifications ---------- */
+
+.cert-list.is-layered .cert { transform: translateZ(0); }
+@media (hover: hover) and (pointer: fine) {
+  .cert-list.is-layered { perspective: 800px; }
+  .cert-list.is-layered .cert:nth-child(odd)  { transform: translateY(-1px) scale(1.004); }
+  .cert-list.is-layered .cert:nth-child(even) { transform: translateY(1px)  scale(0.997); }
+  .cert-list.is-layered .cert:hover {
+    transform: translateY(-3px) scale(1.012);
+    box-shadow: 0 14px 34px -22px rgba(56, 189, 248, 0.6);
+  }
+}
+
+/* ---------- magnetic call to action ---------- */
+
+[data-magnetic] { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .edu-path::after { animation: none; opacity: 0; }
+  .cert-list.is-layered .cert,
+  .cert-list.is-layered .cert:hover { transform: none; }
+  [data-magnetic] { transform: none !important; }
+}

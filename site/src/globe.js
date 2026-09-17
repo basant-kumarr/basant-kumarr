@@ -77,8 +77,8 @@ export function initGlobe(canvas, opts = {}) {
   const small = opts.small === true;
 
   const cfg = small
-    ? { rings: 8,  mer: 14, seg: 44, surface: 170, dust: 120, stars: 90,  hubs: 16, links: 16, arcs: 2 }
-    : { rings: 12, mer: 22, seg: 76, surface: 430, dust: 260, stars: 190, hubs: 34, links: 44, arcs: 3 };
+    ? { rings: 7,  mer: 12, seg: 40, surface: 150, dust: 105, stars: 80,  hubs: 14, links: 14, arcs: 2, inbound: 7 }
+    : { rings: 12, mer: 20, seg: 64, surface: 470, dust: 300, stars: 230, hubs: 36, links: 48, arcs: 3, inbound: 22 };
 
   const wire = buildWire(cfg.rings, cfg.mer, cfg.seg);
 
@@ -144,16 +144,77 @@ export function initGlobe(canvas, opts = {}) {
   let hover = -1, hoverX = 0, hoverY = 0;
   const hubScreen = new Float32Array(cfg.hubs * 3);
 
+  // Travelling points on the hub links: the network visibly carrying something.
+  const pulses = links.map((_, i) => ({
+    k: (i * 0.137) % 1,
+    sp: 0.055 + ((i * 0.31) % 1) * 0.075,
+    bright: 0
+  }));
+  let nextFlare = 1.5;
+
+  /* Inbound traces. These enter from the text side of the hero and run into the
+     globe, so the headline reads as the thing feeding the system. Screen space,
+     which keeps them cheap and keeps them aimed at the sphere wherever it sits. */
+  const inbound = [];
+  for (let i = 0; i < cfg.inbound; i++) {
+    inbound.push({
+      k: i / cfg.inbound,
+      lane: (i * 0.618) % 1,
+      sp: 0.07 + ((i * 0.41) % 1) * 0.09,
+      len: 0.05 + ((i * 0.23) % 1) * 0.07
+    });
+  }
+
+  let camX = 0, camY = 0;      // slow autonomous drift
+  let scrollK = 0;             // hero scroll progress, 0 at top
+
+  /* The atmosphere and inner light are static for a given size, and filling two
+     large radial gradients every frame is the single most expensive thing in the
+     scene. Render them once into an offscreen bitmap and blit it instead. */
+  let atmos = null;
+
+  function buildAtmosphere() {
+    const size = Math.ceil(R * 3.6);
+    if (!(size > 0)) { atmos = null; return; }
+    const off = document.createElement('canvas');
+    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.25 : 1.5);
+    off.width = Math.ceil(size * dpr);
+    off.height = Math.ceil(size * dpr);
+    const o = off.getContext('2d');
+    if (!o) { atmos = null; return; }
+    o.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const m = size / 2;
+
+    const glow = o.createRadialGradient(m, m, R * 0.35, m, m, R * 1.75);
+    glow.addColorStop(0, 'rgba(56,189,248,0.17)');
+    glow.addColorStop(0.42, 'rgba(56,189,248,0.075)');
+    glow.addColorStop(0.75, 'rgba(99,102,241,0.035)');
+    glow.addColorStop(1, 'rgba(56,189,248,0)');
+    o.fillStyle = glow;
+    o.beginPath(); o.arc(m, m, R * 1.75, 0, TAU); o.fill();
+
+    const core = o.createRadialGradient(
+      m - R * 0.18, m - R * 0.16, R * 0.05, m, m, R * 1.02);
+    core.addColorStop(0, 'rgba(125,211,252,0.13)');
+    core.addColorStop(0.45, 'rgba(56,189,248,0.055)');
+    core.addColorStop(1, 'rgba(8,14,26,0)');
+    o.fillStyle = core;
+    o.beginPath(); o.arc(m, m, R * 1.02, 0, TAU); o.fill();
+
+    atmos = { canvas: off, size };
+  }
+
   function resize() {
     const r = canvas.getBoundingClientRect();
     if (!r.width || !r.height) return false;
-    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.75 : 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.5 : 1.75);
     w = r.width; h = r.height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     cx = w / 2; cy = h / 2;
     R = Math.min(w, h) * 0.40;
+    buildAtmosphere();
     return true;
   }
 
@@ -170,8 +231,13 @@ export function initGlobe(canvas, opts = {}) {
 
     // Layers drift at different rates. That difference is the depth cue.
     const baseYaw = 0.6 + t * 0.070;
-    const bob = reduced ? 0 : Math.sin(t * 0.32) * R * 0.022;
-    const pitch = baseTilt + pitchOff;
+    if (!reduced) {
+      // Autonomous camera drift, two slow sines so it never repeats obviously.
+      camX = Math.sin(t * 0.17) * 0.035 + Math.sin(t * 0.071) * 0.022;
+      camY = Math.cos(t * 0.13) * 0.028;
+    }
+    const bob = reduced ? 0 : Math.sin(t * 0.32) * R * 0.022 + scrollK * R * 0.10;
+    const pitch = baseTilt + pitchOff + camY + scrollK * 0.10;
     const sp = Math.sin(pitch), cp = Math.cos(pitch);
 
     const mk = (yaw) => {
@@ -186,20 +252,15 @@ export function initGlobe(canvas, opts = {}) {
       };
     };
 
-    const pShell = mk(baseYaw + yawOff);
-    const pDust  = mk(baseYaw * 0.82 + yawOff * 1.35);
-    const pStars = mk(baseYaw * 0.35 + yawOff * 0.5);
+    const pShell = mk(baseYaw + yawOff + camX);
+    const pDust  = mk(baseYaw * 0.82 + yawOff * 1.35 + camX * 1.5);
+    const pStars = mk(baseYaw * 0.35 + yawOff * 0.5 + camX * 0.4);
 
     /* ---- 8: atmosphere ---- */
-    const glow = ctx.createRadialGradient(cx, cy + bob, R * 0.35, cx, cy + bob, R * 1.75);
-    glow.addColorStop(0, 'rgba(56,189,248,0.17)');
-    glow.addColorStop(0.42, 'rgba(56,189,248,0.075)');
-    glow.addColorStop(0.75, 'rgba(99,102,241,0.035)');
-    glow.addColorStop(1, 'rgba(56,189,248,0)');
-    ctx.fillStyle = glow;
-    ctx.beginPath();
-    ctx.arc(cx, cy + bob, R * 1.75, 0, TAU);
-    ctx.fill();
+    if (atmos) {
+      const half = atmos.size / 2;
+      ctx.drawImage(atmos.canvas, cx - half, cy + bob - half, atmos.size, atmos.size);
+    }
 
     /* ---- 1: far field ---- */
     ctx.fillStyle = 'rgba(148,178,216,0.30)';
@@ -219,10 +280,12 @@ export function initGlobe(canvas, opts = {}) {
       for (let i = 1; i < line.length; i++) {
         const cur = pShell(line[i]);
         const zm = (prev[2] + cur[2]) / 2;
-        let b = ((zm + 1) / 2 * BUCKETS) | 0;
-        if (b < 0) b = 0; else if (b >= BUCKETS) b = BUCKETS - 1;
-        const arr = buckets[b];
-        arr.push(prev[0], prev[1], cur[0], cur[1]);
+        if (zm > -0.86) {                       // deepest band is near invisible
+          let b = ((zm + 1) / 2 * BUCKETS) | 0;
+          if (b < 0) b = 0; else if (b >= BUCKETS) b = BUCKETS - 1;
+          const arr = buckets[b];
+          arr.push(prev[0], prev[1], cur[0], cur[1]);
+        }
         prev = cur;
       }
     }
@@ -311,6 +374,34 @@ export function initGlobe(canvas, opts = {}) {
       }
     }
 
+    /* ---- 5b: points travelling the links, plus an occasional flare ---- */
+    if (!reduced) {
+      nextFlare -= dt;
+      if (nextFlare <= 0) {
+        pulses[(Math.random() * pulses.length) | 0].bright = 1;
+        nextFlare = 1.1 + Math.random() * 2.2;
+      }
+    }
+    for (let i = 0; i < links.length; i++) {
+      const L = links[i], P = pulses[i];
+      if (!reduced) {
+        P.k += dt * P.sp;
+        if (P.k > 1) P.k -= 1;
+        if (P.bright > 0) P.bright = Math.max(0, P.bright - dt * 0.8);
+      }
+      const idx = Math.min(L.pts.length - 1, (P.k * (L.pts.length - 1)) | 0);
+      const q = pShell(L.pts[idx]);
+      if (q[2] < -0.15) continue;
+      const depth = (q[2] + 1) / 2;
+      const r = (0.9 + depth * 1.3) * (1 + P.bright * 1.6);
+      if (P.bright > 0.02) {
+        ctx.fillStyle = `rgba(186,230,253,${(P.bright * 0.22).toFixed(3)})`;
+        ctx.beginPath(); ctx.arc(q[0], q[1], r * 5, 0, TAU); ctx.fill();
+      }
+      ctx.fillStyle = `rgba(224,242,254,${(0.25 + depth * 0.5 + P.bright * 0.25).toFixed(3)})`;
+      ctx.beginPath(); ctx.arc(q[0], q[1], r, 0, TAU); ctx.fill();
+    }
+
     /* ---- 6: orbital arcs ---- */
     for (const orb of orbits) {
       const po = mk(baseYaw * orb.rate + yawOff * 1.1);
@@ -348,6 +439,31 @@ export function initGlobe(canvas, opts = {}) {
       ctx.fill();
     }
 
+    /* ---- inbound traces: text side into the globe ---- */
+    for (const f of inbound) {
+      if (!reduced) {
+        f.k += dt * f.sp;
+        if (f.k > 1.08) f.k -= 1.16;
+      }
+      if (f.k < 0) continue;
+      const startX = -w * 0.06;
+      const startY = h * (0.16 + f.lane * 0.68);
+      const ease = f.k * f.k * (3 - 2 * f.k);          // smoothstep
+      const hx = startX + (cx - startX) * ease;
+      const hy = startY + (cy + bob - startY) * ease;
+      const e2 = Math.max(0, ease - f.len);
+      const tx = startX + (cx - startX) * e2;
+      const ty = startY + (cy + bob - startY) * e2;
+      // Fade in from the text, fade out as it reaches the sphere.
+      const a = Math.min(1, f.k * 3) * Math.max(0, 1 - Math.max(0, f.k - 0.72) / 0.3);
+      if (a <= 0.01) continue;
+      ctx.strokeStyle = `rgba(125,211,252,${(a * 0.32).toFixed(3)})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(hx, hy); ctx.stroke();
+      ctx.fillStyle = `rgba(186,230,253,${(a * 0.75).toFixed(3)})`;
+      ctx.beginPath(); ctx.rect(hx - 1.4, hy - 1.4, 2.8, 2.8); ctx.fill();
+    }
+
     if (hover >= 0) {
       const x = hubScreen[hover * 3], y = hubScreen[hover * 3 + 1];
       ctx.strokeStyle = 'rgba(186,230,253,0.55)';
@@ -368,6 +484,18 @@ export function initGlobe(canvas, opts = {}) {
     rt = setTimeout(() => { if (resize()) draw(0); }, 150);
   };
   window.addEventListener('resize', onResize, { passive: true });
+
+  // Scroll nudges the camera, so leaving the hero feels like moving past the object.
+  let onScroll = null;
+  if (!reduced) {
+    onScroll = () => {
+      const r = canvas.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      scrollK = Math.max(-1, Math.min(1, (vh * 0.5 - (r.top + r.height / 2)) / vh));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
   let onMove = null;
   if (finePointer()) {
@@ -397,6 +525,7 @@ export function initGlobe(canvas, opts = {}) {
       loop.destroy();
       window.removeEventListener('resize', onResize);
       if (onMove) window.removeEventListener('pointermove', onMove);
+      if (onScroll) window.removeEventListener('scroll', onScroll);
     }
   };
 }
