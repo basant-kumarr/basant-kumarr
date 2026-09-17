@@ -6,6 +6,8 @@
 
 <br />
 
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&duration=2800&pause=900&color=38BDF8&center=true&vCenter=true&width=760&height=34&lines=Business+Analytics+%7C+Data+%7C+AI;Decision+Intelligence+%7C+Applied+Machine+Learning;Building+systems+from+data+to+decisions" alt="Animated technical positioning" />
+
 <p>
   <a href="https://basant-kumar-portfolio.netlify.app"><img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
   <a href="https://www.linkedin.com/in/basantsingh-/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
@@ -96,15 +98,10 @@ Private product repository in active development.
 </tr>
 </table>
 
-## Technology
+## Skill matrix
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,r,ts,react,fastapi,postgres,git,github,blender,threejs,vscode&perline=11" alt="Technology stack" />
-</p>
-
-<p align="center">
-  <b>Analytics</b> &nbsp; Python · SQL · R · Excel · Power BI · Tableau &nbsp;&nbsp;•&nbsp;&nbsp;
-  <b>ML</b> &nbsp; XGBoost · scikit-learn · SHAP · ARIMA · Prophet
+  <img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/assets/skill-matrix.svg" width="100%" alt="Basant Kumar skill matrix" />
 </p>
 
 ## How I approach problems
