@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/',
+  // '/' for Netlify. GitHub Pages project sites set VITE_BASE=/basant-kumarr/
+  base: process.env.VITE_BASE || '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
