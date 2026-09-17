@@ -223,6 +223,76 @@ if (globeCanvas) {
   }
 }
 
+/* ---------- spatial layer ----------
+   Ambient field, skills constellation, project motifs, card tilt and parallax.
+   Every piece is lazily imported and purely decorative. */
+
+const smallScreen = window.matchMedia('(max-width: 859px)').matches;
+
+/* Ambient depth field, page wide. */
+const bgField = document.getElementById('bgField');
+if (bgField) {
+  import('./scene.js')
+    .then((m) => {
+      m.initAmbient(bgField, { reduced: reduceMotion, small: smallScreen });
+      m.initTilt('.project', { reduced: reduceMotion });
+      m.initParallax({ reduced: reduceMotion });
+    })
+    .catch(() => { bgField.style.display = 'none'; });
+}
+
+/* Skills constellation, mounted when the section comes into view. */
+const skillField = document.getElementById('skillField');
+if (skillField) {
+  const mountField = () => {
+    import('./constellation.js')
+      .then((m) => m.initConstellation(skillField, {
+        reduced: reduceMotion,
+        small: window.matchMedia('(max-width: 759px)').matches
+      }))
+      .catch(() => {
+        const box = skillField.closest('.constellation');
+        if (box) box.style.display = 'none';
+      });
+  };
+  if (supportsIO) {
+    const io = new IntersectionObserver((en, obs) => {
+      if (en.some((e) => e.isIntersecting)) { obs.disconnect(); mountField(); }
+    }, { rootMargin: '200px' });
+    io.observe(skillField);
+  } else {
+    mountField();
+  }
+}
+
+/* Project motifs, each mounted as its card approaches. */
+const motifCanvases = Array.from(document.querySelectorAll('canvas[data-motif]'));
+if (motifCanvases.length) {
+  let motifMod = null;
+  const mountMotif = (cv) => {
+    const run = (m) => m.initMotif(cv, cv.dataset.motif, { reduced: reduceMotion });
+    if (motifMod) { run(motifMod); return; }
+    import('./motifs.js')
+      .then((m) => { motifMod = m; run(m); })
+      .catch(() => {
+        motifCanvases.forEach((c) => {
+          const box = c.closest('.project-motif');
+          if (box) box.style.display = 'none';
+        });
+      });
+  };
+  if (supportsIO) {
+    const io = new IntersectionObserver((en, obs) => {
+      en.forEach((e) => {
+        if (e.isIntersecting) { obs.unobserve(e.target); mountMotif(e.target); }
+      });
+    }, { rootMargin: '250px' });
+    motifCanvases.forEach((c) => io.observe(c));
+  } else {
+    motifCanvases.forEach(mountMotif);
+  }
+}
+
 /* ---------- active nav section ---------- */
 const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
 

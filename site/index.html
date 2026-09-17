@@ -49,6 +49,7 @@
 <body>
 <div class="bg-grid" aria-hidden="true"></div>
 <div class="bg-glow" aria-hidden="true"></div>
+<canvas class="bg-field" id="bgField" aria-hidden="true"></canvas>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -199,6 +200,9 @@
               <div class="metric"><b>31</b><span>local authorities</span></div>
             </div>
           </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="map"></canvas>
+          </div>
         </div>
         <div class="project-actions">
           <button class="btn btn-sm" type="button" data-expand="p1" aria-expanded="false" aria-controls="p1">Project details</button>
@@ -241,11 +245,11 @@
       </article>
 
       <!-- 02 BeBeyond -->
-      <article class="project is-flagship reveal" id="bebeyond">
+      <article class="project is-flagship is-feature reveal" id="bebeyond">
         <div class="project-head">
           <span class="project-num" aria-hidden="true">02</span>
           <div>
-            <p class="project-cat">AI product, fitness and nutrition</p>
+            <p class="project-cat"><span class="flag">Flagship</span> AI product, fitness and nutrition</p>
             <h3>BeBeyond <span class="badge badge-dev">In development</span></h3>
             <p class="project-summary">
               An AI fitness and nutrition platform I designed and built end to end, from the mobile app
@@ -257,6 +261,9 @@
               <div class="metric"><b>~15k</b><span>lines of backend Python</span></div>
               <div class="metric"><b>106</b><span>test files across the stack</span></div>
             </div>
+          </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="product"></canvas>
           </div>
         </div>
         <div class="project-actions">
@@ -371,6 +378,9 @@
               <div class="metric"><b>4</b><span>swim lanes mapped</span></div>
             </div>
           </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="flow"></canvas>
+          </div>
         </div>
         <div class="project-actions">
           <button class="btn btn-sm" type="button" data-expand="p3" aria-expanded="false" aria-controls="p3">Project details</button>
@@ -421,6 +431,9 @@
               <div class="metric"><b>99.9%</b><span>AUC-ROC</span></div>
               <div class="metric"><b>97.2%</b><span>precision</span></div>
             </div>
+          </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="network"></canvas>
           </div>
         </div>
         <div class="project-actions">
@@ -478,6 +491,9 @@
               <div class="metric"><b>R</b><span>built in</span></div>
             </div>
           </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="forecast"></canvas>
+          </div>
         </div>
         <div class="project-actions">
           <button class="btn btn-sm" type="button" data-expand="p5" aria-expanded="false" aria-controls="p5">Project details</button>
@@ -524,6 +540,9 @@
               <div class="metric"><b>15%</b><span>equipment uptime gain</span></div>
               <div class="metric"><b>~20%</b><span>development cost reduction</span></div>
             </div>
+          </div>
+          <div class="project-motif" aria-hidden="true">
+            <canvas data-motif="telemetry"></canvas>
           </div>
         </div>
         <div class="project-actions">
@@ -655,6 +674,14 @@
       <p class="section-sub">
         Every skill below is tied to a project or a role on this page. If I could not point at where I
         used something, it is not listed.
+      </p>
+    </div>
+
+    <div class="constellation" data-parallax="14" aria-hidden="true">
+      <canvas id="skillField"></canvas>
+      <p class="constellation-hint">
+        <span class="hint-fine">Each point is a skill from the list below. Hover to read one, click to open its category.</span>
+        <span class="hint-coarse">Each point is a skill from the list below.</span>
       </p>
     </div>
 
