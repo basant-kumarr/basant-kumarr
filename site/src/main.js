@@ -246,10 +246,24 @@ const skillField = document.getElementById('skillField');
 if (skillField) {
   const mountField = () => {
     import('./constellation.js')
-      .then((m) => m.initConstellation(skillField, {
-        reduced: reduceMotion,
-        small: window.matchMedia('(max-width: 759px)').matches
-      }))
+      .then((m) => {
+        const scene = m.initConstellation(skillField, {
+          reduced: reduceMotion,
+          small: window.matchMedia('(max-width: 759px)').matches
+        });
+        if (!scene) return;
+        // Selecting a category lifts its nodes and dims the rest.
+        const tabList = Array.from(document.querySelectorAll('.skill-tab'));
+        const sync = () => {
+          const i = tabList.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+          scene.setCategory(i);
+        };
+        tabList.forEach((tab) => {
+          tab.addEventListener('click', sync);
+          tab.addEventListener('keyup', sync);
+        });
+        sync();
+      })
       .catch(() => {
         const box = skillField.closest('.constellation');
         if (box) box.style.display = 'none';

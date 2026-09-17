@@ -35,9 +35,17 @@ function readSkills() {
   const tabs = Array.from(document.querySelectorAll('.skill-tab'));
   return tabs.map((tab) => {
     const panel = document.getElementById(tab.getAttribute('aria-controls'));
-    const names = panel
-      ? Array.from(panel.querySelectorAll('.skill-name')).map((e) => e.textContent.trim())
-      : [];
+    const rows = panel ? Array.from(panel.querySelectorAll('.skill-row')) : [];
+    const names = rows.map((row) => {
+      const name = row.querySelector('.skill-name');
+      const where = row.querySelector('.skill-where');
+      // Node weight comes from the evidence already on the page: a skill used
+      // in more places is drawn larger. Nothing invented.
+      const places = where
+        ? where.textContent.split(/,| and /).filter((x) => x.trim()).length
+        : 1;
+      return { name: name ? name.textContent.trim() : '', weight: Math.min(3, places) };
+    }).filter((n) => n.name);
     return { label: tab.textContent.trim(), tabId: tab.id, names };
   }).filter((c) => c.names.length);
 }
@@ -58,7 +66,7 @@ export function initConstellation(canvas, opts = {}) {
     const d = centers[ci];
     const [u, v] = basis(d);
     const spread = 0.62;
-    cat.names.forEach((name, i) => {
+    cat.names.forEach((item, i) => {
       // Deterministic scatter inside a cap around the category direction.
       const a = spread * (0.28 + 0.72 * ((i * 0.618) % 1));
       const t = (i / cat.names.length) * TAU + ci * 1.7;
@@ -72,7 +80,8 @@ export function initConstellation(canvas, opts = {}) {
       const rad = 0.94 + ((i * 0.37) % 1) * 0.16;
       nodes.push({
         base: [(p[0] / n) * rad, (p[1] / n) * rad, (p[2] / n) * rad],
-        name,
+        name: item.name,
+        weight: item.weight,
         cat: ci,
         tabId: cat.tabId,
         phase: (i * 1.3 + ci) % TAU,
@@ -108,6 +117,16 @@ export function initConstellation(canvas, opts = {}) {
   let yawOff = 0, pitchOff = 0, tYaw = 0, tPitch = 0;
   let hover = -1;
   let time = 0;
+  let active = -1;                 // -1 means no category emphasised
+  const emph = new Float32Array(cats.length).fill(1);   // eased per category
+  let focus = 0;                   // seconds left of the swing-to-face motion
+  let focusYaw = 0, focusPitch = 0;
+
+  /** Yaw and pitch that bring a direction round to face the camera. */
+  function facing(d) {
+    const r = Math.hypot(d[0], d[2]) || 1e-6;
+    return [Math.atan2(-d[0], d[2]), Math.atan2(d[1], r)];
+  }
 
   function resize() {
     const m = fitCanvas(canvas, ctx);
@@ -125,9 +144,24 @@ export function initConstellation(canvas, opts = {}) {
     if (!project) return;
     time += dt;
     if (!reduced) {
-      yaw += dt * 0.062;
+      if (focus > 0) {
+        // Ease onto the selected cluster rather than spinning past it.
+        focus -= dt;
+        let d = focusYaw - yaw;
+        d = Math.atan2(Math.sin(d), Math.cos(d));   // shortest way round
+        yaw += d * 0.07;
+        pitch += (focusPitch - pitch) * 0.07;
+      } else {
+        yaw += dt * 0.062;
+        pitch += (-0.18 - pitch) * 0.02;
+      }
       yawOff += (tYaw - yawOff) * 0.05;
       pitchOff += (tPitch - pitchOff) * 0.05;
+    }
+    // Ease each category toward its target emphasis.
+    for (let c = 0; c < emph.length; c++) {
+      const target = active < 0 ? 1 : (c === active ? 1 : 0.34);
+      emph[c] += (target - emph[c]) * (reduced ? 1 : 0.12);
     }
     ctx.clearRect(0, 0, w, h);
 
@@ -158,7 +192,9 @@ export function initConstellation(canvas, opts = {}) {
       const d = (a.depth + b.depth) / 2;
       const lit = hover === i || hover === j;
       const base = strong ? 0.20 : 0.09;
-      const alpha = lit ? 0.62 : base * (0.25 + d);
+      const e = Math.min(emph[a.cat], emph[b.cat]);
+      const alpha = (lit ? 0.62 : base * (0.25 + d)) * e;
+      if (alpha < 0.012) continue;
       const t = CATEGORY_TINT[a.cat % CATEGORY_TINT.length];
       ctx.strokeStyle = `rgba(${t[0]},${t[1]},${t[2]},${alpha.toFixed(3)})`;
       ctx.lineWidth = lit ? 1.4 : 0.6 + d * 0.5;
@@ -175,24 +211,28 @@ export function initConstellation(canvas, opts = {}) {
       const n = nodes[i];
       const t = CATEGORY_TINT[n.cat % CATEGORY_TINT.length];
       const lit = hover === i;
-      const r = (small ? 2.0 : 2.6) * (0.55 + n.depth * 0.8) * (lit ? 1.5 : 1);
+      const e = emph[n.cat];
+      const wScale = 0.78 + n.weight * 0.22;        // evidence drives size
+      const r = (small ? 2.0 : 2.6) * wScale * (0.55 + n.depth * 0.8) * (lit ? 1.5 : 1);
 
-      if (n.depth > 0.6 || lit) {
-        ctx.fillStyle = `rgba(${t[0]},${t[1]},${t[2]},${(lit ? 0.30 : 0.10 * n.depth).toFixed(3)})`;
+      if ((n.depth > 0.6 || lit) && e > 0.3) {
+        ctx.fillStyle = `rgba(${t[0]},${t[1]},${t[2]},${((lit ? 0.30 : 0.10 * n.depth) * e).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(n.sx, n.sy, r * (lit ? 5 : 3.4), 0, TAU);
         ctx.fill();
       }
 
-      ctx.fillStyle = `rgba(${t[0]},${t[1]},${t[2]},${(0.30 + n.depth * 0.7).toFixed(3)})`;
+      ctx.fillStyle = `rgba(${t[0]},${t[1]},${t[2]},${((0.30 + n.depth * 0.7) * e).toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(n.sx, n.sy, r, 0, TAU);
       ctx.fill();
 
       // Labels only for nodes facing the viewer, so it never turns into soup.
-      const showLabel = lit || n.depth > (small ? 0.86 : 0.70);
+      // When a category is selected its labels show more readily.
+      const cut = active === n.cat ? (small ? 0.72 : 0.56) : (small ? 0.86 : 0.70);
+      const showLabel = lit || (n.depth > cut && e > 0.5);
       if (showLabel) {
-        const a = lit ? 1 : Math.min(1, (n.depth - 0.66) * 3.2);
+        const a = (lit ? 1 : Math.min(1, (n.depth - (cut - 0.06)) * 3.2)) * e;
         ctx.font = `${labelFont} ${fontStack}`;
         ctx.textBaseline = 'middle';
         const tw = ctx.measureText(n.name).width;
@@ -269,6 +309,17 @@ export function initConstellation(canvas, opts = {}) {
   }
 
   return {
+    setCategory(index) {
+      const next = typeof index === 'number' ? index : -1;
+      if (next !== active && next >= 0 && centers[next]) {
+        const [fy, fp] = facing(centers[next]);
+        focusYaw = fy;
+        focusPitch = fp;
+        focus = 2.4;
+      }
+      active = next;
+      if (reduced) draw(0);
+    },
     destroy() {
       loop.destroy();
       window.removeEventListener('resize', onResize);

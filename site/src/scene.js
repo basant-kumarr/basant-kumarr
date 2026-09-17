@@ -39,8 +39,17 @@ export function initAmbient(canvas, { reduced = false, small = false } = {}) {
   }
 
   let t = 0;
+  let acc = 0;
+  const STEP = 1 / 30;   // the field drifts slowly; 30fps is indistinguishable
+
   function draw(dt) {
     if (!w) return;
+    if (!reduced) {
+      acc += dt;
+      if (acc < STEP) return;
+      dt = acc;
+      acc = 0;
+    }
     t += dt;
     ctx.clearRect(0, 0, w, h);
 
@@ -63,11 +72,12 @@ export function initAmbient(canvas, { reduced = false, small = false } = {}) {
     // Occasional faint links between near neighbours, kept short so the field
     // reads as depth rather than as a mesh.
     const maxD = small ? 92 : 128;
+    const LINKABLE = Math.min(pts.length, 44);   // cap the pairwise search
     ctx.lineWidth = 0.5;
-    for (let i = 0; i < pts.length; i++) {
+    for (let i = 0; i < LINKABLE; i++) {
       const a = pts[i];
       if (a.depth < 0.6) continue;
-      for (let j = i + 1; j < pts.length; j++) {
+      for (let j = i + 1; j < LINKABLE; j++) {
         const b = pts[j];
         if (b.depth < 0.6) continue;
         const dx = (a.x - b.x) * w, dy = (a.y - b.y) * h;

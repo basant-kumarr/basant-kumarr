@@ -1,37 +1,33 @@
-/* Hero globe.
-   Real 3D: points live on a unit sphere, get rotated by yaw/pitch matrices and
-   projected through a perspective camera. Rendered on a 2D canvas rather than
-   WebGL, which keeps it dependency free, works where WebGL is blocked or
-   unavailable, and costs a few kB instead of a few hundred.
+/* Hero globe, layered.
+   Real 3D: every point lives on or around a unit sphere, is rotated by yaw and
+   pitch and projected through a perspective camera, with brightness and size
+   driven by depth. Drawn on a 2D canvas, so there is no WebGL requirement and
+   no framework.
 
-   Depth comes from z: nearer geometry is brighter and larger. Segments are
-   bucketed by depth and stroked as a handful of batched paths, so the whole
-   frame is a few dozen draw calls rather than a few thousand. */
+   Density is the point, so the whole scene is batched: tiny points accumulate
+   into one path per depth bucket and are filled in a single call, and lines do
+   the same. Roughly 900 elements cost a few dozen draw calls per frame.
 
-const TAU = Math.PI * 2;
+   Layers, back to front:
+     1  distant starfield, barely moving
+     2  faint wireframe shell
+     3  outer dust at varying radii
+     4  surface node field
+     5  connection lines between hubs
+     6  orbital arcs
+     7  hub nodes
+     8  atmospheric glow
+   Each layer rotates at a slightly different rate, which is what reads as depth. */
 
-// Depth buckets. More buckets means smoother depth at the cost of draw calls.
-const BUCKETS = 7;
+import { TAU, fibonacciSphere, createLoop, finePointer } from './proj.js';
 
-function fibonacciSphere(n) {
-  const pts = [];
-  const golden = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < n; i++) {
-    const y = 1 - (i / (n - 1)) * 2;
-    const r = Math.sqrt(Math.max(0, 1 - y * y));
-    const theta = golden * i;
-    pts.push([Math.cos(theta) * r, y, Math.sin(theta) * r]);
-  }
-  return pts;
-}
+const BUCKETS = 9;
 
-function buildWireframe(rings, meridians, seg) {
+function buildWire(rings, meridians, seg) {
   const lines = [];
-  // Latitude rings.
   for (let i = 1; i < rings; i++) {
     const lat = -Math.PI / 2 + (i / rings) * Math.PI;
-    const y = Math.sin(lat);
-    const r = Math.cos(lat);
+    const y = Math.sin(lat), r = Math.cos(lat);
     const pts = [];
     for (let s = 0; s <= seg; s++) {
       const lon = (s / seg) * TAU;
@@ -39,22 +35,38 @@ function buildWireframe(rings, meridians, seg) {
     }
     lines.push(pts);
   }
-  // Longitude meridians.
   for (let m = 0; m < meridians; m++) {
     const lon = (m / meridians) * TAU;
-    const cl = Math.cos(lon);
-    const sl = Math.sin(lon);
+    const cl = Math.cos(lon), sl = Math.sin(lon);
     const pts = [];
     const half = Math.round(seg / 2);
     for (let s = 0; s <= half; s++) {
       const lat = -Math.PI / 2 + (s / half) * Math.PI;
-      const y = Math.sin(lat);
-      const r = Math.cos(lat);
+      const y = Math.sin(lat), r = Math.cos(lat);
       pts.push([cl * r, y, sl * r]);
     }
     lines.push(pts);
   }
   return lines;
+}
+
+/** Points along the great circle between two unit vectors. */
+function greatArc(a, b, steps, lift) {
+  const dot = Math.max(-1, Math.min(1, a[0]*b[0] + a[1]*b[1] + a[2]*b[2]));
+  const om = Math.acos(dot);
+  const so = Math.sin(om) || 1e-6;
+  const out = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const s1 = Math.sin((1 - t) * om) / so;
+    const s2 = Math.sin(t * om) / so;
+    let x = a[0]*s1 + b[0]*s2, y = a[1]*s1 + b[1]*s2, z = a[2]*s1 + b[2]*s2;
+    const n = Math.hypot(x, y, z) || 1;
+    // Bow the arc outward so it reads as a link over the surface.
+    const k = (1 + Math.sin(t * Math.PI) * lift) / n;
+    out.push([x * k, y * k, z * k]);
+  }
+  return out;
 }
 
 export function initGlobe(canvas, opts = {}) {
@@ -65,123 +77,161 @@ export function initGlobe(canvas, opts = {}) {
   const small = opts.small === true;
 
   const cfg = small
-    ? { rings: 7,  meridians: 12, seg: 40, nodes: 26, links: 16, dust: 22 }
-    : { rings: 10, meridians: 18, seg: 64, nodes: 54, links: 34, dust: 46 };
+    ? { rings: 8,  mer: 14, seg: 44, surface: 170, dust: 120, stars: 90,  hubs: 16, links: 16, arcs: 2 }
+    : { rings: 12, mer: 22, seg: 76, surface: 430, dust: 260, stars: 190, hubs: 34, links: 44, arcs: 3 };
 
-  const wire = buildWireframe(cfg.rings, cfg.meridians, cfg.seg);
-  const nodes = fibonacciSphere(cfg.nodes);
+  const wire = buildWire(cfg.rings, cfg.mer, cfg.seg);
 
-  // Link nearby nodes so the mesh reads as a network rather than random chords.
+  // Layer 4: surface field, sitting just above the shell.
+  const surface = fibonacciSphere(cfg.surface).map((p, i) => {
+    const k = 1.005 + ((i * 0.37) % 1) * 0.02;
+    return [p[0] * k, p[1] * k, p[2] * k];
+  });
+
+  // Layer 7: hubs, the few points bright enough to notice.
+  const hubs = fibonacciSphere(cfg.hubs).map((p) => [p[0] * 1.02, p[1] * 1.02, p[2] * 1.02]);
+
+  // Layer 5: links between nearby hubs, bowed into arcs.
   const links = [];
-  for (let i = 0; i < nodes.length && links.length < cfg.links; i++) {
-    let best = -1;
-    let bestD = Infinity;
-    for (let j = i + 1; j < nodes.length; j++) {
-      const dx = nodes[i][0] - nodes[j][0];
-      const dy = nodes[i][1] - nodes[j][1];
-      const dz = nodes[i][2] - nodes[j][2];
-      const d = dx * dx + dy * dy + dz * dz;
-      if (d < bestD) { bestD = d; best = j; }
+  for (let i = 0; i < hubs.length && links.length < cfg.links; i++) {
+    const cands = [];
+    for (let j = 0; j < hubs.length; j++) {
+      if (i === j) continue;
+      const d = (hubs[i][0]-hubs[j][0])**2 + (hubs[i][1]-hubs[j][1])**2 + (hubs[i][2]-hubs[j][2])**2;
+      cands.push([d, j]);
     }
-    if (best >= 0) links.push([i, best]);
+    cands.sort((a, b) => a[0] - b[0]);
+    for (let k = 0; k < 2 && k < cands.length; k++) {
+      const j = cands[k][1];
+      if (i < j) links.push({ a: i, b: j, pts: greatArc(hubs[i], hubs[j], 14, 0.10) });
+    }
   }
 
-  // Orbit rings, tilted off the globe's own axis, drawn as great circles on a
-  // slightly larger radius. These are what read as sweeping arcs across the sphere.
+  // Layer 3: dust shell around the globe.
+  const dust = fibonacciSphere(cfg.dust).map((p, i) => {
+    const k = 1.14 + ((i * 0.613) % 1) * 0.5;
+    return [p[0] * k, p[1] * k, p[2] * k, 0.3 + ((i * 0.29) % 1) * 0.7];
+  });
+
+  // Layer 1: far field, effectively a backdrop.
+  const stars = fibonacciSphere(cfg.stars).map((p, i) => {
+    const k = 2.0 + ((i * 0.811) % 1) * 1.1;
+    return [p[0] * k, p[1] * k, p[2] * k, 0.25 + ((i * 0.53) % 1) * 0.55];
+  });
+
+  // Layer 6: orbital arcs on their own tilts.
   const orbits = [
-    { tilt: 0.55, spin: 0.25, r: 1.16, alpha: 0.30 },
-    { tilt: -0.78, spin: 1.9, r: 1.30, alpha: 0.19 }
-  ].map((o) => {
+    { tilt: 0.58, spin: 0.2, r: 1.20, alpha: 0.30, rate: 1.25 },
+    { tilt: -0.80, spin: 1.9, r: 1.36, alpha: 0.18, rate: 0.75 },
+    { tilt: 1.15, spin: 3.4, r: 1.52, alpha: 0.12, rate: 1.7 }
+  ].slice(0, cfg.arcs).map((o) => {
     const pts = [];
     const ct = Math.cos(o.tilt), st = Math.sin(o.tilt);
     const cs = Math.cos(o.spin), ss = Math.sin(o.spin);
-    for (let i = 0; i <= 96; i++) {
-      const a = (i / 96) * TAU;
-      let x = Math.cos(a) * o.r, y = 0, z = Math.sin(a) * o.r;
-      // tilt about X
-      let y1 = y * ct - z * st, z1 = y * st + z * ct;
-      // spin about Y
-      const x2 = x * cs + z1 * ss, z2 = -x * ss + z1 * cs;
-      pts.push([x2, y1, z2]);
+    for (let i = 0; i <= 110; i++) {
+      const a = (i / 110) * TAU;
+      const x = Math.cos(a) * o.r, z = Math.sin(a) * o.r;
+      const y1 = -z * st, z1 = z * ct;
+      pts.push([x * cs + z1 * ss, y1, -x * ss + z1 * cs]);
     }
-    return { pts, alpha: o.alpha };
+    return { pts, alpha: o.alpha, rate: o.rate };
   });
 
-  // Free floating dust around the sphere, for parallax depth.
-  const dust = fibonacciSphere(cfg.dust).map((p) => {
-    const k = 1.18 + Math.random() * 0.42;
-    return [p[0] * k, p[1] * k, p[2] * k, 0.25 + Math.random() * 0.75];
-  });
-
-  let w = 0, h = 0, cx = 0, cy = 0, R = 0, dpr = 1;
-  let yaw = 0.6;
-  const baseTilt = -0.32;
-  let pitch = baseTilt;
-  let targetYawOff = 0, targetPitchOff = 0, yawOff = 0, pitchOff = 0;
-  let raf = 0, running = false, last = 0;
+  let w = 0, h = 0, cx = 0, cy = 0, R = 0;
+  let t = 0;
+  const baseTilt = -0.30;
+  let yawOff = 0, pitchOff = 0, tYaw = 0, tPitch = 0;
+  let hover = -1, hoverX = 0, hoverY = 0;
+  const hubScreen = new Float32Array(cfg.hubs * 3);
 
   function resize() {
-    const rect = canvas.getBoundingClientRect();
-    if (!rect.width || !rect.height) return false;
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = rect.width; h = rect.height;
+    const r = canvas.getBoundingClientRect();
+    if (!r.width || !r.height) return false;
+    const dpr = Math.min(window.devicePixelRatio || 1, small ? 1.75 : 2);
+    w = r.width; h = r.height;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cx = w / 2;
-    cy = h / 2;
-    R = Math.min(w, h) * 0.42;
+    cx = w / 2; cy = h / 2;
+    R = Math.min(w, h) * 0.40;
     return true;
   }
 
-  const CAM = 3.0;
+  const CAM = 3.4;
 
-  function project(p, sy, cyw, sp, cp) {
-    // Yaw about Y, then pitch about X.
-    const x1 = p[0] * cyw + p[2] * sy;
-    const z1 = -p[0] * sy + p[2] * cyw;
-    const y2 = p[1] * cp - z1 * sp;
-    const z2 = p[1] * sp + z1 * cp;
-    const k = CAM / (CAM - z2);
-    return [cx + x1 * R * k, cy + y2 * R * k, z2, k];
-  }
-
-  function draw() {
+  function draw(dt) {
     if (!w || !h) return;
+    if (!reduced) {
+      t += dt;
+      yawOff += (tYaw - yawOff) * 0.045;
+      pitchOff += (tPitch - pitchOff) * 0.045;
+    }
     ctx.clearRect(0, 0, w, h);
 
-    const sy = Math.sin(yaw), cyw = Math.cos(yaw);
+    // Layers drift at different rates. That difference is the depth cue.
+    const baseYaw = 0.6 + t * 0.070;
+    const bob = reduced ? 0 : Math.sin(t * 0.32) * R * 0.022;
+    const pitch = baseTilt + pitchOff;
     const sp = Math.sin(pitch), cp = Math.cos(pitch);
 
-    // Atmosphere.
-    const glow = ctx.createRadialGradient(cx, cy, R * 0.55, cx, cy, R * 1.5);
-    glow.addColorStop(0, 'rgba(56,189,248,0.18)');
-    glow.addColorStop(0.55, 'rgba(56,189,248,0.07)');
+    const mk = (yaw) => {
+      const sy = Math.sin(yaw), cyw = Math.cos(yaw);
+      return (p) => {
+        const x1 = p[0] * cyw + p[2] * sy;
+        const z1 = -p[0] * sy + p[2] * cyw;
+        const y2 = p[1] * cp - z1 * sp;
+        const z2 = p[1] * sp + z1 * cp;
+        const k = CAM / (CAM - z2);
+        return [cx + x1 * R * k, cy + bob + y2 * R * k, z2];
+      };
+    };
+
+    const pShell = mk(baseYaw + yawOff);
+    const pDust  = mk(baseYaw * 0.82 + yawOff * 1.35);
+    const pStars = mk(baseYaw * 0.35 + yawOff * 0.5);
+
+    /* ---- 8: atmosphere ---- */
+    const glow = ctx.createRadialGradient(cx, cy + bob, R * 0.35, cx, cy + bob, R * 1.75);
+    glow.addColorStop(0, 'rgba(56,189,248,0.17)');
+    glow.addColorStop(0.42, 'rgba(56,189,248,0.075)');
+    glow.addColorStop(0.75, 'rgba(99,102,241,0.035)');
     glow.addColorStop(1, 'rgba(56,189,248,0)');
     ctx.fillStyle = glow;
     ctx.beginPath();
-    ctx.arc(cx, cy, R * 1.5, 0, TAU);
+    ctx.arc(cx, cy + bob, R * 1.75, 0, TAU);
     ctx.fill();
 
-    // Wireframe, batched into depth buckets.
+    /* ---- 1: far field ---- */
+    ctx.fillStyle = 'rgba(148,178,216,0.30)';
+    ctx.beginPath();
+    for (const s of stars) {
+      const q = pStars(s);
+      const d = (q[2] + 3) / 6;
+      const r = 0.45 + d * 0.5;
+      ctx.rect(q[0] - r, q[1] - r, r * 2, r * 2);
+    }
+    ctx.fill();
+
+    /* ---- 2: wireframe shell, bucketed by depth ---- */
     const buckets = Array.from({ length: BUCKETS }, () => []);
     for (const line of wire) {
-      let prev = project(line[0], sy, cyw, sp, cp);
+      let prev = pShell(line[0]);
       for (let i = 1; i < line.length; i++) {
-        const cur = project(line[i], sy, cyw, sp, cp);
+        const cur = pShell(line[i]);
         const zm = (prev[2] + cur[2]) / 2;
-        let b = Math.floor(((zm + 1) / 2) * BUCKETS);
+        let b = ((zm + 1) / 2 * BUCKETS) | 0;
         if (b < 0) b = 0; else if (b >= BUCKETS) b = BUCKETS - 1;
-        buckets[b].push(prev[0], prev[1], cur[0], cur[1]);
+        const arr = buckets[b];
+        arr.push(prev[0], prev[1], cur[0], cur[1]);
         prev = cur;
       }
     }
     for (let b = 0; b < BUCKETS; b++) {
       const seg = buckets[b];
       if (!seg.length) continue;
-      const t = b / (BUCKETS - 1);
-      ctx.strokeStyle = `rgba(56,189,248,${(0.055 + t * 0.27).toFixed(3)})`;
-      ctx.lineWidth = 0.6 + t * 0.5;
+      const f = b / (BUCKETS - 1);
+      ctx.strokeStyle = `rgba(56,189,248,${(0.040 + f * 0.215).toFixed(3)})`;
+      ctx.lineWidth = 0.5 + f * 0.45;
       ctx.beginPath();
       for (let i = 0; i < seg.length; i += 4) {
         ctx.moveTo(seg[i], seg[i + 1]);
@@ -190,15 +240,86 @@ export function initGlobe(canvas, opts = {}) {
       ctx.stroke();
     }
 
-    // Orbit rings.
-    for (const orb of orbits) {
-      let prev = project(orb.pts[0], sy, cyw, sp, cp);
-      for (let i = 1; i < orb.pts.length; i++) {
-        const cur = project(orb.pts[i], sy, cyw, sp, cp);
+    /* ---- 3: dust shell, batched into four alpha bands ---- */
+    const bands = [[], [], [], []];
+    for (const d of dust) {
+      const q = pDust(d);
+      const depth = (q[2] + 1.6) / 3.2;
+      const bi = Math.min(3, Math.max(0, (depth * 4) | 0));
+      bands[bi].push(q[0], q[1], 0.45 + depth * 1.05, d[3]);
+    }
+    for (let i = 0; i < 4; i++) {
+      const arr = bands[i];
+      if (!arr.length) continue;
+      ctx.fillStyle = `rgba(56,189,248,${(0.06 + i * 0.085).toFixed(3)})`;
+      ctx.beginPath();
+      for (let k = 0; k < arr.length; k += 4) {
+        const r = arr[k + 2] * arr[k + 3];
+        ctx.rect(arr[k] - r, arr[k + 1] - r, r * 2, r * 2);
+      }
+      ctx.fill();
+    }
+
+    /* ---- 4: surface field ---- */
+    const sBands = [[], [], [], [], []];
+    for (const p of surface) {
+      const q = pShell(p);
+      if (q[2] < -0.55) continue;
+      const depth = (q[2] + 1) / 2;
+      const bi = Math.min(4, (depth * 5) | 0);
+      sBands[bi].push(q[0], q[1], 0.4 + depth * 1.25);
+    }
+    for (let i = 0; i < 5; i++) {
+      const arr = sBands[i];
+      if (!arr.length) continue;
+      ctx.fillStyle = `rgba(186,230,253,${(0.07 + i * 0.115).toFixed(3)})`;
+      ctx.beginPath();
+      for (let k = 0; k < arr.length; k += 3) {
+        const r = arr[k + 2];
+        ctx.rect(arr[k] - r, arr[k + 1] - r, r * 2, r * 2);
+      }
+      ctx.fill();
+    }
+
+    /* ---- 7a: hub positions (needed before links so hover can highlight) ---- */
+    for (let i = 0; i < hubs.length; i++) {
+      const q = pShell(hubs[i]);
+      hubScreen[i * 3] = q[0];
+      hubScreen[i * 3 + 1] = q[1];
+      hubScreen[i * 3 + 2] = q[2];
+    }
+
+    /* ---- 5: connection arcs between hubs ---- */
+    for (const L of links) {
+      const lit = hover === L.a || hover === L.b;
+      let prev = pShell(L.pts[0]);
+      for (let i = 1; i < L.pts.length; i++) {
+        const cur = pShell(L.pts[i]);
         const zm = (prev[2] + cur[2]) / 2;
-        const depth = (zm + 1) / 2;
-        ctx.strokeStyle = `rgba(125,211,252,${(orb.alpha * (0.22 + depth * 0.95)).toFixed(3)})`;
-        ctx.lineWidth = 0.7 + depth * 0.9;
+        if (zm > -0.2) {
+          const depth = (zm + 1) / 2;
+          ctx.strokeStyle = lit
+            ? `rgba(186,230,253,${(0.35 + depth * 0.5).toFixed(3)})`
+            : `rgba(125,211,252,${(0.07 + depth * 0.36).toFixed(3)})`;
+          ctx.lineWidth = lit ? 1.5 : 0.55 + depth * 0.5;
+          ctx.beginPath();
+          ctx.moveTo(prev[0], prev[1]);
+          ctx.lineTo(cur[0], cur[1]);
+          ctx.stroke();
+        }
+        prev = cur;
+      }
+    }
+
+    /* ---- 6: orbital arcs ---- */
+    for (const orb of orbits) {
+      const po = mk(baseYaw * orb.rate + yawOff * 1.1);
+      let prev = po(orb.pts[0]);
+      for (let i = 1; i < orb.pts.length; i++) {
+        const cur = po(orb.pts[i]);
+        const depth = ((prev[2] + cur[2]) / 2 + 1.6) / 3.2;
+        ctx.strokeStyle = `rgba(125,211,252,${(orb.alpha * (0.18 + depth * 1.0)).toFixed(3)})`;
+        ctx.lineWidth = 0.6 + depth * 0.85;
         ctx.beginPath();
         ctx.moveTo(prev[0], prev[1]);
         ctx.lineTo(cur[0], cur[1]);
@@ -207,125 +328,75 @@ export function initGlobe(canvas, opts = {}) {
       }
     }
 
-    // Network links between nodes.
-    ctx.lineWidth = 0.9;
-    for (const [a, bIdx] of links) {
-      const p1 = project(nodes[a], sy, cyw, sp, cp);
-      const p2 = project(nodes[bIdx], sy, cyw, sp, cp);
-      const zm = (p1[2] + p2[2]) / 2;
-      if (zm < -0.15) continue;
-      const alpha = 0.10 + ((zm + 1) / 2) * 0.34;
-      ctx.strokeStyle = `rgba(125,211,252,${alpha.toFixed(3)})`;
+    /* ---- 7b: hubs ---- */
+    for (let i = 0; i < hubs.length; i++) {
+      const x = hubScreen[i * 3], y = hubScreen[i * 3 + 1], z = hubScreen[i * 3 + 2];
+      if (z < -0.35) continue;
+      const depth = (z + 1) / 2;
+      const lit = hover === i;
+      const r = (1.1 + depth * 2.0) * (lit ? 1.7 : 1);
+      const twinkle = reduced ? 1 : 0.8 + Math.sin(t * 1.4 + i * 1.7) * 0.2;
+
+      ctx.fillStyle = `rgba(56,189,248,${((lit ? 0.34 : 0.12 * depth) * twinkle).toFixed(3)})`;
       ctx.beginPath();
-      ctx.moveTo(p1[0], p1[1]);
-      ctx.lineTo(p2[0], p2[1]);
+      ctx.arc(x, y, r * (lit ? 5.5 : 3.6), 0, TAU);
+      ctx.fill();
+
+      ctx.fillStyle = `rgba(224,242,254,${(0.28 + depth * 0.72).toFixed(3)})`;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, TAU);
+      ctx.fill();
+    }
+
+    if (hover >= 0) {
+      const x = hubScreen[hover * 3], y = hubScreen[hover * 3 + 1];
+      ctx.strokeStyle = 'rgba(186,230,253,0.55)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(x, y, 13 + Math.sin(t * 3) * 1.6, 0, TAU);
       ctx.stroke();
-    }
-
-    // Nodes.
-    for (let i = 0; i < nodes.length; i++) {
-      const p = project(nodes[i], sy, cyw, sp, cp);
-      const depth = (p[2] + 1) / 2;
-      if (p[2] < -0.45) continue;
-      const r = (0.9 + depth * 1.9) * (small ? 0.85 : 1);
-      ctx.fillStyle = `rgba(186,230,253,${(0.18 + depth * 0.72).toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc(p[0], p[1], r, 0, TAU);
-      ctx.fill();
-      if (depth > 0.82) {
-        ctx.fillStyle = `rgba(56,189,248,${((depth - 0.82) * 0.5).toFixed(3)})`;
-        ctx.beginPath();
-        ctx.arc(p[0], p[1], r * 3.4, 0, TAU);
-        ctx.fill();
-      }
-    }
-
-    // Dust.
-    for (const d of dust) {
-      const p = project(d, sy, cyw, sp, cp);
-      const depth = (p[2] + 1) / 2;
-      ctx.fillStyle = `rgba(56,189,248,${(0.06 + depth * 0.34) * d[3]})`;
-      ctx.beginPath();
-      ctx.arc(p[0], p[1], 0.7 + depth * 1.1, 0, TAU);
-      ctx.fill();
+      void hoverX; void hoverY;
     }
   }
 
-  function frame(now) {
-    if (!running) return;
-    const dt = last ? Math.min((now - last) / 1000, 0.05) : 0.016;
-    last = now;
-    yaw += dt * 0.085;                 // slow and steady
-    yawOff += (targetYawOff - yawOff) * 0.045;
-    pitchOff += (targetPitchOff - pitchOff) * 0.045;
-    pitch = baseTilt + pitchOff;
-    const saved = yaw;
-    yaw = saved + yawOff;
-    draw();
-    yaw = saved;
-    raf = requestAnimationFrame(frame);
-  }
+  if (!resize()) requestAnimationFrame(() => { if (resize()) draw(0); });
+  const loop = createLoop(canvas, draw, { reduced });
 
-  function start() {
-    if (running || reduced) return;
-    running = true;
-    last = 0;
-    raf = requestAnimationFrame(frame);
-  }
-  function stop() {
-    running = false;
-    if (raf) cancelAnimationFrame(raf);
-    raf = 0;
-  }
-
-  if (!resize()) {
-    // Container not laid out yet; try once more next frame.
-    requestAnimationFrame(() => { if (resize()) reduced ? draw() : start(); });
-  } else if (reduced) {
-    draw();
-  } else {
-    start();
-  }
-
-  let resizeTimer = 0;
+  let rt = 0;
   const onResize = () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { if (resize()) draw(); }, 150);
+    clearTimeout(rt);
+    rt = setTimeout(() => { if (resize()) draw(0); }, 150);
   };
   window.addEventListener('resize', onResize, { passive: true });
 
-  // Gentle pointer parallax, desktop pointers only.
-  let pointerBound = false;
-  if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    pointerBound = true;
-    window.addEventListener('pointermove', (e) => {
+  let onMove = null;
+  if (finePointer()) {
+    onMove = (e) => {
       const nx = (e.clientX / window.innerWidth) * 2 - 1;
       const ny = (e.clientY / window.innerHeight) * 2 - 1;
-      targetYawOff = nx * 0.22;
-      targetPitchOff = ny * 0.16;
-    }, { passive: true });
-  }
+      tYaw = nx * 0.26;
+      tPitch = ny * 0.18;
 
-  // Never burn cycles off screen or in a background tab.
-  const vis = () => (document.hidden ? stop() : start());
-  document.addEventListener('visibilitychange', vis);
-
-  let io = null;
-  if ('IntersectionObserver' in window && !reduced) {
-    io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => (en.isIntersecting ? start() : stop()));
-    }, { threshold: 0.01 });
-    io.observe(canvas);
+      const r = canvas.getBoundingClientRect();
+      const px = e.clientX - r.left, py = e.clientY - r.top;
+      let best = -1, bestD = 22 * 22;
+      for (let i = 0; i < hubs.length; i++) {
+        if (hubScreen[i * 3 + 2] < 0) continue;
+        const dx = hubScreen[i * 3] - px, dy = hubScreen[i * 3 + 1] - py;
+        const d = dx * dx + dy * dy;
+        if (d < bestD) { bestD = d; best = i; }
+      }
+      hover = best;
+      hoverX = px; hoverY = py;
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
   }
 
   return {
-    stop,
     destroy() {
-      stop();
+      loop.destroy();
       window.removeEventListener('resize', onResize);
-      document.removeEventListener('visibilitychange', vis);
-      if (io) io.disconnect();
-      void pointerBound;
+      if (onMove) window.removeEventListener('pointermove', onMove);
     }
   };
 }

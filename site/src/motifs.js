@@ -301,6 +301,86 @@ function drawTelemetry(ctx, st, w, h, t) {
   ctx.stroke();
 }
 
+
+/* -------------------------------------------------- vision: three ideas, one decision */
+function drawVision(ctx, _st, w, h, t) {
+  const cx = w / 2, cy = h / 2;
+  const R = Math.min(w, h) * 0.34;
+
+  for (let i = 0; i < 3; i++) {
+    ctx.strokeStyle = `rgba(${ACC},${0.16 - i * 0.04})`;
+    ctx.lineWidth = 0.7;
+    ctx.beginPath(); ctx.arc(cx, cy, R * (0.55 + i * 0.32), 0, TAU); ctx.stroke();
+  }
+
+  const arms = 3;
+  for (let i = 0; i < arms; i++) {
+    const a = (i / arms) * TAU + t * 0.1;
+    const x = cx + Math.cos(a) * R;
+    const y = cy + Math.sin(a) * R * 0.86;
+    ctx.strokeStyle = `rgba(${ACC},0.26)`;
+    ctx.lineWidth = 0.9;
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke();
+
+    // Evidence travelling inward toward the decision.
+    const k = (t * 0.30 + i / arms) % 1;
+    ctx.fillStyle = `rgba(${ACC2},${(1 - k) * 0.85})`;
+    ctx.beginPath();
+    ctx.arc(cx + (x - cx) * (1 - k), cy + (y - cy) * (1 - k), 1.7, 0, TAU);
+    ctx.fill();
+
+    const pulse = 0.6 + Math.sin(t * 1.1 + i * 2.1) * 0.4;
+    ctx.fillStyle = `rgba(${IND},${0.14 * pulse})`;
+    ctx.beginPath(); ctx.arc(x, y, 11, 0, TAU); ctx.fill();
+    ctx.fillStyle = `rgba(${ACC2},0.9)`;
+    ctx.beginPath(); ctx.arc(x, y, 3.2, 0, TAU); ctx.fill();
+  }
+
+  const core = 0.5 + Math.sin(t * 0.9) * 0.5;
+  ctx.fillStyle = `rgba(${ACC},${0.12 + core * 0.14})`;
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.30, 0, TAU); ctx.fill();
+  ctx.fillStyle = 'rgba(232,238,251,0.95)';
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.085, 0, TAU); ctx.fill();
+}
+
+/* -------------------------------------------------- converge: the system resolving */
+function makeConverge() {
+  const r = rng(133);
+  const lines = [];
+  for (let i = 0; i < 26; i++) {
+    const edge = i % 4;
+    const u = r();
+    let x, y;
+    if (edge === 0) { x = u; y = 0; }
+    else if (edge === 1) { x = 1; y = u; }
+    else if (edge === 2) { x = u; y = 1; }
+    else { x = 0; y = u; }
+    lines.push({ x, y, off: r(), sp: 0.10 + r() * 0.16 });
+  }
+  return { lines };
+}
+function drawConverge(ctx, st, w, h, t) {
+  const cx = w / 2, cy = h / 2;
+  for (const L of st.lines) {
+    const sx = L.x * w, sy = L.y * h;
+    ctx.strokeStyle = `rgba(${ACC},0.07)`;
+    ctx.lineWidth = 0.6;
+    ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(cx, cy); ctx.stroke();
+
+    const k = (t * L.sp + L.off) % 1;
+    const px = sx + (cx - sx) * k;
+    const py = sy + (cy - sy) * k;
+    ctx.fillStyle = `rgba(${ACC2},${(0.10 + k * 0.65).toFixed(3)})`;
+    ctx.beginPath(); ctx.arc(px, py, 0.9 + k * 1.5, 0, TAU); ctx.fill();
+  }
+  const pulse = 0.5 + Math.sin(t * 1.3) * 0.5;
+  const g = ctx.createRadialGradient(cx, cy, 2, cx, cy, 70 + pulse * 18);
+  g.addColorStop(0, `rgba(${ACC},${0.16 + pulse * 0.08})`);
+  g.addColorStop(1, `rgba(${ACC},0)`);
+  ctx.fillStyle = g;
+  ctx.beginPath(); ctx.arc(cx, cy, 70 + pulse * 18, 0, TAU); ctx.fill();
+}
+
 /* -------------------------------------------------- dispatch */
 
 const BUILDERS = {
@@ -309,7 +389,9 @@ const BUILDERS = {
   flow: () => ({}),
   network: makeNetwork,
   forecast: makeForecast,
-  telemetry: makeTelemetry
+  telemetry: makeTelemetry,
+  vision: () => ({}),
+  converge: makeConverge
 };
 const DRAWERS = {
   map: drawMap,
@@ -317,7 +399,9 @@ const DRAWERS = {
   flow: drawFlow,
   network: drawNetwork,
   forecast: drawForecast,
-  telemetry: drawTelemetry
+  telemetry: drawTelemetry,
+  vision: drawVision,
+  converge: drawConverge
 };
 
 export function initMotif(canvas, type, { reduced = false } = {}) {
