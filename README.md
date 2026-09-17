@@ -1,18 +1,10 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/Banner.png" width="100%" alt="Basant Kumar | Business Analytics & AI" />
+<a href="https://github.com/basant-kumarr">
+  <img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/assets/hero.svg" width="100%" alt="Basant Kumar | Business Analytics, Data and AI" />
+</a>
 
 <br />
-
-# Basant Kumar
-
-### Business Analytics · Data · AI · Decision Intelligence
-
-<p>
-  I build analytical products that turn complex data into clear, actionable decisions.
-  <br />
-  Currently completing an <b>MSc in Business Analytics at Maynooth University</b>.
-</p>
 
 <p>
   <a href="https://basant-kumar-portfolio.netlify.app"><img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
