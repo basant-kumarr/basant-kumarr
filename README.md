@@ -6,7 +6,7 @@
 
 <br />
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&duration=2800&pause=900&color=38BDF8&center=true&vCenter=true&width=760&height=34&lines=Business+Analytics+%7C+Data+%7C+AI;Decision+Intelligence+%7C+Applied+Machine+Learning;Building+systems+from+data+to+decisions" alt="Animated technical positioning" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=17&duration=2800&pause=1000&color=38BDF8&center=true&vCenter=true&width=760&lines=Business+Analytics+%7C+Data+%7C+AI;Decision+Intelligence+%7C+Applied+Machine+Learning;Turning+business+questions+into+decision-ready+systems" alt="Animated technical positioning" />
 
 <p>
   <a href="https://basant-kumar-portfolio.netlify.app"><img src="https://img.shields.io/badge/Portfolio-111827?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
@@ -26,20 +26,14 @@
 
 ### 📊 Business & Data Analytics
 
-- Decision-ready dashboards and reporting
-- SQL, Python and statistical analysis
-- Process mapping, requirements and KPI design
-- Forecasting and operational analytics
+Decision-ready dashboards, KPI frameworks, forecasting, requirements analysis and operational analytics using SQL, Python, R, Excel, Power BI and Tableau.
 
 </td>
 <td width="50%" valign="top">
 
 ### 🤖 Applied AI
 
-- Predictive modelling and classification
-- Explainable AI with SHAP
-- AI-assisted decision systems
-- Production-minded data workflows
+Predictive modelling, classification, explainability and AI-assisted decision systems, with a focus on validation and practical use.
 
 </td>
 </tr>
@@ -53,7 +47,7 @@
 
 ### 🏠 Housing Accessibility Ireland
 
-A data analytics project using Irish Census data to investigate housing accessibility and future barriers.
+Irish Census analytics exploring housing accessibility, barriers and future demographic risk.
 
 **349,155 records** · Python · CSO data · modelling
 
@@ -98,11 +92,21 @@ Private product repository in active development.
 </tr>
 </table>
 
-## Skill matrix
+## Technology
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/assets/skill-matrix.svg" width="100%" alt="Basant Kumar skill matrix" />
+  <img src="https://raw.githubusercontent.com/basant-kumarr/basant-kumarr/main/assets/skill-matrix.svg" width="96%" alt="Basant Kumar technology matrix" />
 </p>
+
+<details>
+<summary><b>Full stack</b></summary>
+
+**Analytics:** Python · SQL · R · Excel · Power BI · Tableau  
+**Machine Learning:** XGBoost · scikit-learn · SHAP · ARIMA · Prophet  
+**Engineering:** TypeScript · React Native · FastAPI · PostgreSQL · Git · GitHub  
+**3D / Product:** Blender · Three.js · Expo
+
+</details>
 
 ## How I approach problems
 
@@ -120,7 +124,7 @@ DECISION-READY OUTPUT
 MEASURABLE IMPACT
 ```
 
-I care about the full path from a messy business question to a solution that people can actually use. That means understanding requirements first, validating the data, making the analysis explainable, and communicating the result clearly.
+I start with the business question, validate the data and requirements, choose the simplest appropriate analytical approach, and make the result understandable enough to support a real decision.
 
 ## Currently focused on
 
