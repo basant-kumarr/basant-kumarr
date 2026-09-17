@@ -47,6 +47,10 @@ jobs:
           grep -c "$SITE" dist/index.html
 
       - uses: actions/configure-pages@v5
+        with:
+          # Creates the Pages site if it does not exist yet, so no manual
+          # repository settings change is needed to go live.
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
