@@ -38,6 +38,14 @@ jobs:
           VITE_BASE: /basant-kumarr/
         run: npm run build
 
+      - name: Point canonical and Open Graph URLs at the Pages origin
+        working-directory: site
+        run: |
+          SITE="https://basant-kumarr.github.io/basant-kumarr/"
+          sed -i "s|https://basant-kumar-portfolio.netlify.app/|$SITE|g" dist/index.html
+          sed -i "s|https://basant-kumar-portfolio.netlify.app/|$SITE|g" dist/sitemap.xml dist/robots.txt
+          grep -c "$SITE" dist/index.html
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
