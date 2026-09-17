@@ -1,0 +1,83 @@
+/*
+ * Design tokens — "Analytics Command Center".
+ * Deep graphite environment, one cool technology accent, one warm accent that
+ * is reserved for the primary call to action so it never competes for meaning.
+ */
+:root {
+  /* Environment */
+  --bg: #07090c;
+  --bg-elev-1: #0b0f14;
+  --bg-elev-2: #101720;
+  --surface-glass: rgba(18, 26, 36, 0.62);
+  --surface-glass-strong: rgba(20, 30, 42, 0.86);
+
+  /* Borders / structure */
+  --border: rgba(148, 178, 208, 0.13);
+  --border-strong: rgba(148, 178, 208, 0.24);
+  --grid-line: rgba(120, 170, 210, 0.055);
+
+  /* Text — measured against --bg */
+  --text: #e8eef6;          /* 15.4:1 */
+  --text-secondary: #aebdcf; /* 8.4:1  */
+  --text-muted: #8496a9;     /* 5.4:1  */
+
+  /* Accents */
+  --accent: #38bdf8;
+  --accent-bright: #7dd8ff;
+  --accent-deep: #0e7490;
+  --accent-wash: rgba(56, 189, 248, 0.09);
+  --accent-line: rgba(56, 189, 248, 0.34);
+
+  /* Warm accent — primary CTA only */
+  --warm: #f5a623;
+  --warm-bright: #ffc266;
+  --warm-wash: rgba(245, 166, 35, 0.11);
+
+  /* BeBeyond domain identity, carried from the product's own design system */
+  --beyond: #00f0ff;
+  --beyond-deep: #7c3aed;
+  --beyond-wash: rgba(0, 240, 255, 0.08);
+
+  /* Type */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo,
+    Consolas, monospace;
+
+  /* Rhythm */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --pad-x: clamp(20px, 5vw, 64px);
+  --section-y: clamp(80px, 11vh, 150px);
+  --maxw: 1240px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 620ms;
+
+  /* Elevation */
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 18px 50px -24px rgba(0, 0, 0, 0.9);
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 32px 70px -28px rgba(0, 0, 0, 0.95);
+}
+
+/*
+ * The site is designed dark. A forced-light user agent should still get
+ * legible text rather than a half-inverted palette, so the environment
+ * lightens but the type contrast relationship is preserved.
+ */
+@media (prefers-contrast: more) {
+  :root {
+    --text-secondary: #cfdced;
+    --text-muted: #b3c2d3;
+    --border: rgba(148, 178, 208, 0.3);
+    --border-strong: rgba(148, 178, 208, 0.48);
+  }
+}

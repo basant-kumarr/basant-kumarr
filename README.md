@@ -18,6 +18,12 @@
 
 ---
 
+> **This repository also hosts the portfolio site.** The source lives in
+> [`site/`](site) and deploys to
+> [basant-kumar-portfolio.netlify.app](https://basant-kumar-portfolio.netlify.app/).
+
+---
+
 ## What I build
 
 <table>
