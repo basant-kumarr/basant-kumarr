@@ -195,6 +195,34 @@ if (reduceMotion || !supportsIO || !revealables.length) {
   setTimeout(revealAll, 3000);
 }
 
+/* ---------- hero globe ----------
+   Lazy loaded so its code never sits in the initial bundle, and only mounted
+   when the hero is actually on screen. Decorative: the hero is complete text
+   without it. */
+const globeCanvas = document.getElementById('heroGlobe');
+
+if (globeCanvas) {
+  const small = window.matchMedia('(max-width: 979px)').matches;
+
+  const mount = () => {
+    import('./globe.js')
+      .then((m) => m.initGlobe(globeCanvas, { reduced: reduceMotion, small }))
+      .catch(() => { globeCanvas.style.display = 'none'; });
+  };
+
+  if (supportsIO) {
+    const gio = new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        obs.disconnect();
+        mount();
+      }
+    }, { rootMargin: '120px' });
+    gio.observe(globeCanvas);
+  } else {
+    mount();
+  }
+}
+
 /* ---------- active nav section ---------- */
 const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
 
