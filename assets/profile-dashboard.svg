@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#080D14"/><stop offset="1" stop-color="#101827"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101923"/><stop offset="1" stop-color="#0D141E"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#38BDF8" stroke-opacity=".035"/></pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="620" rx="24" fill="url(#bg)"/>
+<rect width="1600" height="620" rx="24" fill="url(#grid)"/>
+<ellipse cx="1330" cy="70" rx="260" ry="150" fill="#38BDF8" opacity=".06" filter="url(#soft)"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+  <text x="52" y="54" fill="#38BDF8" font-size="13" font-weight="700" letter-spacing="2.5">PERSONAL SYSTEM / 01</text>
+  <text x="52" y="94" fill="#F8FAFC" font-size="34" font-weight="700">Basant Kumar</text>
+  <text x="52" y="122" fill="#94A3B8" font-size="16">Business Analytics · Applied AI · Product Engineering</text>
+  <g transform="translate(1285 38)"><rect width="260" height="42" rx="21" fill="#0B131D" stroke="#38BDF8" stroke-opacity=".22"/><circle cx="24" cy="21" r="5" fill="#38BDF8" filter="url(#glow)"/><text x="40" y="26" fill="#CBD5E1" font-size="13">SYSTEMS IN ACTIVE DEVELOPMENT</text></g>
+
+  <g transform="translate(52 160)">
+    <rect width="1496" height="112" rx="18" fill="url(#panel)" stroke="#38BDF8" stroke-opacity=".18"/>
+    <text x="26" y="30" fill="#64748B" font-size="11" font-weight="700" letter-spacing="1.6">CORE WORKFLOW</text>
+    <g transform="translate(26 48)">
+      <rect width="215" height="42" rx="10" fill="#0B131D"/><text x="18" y="26" fill="#F8FAFC" font-size="14">Business question</text>
+      <text x="235" y="27" fill="#38BDF8" font-size="20">→</text>
+      <rect x="270" width="215" height="42" rx="10" fill="#0B131D"/><text x="288" y="26" fill="#F8FAFC" font-size="14">Data &amp; requirements</text>
+      <text x="505" y="27" fill="#38BDF8" font-size="20">→</text>
+      <rect x="540" width="215" height="42" rx="10" fill="#0B131D"/><text x="558" y="26" fill="#F8FAFC" font-size="14">Analysis / modelling</text>
+      <text x="775" y="27" fill="#38BDF8" font-size="20">→</text>
+      <rect x="810" width="215" height="42" rx="10" fill="#0B131D"/><text x="828" y="26" fill="#F8FAFC" font-size="14">Validation</text>
+      <text x="1045" y="27" fill="#38BDF8" font-size="20">→</text>
+      <rect x="1080" width="290" height="42" rx="10" fill="#38BDF8" fill-opacity=".08" stroke="#38BDF8" stroke-opacity=".28"/><text x="1098" y="26" fill="#F8FAFC" font-size="14">Decision-ready output</text>
+    </g>
+  </g>
+
+  <g transform="translate(52 298)">
+    <rect width="475" height="265" rx="18" fill="url(#panel)" stroke="#38BDF8" stroke-opacity=".16"/>
+    <text x="26" y="34" fill="#64748B" font-size="11" font-weight="700" letter-spacing="1.6">FOCUS AREAS</text>
+    <text x="26" y="73" fill="#F8FAFC" font-size="19" font-weight="600">Analytics</text><text x="26" y="98" fill="#94A3B8" font-size="14">SQL · Python · R · Power BI · Tableau</text>
+    <text x="26" y="139" fill="#F8FAFC" font-size="19" font-weight="600">Applied AI</text><text x="26" y="164" fill="#94A3B8" font-size="14">XGBoost · SHAP · forecasting · ML</text>
+    <text x="26" y="205" fill="#F8FAFC" font-size="19" font-weight="600">Product Engineering</text><text x="26" y="230" fill="#94A3B8" font-size="14">TypeScript · React Native · FastAPI · PostgreSQL</text>
+  </g>
+
+  <g transform="translate(551 298)">
+    <rect width="475" height="265" rx="18" fill="url(#panel)" stroke="#38BDF8" stroke-opacity=".16"/>
+    <text x="26" y="34" fill="#64748B" font-size="11" font-weight="700" letter-spacing="1.6">SELECTED SYSTEMS</text>
+    <g transform="translate(26 58)"><circle cx="7" cy="7" r="5" fill="#38BDF8"/><text x="22" y="12" fill="#F8FAFC" font-size="15" font-weight="600">BeBeyond</text><text x="22" y="34" fill="#94A3B8" font-size="13">AI fitness · nutrition · readiness · 3D</text></g>
+    <g transform="translate(26 112)"><circle cx="7" cy="7" r="5" fill="#38BDF8"/><text x="22" y="12" fill="#F8FAFC" font-size="15" font-weight="600">Fraud Detection</text><text x="22" y="34" fill="#94A3B8" font-size="13">XGBoost · SHAP · transaction analytics</text></g>
+    <g transform="translate(26 166)"><circle cx="7" cy="7" r="5" fill="#38BDF8"/><text x="22" y="12" fill="#F8FAFC" font-size="15" font-weight="600">Housing Accessibility</text><text x="22" y="34" fill="#94A3B8" font-size="13">Irish Census · accessibility · projections</text></g>
+    <g transform="translate(26 220)"><circle cx="7" cy="7" r="5" fill="#38BDF8"/><text x="22" y="12" fill="#F8FAFC" font-size="15" font-weight="600">Demand Forecasting</text></g>
+  </g>
+
+  <g transform="translate(1050 298)">
+    <rect width="498" height="265" rx="18" fill="url(#panel)" stroke="#38BDF8" stroke-opacity=".16"/>
+    <text x="26" y="34" fill="#64748B" font-size="11" font-weight="700" letter-spacing="1.6">ENGINEERING SIGNAL</text>
+    <path d="M28 205 C85 188 104 210 154 170 S226 145 272 164 S340 96 388 122 S438 84 470 55" fill="none" stroke="#38BDF8" stroke-width="3" opacity=".9"/>
+    <path d="M28 207 C85 190 104 212 154 172 S226 147 272 166 S340 98 388 124 S438 86 470 57" fill="none" stroke="#38BDF8" stroke-width="12" opacity=".08" filter="url(#soft)"/>
+    <line x1="28" y1="207" x2="470" y2="207" stroke="#334155"/>
+    <circle cx="470" cy="55" r="6" fill="#38BDF8" filter="url(#glow)"/>
+    <text x="28" y="72" fill="#F8FAFC" font-size="18" font-weight="600">Data → Model → Product</text>
+    <text x="28" y="98" fill="#94A3B8" font-size="13">Build with validation, explainability and usable outputs.</text>
+    <text x="28" y="245" fill="#64748B" font-size="11">PROFILE SIGNAL</text><text x="430" y="245" fill="#38BDF8" font-size="11" font-weight="700">ACTIVE</text>
+  </g>
+</g>
+</svg>
