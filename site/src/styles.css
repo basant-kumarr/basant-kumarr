@@ -36,8 +36,7 @@
   --gutter: 20px;
   --maxw: 1140px;
 
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter,
-          "Helvetica Neue", Arial, sans-serif;
+  --font: "Times New Roman", Times, serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
           "Liberation Mono", monospace;
 
@@ -1390,3 +1389,8 @@ section[id], article[id], #top { scroll-margin-top: 84px; }
   .cert-list.is-layered .cert:hover { transform: none; }
   [data-magnetic] { transform: none !important; }
 }
+
+
+/* Editorial serif typography requested for the portfolio. */
+:root { --font: "Times New Roman", Times, serif; }
+body, button, input, textarea, select { font-family: "Times New Roman", Times, serif; }
