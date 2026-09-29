@@ -1440,3 +1440,6 @@ section[id], article[id], #top { scroll-margin-top: 84px; }
 .project-summary { max-width: 70ch; }
 .section-sub { max-width: 66ch; }
 .skill-where { max-width: 62ch; }
+
+/* Form controls do not inherit font-family, so set it explicitly. */
+body, button, input, textarea, select { font-family: var(--font); }

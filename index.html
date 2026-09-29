@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b10">
+<meta name="description" content="Basant Kumar — Business Analytics, Data and Applied AI portfolio.">
+<title>Basant Kumar | Business Analytics · Data · Applied AI</title>
+<style>
+:root{--bg:#080b10;--panel:#0d1219;--panel2:#111821;--text:#f4f1e9;--muted:#a9b1bb;--line:rgba(244,241,233,.12);--cyan:#53d6ff;--gold:#e5bd68;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 5%,rgba(83,214,255,.10),transparent 28rem),var(--bg);color:var(--text);font-family:"Times New Roman",Times,serif;line-height:1.55}a{color:inherit}.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(8,11,16,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:21px;text-decoration:none;letter-spacing:.3px}.brand span{color:var(--cyan)}
+.links{display:flex;gap:24px}.links a{font-size:15px;color:var(--muted);text-decoration:none}.links a:hover{color:var(--text)}
+.hero{min-height:calc(100vh - 70px);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding:80px 0}
+.eyebrow{color:var(--cyan);letter-spacing:3px;text-transform:uppercase;font-size:14px;font-weight:bold}.hero h1{font-size:clamp(58px,8vw,106px);line-height:.92;margin:20px 0 26px;font-weight:700;letter-spacing:-3px}.hero h1 em{font-style:normal;color:var(--gold)}.lead{font-size:23px;max-width:700px;color:#d8d6d0;margin:0 0 30px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;padding:12px 18px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:16px}.btn.primary{background:var(--text);color:#080b10;border-color:var(--text)}.btn:hover{transform:translateY(-1px)}
+.orbit{position:relative;aspect-ratio:1;border:1px solid rgba(83,214,255,.24);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(83,214,255,.12),transparent 57%);box-shadow:0 0 100px rgba(83,214,255,.08)}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(229,189,104,.24);border-radius:50%;inset:12%;transform:rotate(24deg)}.orbit:after{inset:24%;transform:rotate(-31deg)}.orb-core{text-align:center;z-index:2}.orb-core strong{display:block;font-size:54px}.orb-core small{color:var(--muted);font-size:15px;letter-spacing:1px}
+section{padding:105px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:40px}.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:13px}.section-head h2{font-size:48px;line-height:1;margin:8px 0 0}.section-head p{max-width:500px;color:var(--muted);margin:0;font-size:18px}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.about p{font-size:22px;color:#d6d4cf;margin-top:0}.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}.fact{background:var(--bg);padding:24px}.fact b{display:block;font-size:28px;color:var(--cyan);margin-bottom:5px}.fact span{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:linear-gradient(145deg,var(--panel),rgba(13,18,25,.72));border:1px solid var(--line);border-radius:20px;padding:30px;min-height:270px;display:flex;flex-direction:column;transition:.2s}.card:hover{border-color:rgba(83,214,255,.42);transform:translateY(-3px)}.tag{color:var(--cyan);font-size:13px;letter-spacing:1.5px;text-transform:uppercase}.card h3{font-size:31px;margin:13px 0 9px}.card p{color:var(--muted);font-size:17px;margin:0 0 20px}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}.chip{border:1px solid var(--line);padding:5px 9px;border-radius:999px;font-size:13px;color:#c9c7c1}.metric{font-size:28px;color:var(--gold);margin:4px 0 12px}.card a{margin-top:18px;text-decoration:none;color:var(--cyan)}
+.timeline{display:grid;gap:0}.role{display:grid;grid-template-columns:180px 1fr;gap:35px;padding:27px 0;border-bottom:1px solid var(--line)}.role time{color:var(--gold);font-size:15px}.role h3{font-size:25px;margin:0 0 4px}.role h4{font-size:17px;color:var(--muted);font-weight:normal;margin:0 0 10px}.role p{margin:0;color:#c8c6c0;font-size:17px;max-width:760px}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.skill{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}.skill b{display:block;color:var(--cyan);margin-bottom:7px}.skill span{color:var(--muted);font-size:15px}
+footer{padding:70px 0 35px}.footer-main{display:flex;justify-content:space-between;gap:30px;align-items:end}.footer-main h2{font-size:48px;line-height:1;margin:0 0 12px}.footer-main p{color:var(--muted);font-size:18px}.social{display:flex;gap:15px;flex-wrap:wrap}.social a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}.copyright{margin-top:55px;padding-top:18px;border-top:1px solid var(--line);color:#707985;font-size:14px}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding:65px 0}.orbit{max-width:430px;width:80%;margin:0 auto}.about,.grid{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.links{display:none}.section-head{display:block}.section-head p{margin-top:15px}.role{grid-template-columns:1fr;gap:6px}.footer-main{display:block}.hero h1{letter-spacing:-2px}}
+@media(max-width:520px){.wrap{width:min(calc(100% - 28px),var(--max))}.hero h1{font-size:58px}.lead{font-size:20px}.section-head h2{font-size:39px}.skills{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.card{padding:24px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="brand" href="#">Basant <span>Kumar</span></a><div class="links"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+
+<main>
+<section class="hero" style="border-top:0">
+<div><div class="eyebrow">Business Analytics · Data · Applied AI</div>
+<h1>Turning data into <em>decisions.</em></h1>
+<p class="lead">I work across analytics, applied machine learning and product engineering, building practical solutions from business questions, messy data and real operational needs.</p>
+<div class="hero-actions"><a class="btn primary" href="#work">Explore my work</a><a class="btn" href="mailto:basantsingh607@gmail.com">Let's talk</a></div></div>
+<div class="orbit" aria-hidden="true"><div class="orb-core"><strong>01</strong><small>QUESTION → INSIGHT → ACTION</small></div></div>
+</section>
+
+<section id="about"><div class="wrap"><div class="section-head"><div><div class="kicker">01 / About</div><h2>A practical analytics mindset.</h2></div><p>I like the part where analysis has to become useful, understandable and actionable.</p></div>
+<div class="about"><div><p>I’m an MSc Business Analytics graduate from Maynooth University with an engineering background and experience across analytics, IoT, research and digital products.</p><p>My work combines business thinking with technical execution: understanding the problem, working with the data, validating the result and turning it into something people can use.</p></div>
+<div class="facts"><div class="fact"><b>MSc</b><span>Business Analytics · Maynooth University</span></div><div class="fact"><b>Data + AI</b><span>Analytics, ML, explainability and decision support</span></div><div class="fact"><b>Engineering</b><span>IoT, APIs, databases and product development</span></div><div class="fact"><b>Ireland</b><span>Based in Celbridge, Co. Kildare</span></div></div></div></div></section>
+
+<section id="work"><div class="wrap"><div class="section-head"><div><div class="kicker">02 / Selected work</div><h2>Work with a reason to exist.</h2></div><p>A selection of analytical and product work where the problem, evidence and outcome matter.</p></div>
+<div class="grid">
+<article class="card"><span class="tag">Machine Learning</span><h3>Fraud Detection</h3><p>Explainable transaction-level fraud detection using XGBoost, SMOTE and SHAP, with model evaluation against a logistic-regression baseline.</p><div class="metric">99.9% AUC-ROC</div><div class="chips"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">SHAP</span></div><a href="https://github.com/basant-kumarr/fraud-detections-xgboost">View repository →</a></article>
+<article class="card"><span class="tag">Irish Data</span><h3>Age Friendly Ireland</h3><p>Analysis using CSO Census 2022 data to explore ageing, accessibility and demographic pressure across Ireland.</p><div class="metric">349,155 people</div><div class="chips"><span class="chip">Python</span><span class="chip">CSO Census</span><span class="chip">Data Analysis</span></div><a href="https://github.com/basant-kumarr/housing-accessibility-ireland">View repository →</a></article>
+<article class="card"><span class="tag">Product</span><h3>BeBeyond</h3><p>An AI fitness and nutrition product in active development, combining coaching, analytics, readiness signals and interactive exercise experiences.</p><div class="metric">Product MVP</div><div class="chips"><span class="chip">React Native</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span></div></article>
+<article class="card"><span class="tag">IoT + Analytics</span><h3>Bajaj Electricals</h3><p>Engineering and analytics work supporting IoT-enabled product development, operational insight and connected-product improvements.</p><div class="metric">~15% uptime improvement</div><div class="chips"><span class="chip">IoT</span><span class="chip">Analytics</span><span class="chip">R&D</span></div></article>
+</div></div></section>
+
+<section id="experience"><div class="wrap"><div class="section-head"><div><div class="kicker">03 / Experience</div><h2>From engineering to analytics.</h2></div><p>A career shaped by technical problem solving, research and practical operations.</p></div>
+<div class="timeline">
+<div class="role"><time>Feb 2026 — Present</time><div><h3>Customer Service Assistant</h3><h4>SuperValu · Celbridge</h4><p>Customer-facing retail work alongside day-to-day store operations, building practical experience in service, pace, accuracy and teamwork.</p></div></div>
+<div class="role"><time>Nov 2024 — Feb 2026</time><div><h3>Graduate Research Assistant</h3><h4>Maynooth University</h4><p>Supported quantitative and qualitative research, dashboards, reporting workflows and data quality and governance checks. Reporting was delivered about two working days earlier per cycle.</p></div></div>
+<div class="role"><time>Oct 2022 — Dec 2023</time><div><h3>R&D Engineer — IoT & Analytics</h3><h4>Bajaj Electricals Ltd</h4><p>Worked across IoT and analytics initiatives supporting connected-product development and operational improvements.</p></div></div>
+<div class="role"><time>Jul 2021 — Oct 2022</time><div><h3>Junior Engineer — AI & IoT Solutions</h3><h4>Bajaj Electricals Ltd</h4><p>Worked on AI and IoT solution development within an engineering environment, connecting technical implementation with product needs.</p></div></div>
+</div></div></section>
+
+<section id="skills"><div class="wrap"><div class="section-head"><div><div class="kicker">04 / Toolkit</div><h2>Technical range, practical focus.</h2></div><p>Tools are useful when they help solve the right problem.</p></div>
+<div class="skills"><div class="skill"><b>Analytics</b><span>Python · SQL · R · Excel · Power Query · Power BI · Tableau</span></div><div class="skill"><b>Machine Learning</b><span>XGBoost · scikit-learn · SHAP · ARIMA · Prophet · TensorFlow</span></div><div class="skill"><b>Engineering</b><span>FastAPI · PostgreSQL · TypeScript · React Native · Expo · Git</span></div><div class="skill"><b>Product</b><span>Requirements · Process analysis · KPI design · Data quality · Governance</span></div></div></div></section>
+
+<section id="education"><div class="wrap"><div class="section-head"><div><div class="kicker">05 / Education & beyond</div><h2>Curiosity outside the dashboard.</h2></div></div>
+<div class="about"><div><p><strong>MSc Business Analytics</strong><br>Maynooth University · 2024–2026</p><p><strong>BEng Electronics & Telecommunication Engineering</strong><br>Savitribai Phule Pune University · 2016–2020</p></div><div><p>Outside formal work, I have led student activities, mentored a college fashion-show team, represented my college in cricket and volunteered with Save the Children in Pune.</p></div></div></div></section>
+</main>
+
+<footer id="contact"><div class="wrap"><div class="footer-main"><div><div class="kicker">06 / Contact</div><h2>Have a problem worth solving?</h2><p>Open to conversations around analytics, data, AI and business-focused technology roles in Ireland.</p></div><div class="social"><a href="mailto:basantsingh607@gmail.com">Email</a><a href="https://www.linkedin.com/in/basantsingh-/">LinkedIn</a><a href="https://github.com/basant-kumarr">GitHub</a></div></div><div class="copyright">© 2026 Basant Kumar · Business Analytics · Data · Applied AI</div></div></footer>
+</body>
+</html>
