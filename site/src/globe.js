@@ -395,8 +395,14 @@ export function initGlobe(canvas, opts = {}) {
       const depth = (q[2] + 1) / 2;
       const r = (0.9 + depth * 1.3) * (1 + P.bright * 1.6);
       if (P.bright > 0.02) {
-        ctx.fillStyle = `rgba(186,230,253,${(P.bright * 0.22).toFixed(3)})`;
-        ctx.beginPath(); ctx.arc(q[0], q[1], r * 5, 0, TAU); ctx.fill();
+        // A soft falloff rather than a flat disc: at full brightness a solid
+        // circle this size reads as a grey blob, not a signal.
+        const fr = r * 3.2;
+        const g = ctx.createRadialGradient(q[0], q[1], 0, q[0], q[1], fr);
+        g.addColorStop(0, `rgba(186,230,253,${(P.bright * 0.30).toFixed(3)})`);
+        g.addColorStop(1, 'rgba(186,230,253,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(q[0], q[1], fr, 0, TAU); ctx.fill();
       }
       ctx.fillStyle = `rgba(224,242,254,${(0.25 + depth * 0.5 + P.bright * 0.25).toFixed(3)})`;
       ctx.beginPath(); ctx.arc(q[0], q[1], r, 0, TAU); ctx.fill();

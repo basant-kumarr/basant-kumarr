@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#06070b">
-<meta name="description" content="Basant Kumar — AI & Business Analyst working across business analysis, data analytics, applied AI and product engineering.">
-<title>Basant Kumar | AI & Business Analyst</title>
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="Basant Kumar turns complex business problems into intelligent, data-driven solutions. MSc Business Analytics, Maynooth University. Business analysis, data, machine learning and AI products.">
+<title>Basant Kumar | Business Analytics · Data · AI</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/src/modern.css">
 </head>
 <body>
@@ -13,174 +14,238 @@
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a class="brand" href="#top"><span class="brand-mark">BK</span><span>Basant Kumar<small>AI &amp; Business Analyst</small></span></a>
+    <a class="brand" href="#top"><span class="brand-mark">BK</span><span>Basant Kumar<small>Business Analytics · Data · AI</small></span></a>
     <nav aria-label="Primary">
       <ul class="nav-links">
-        <li><a href="#work">Work</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li><li><a href="#beyond">Beyond</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </nav>
-    <a class="nav-cta" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry">Get in touch</a>
+    <a class="nav-cta" href="#contact">Contact</a>
+    <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to light theme" aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+    </button>
     <button class="menu" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <main id="main">
+
+<!-- 01 HERO -->
 <section class="hero" id="top">
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><i></i> Open to AI, Data &amp; Business Analytics roles in Ireland</span>
-      <h1>Business problems in.<br><span class="gradient">Intelligent solutions out.</span></h1>
-      <div class="hero-role">AI &amp; Business Analyst &nbsp;|&nbsp; AI Products, Automation &amp; Data &nbsp;|&nbsp; MSc Business Analytics</div>
-      <p class="hero-copy">I combine business analysis, analytics and engineering to understand the problem, work through the data and build practical solutions people can actually use.</p>
+    <div class="hero-copy-col">
+      <span class="eyebrow"><i></i> Open to opportunities</span>
+      <p class="hero-name">Basant Kumar</p>
+      <p class="hero-disciplines">Business Analytics <span>·</span> Data <span>·</span> AI</p>
+      <h1>Turning complex business problems into <span class="gradient">intelligent solutions</span>.</h1>
+      <p class="hero-sub">MSc Business Analytics <span>·</span> Ireland</p>
       <div class="hero-actions">
-        <a class="btn primary" href="#work">Explore selected work →</a>
-        <a class="btn" href="https://www.linkedin.com/in/basantsingh-/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/basant-kumarr" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn primary" href="#work">Explore my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
       </div>
-      <div class="hero-proof">
-        <span class="proof-pill"><b>MSc</b> Maynooth University</span>
-        <span class="proof-pill"><b>AI</b> products + automation</span>
-        <span class="proof-pill"><b>Data</b> analytics + ML</span>
-        <span class="proof-pill"><b>Engineering</b> IoT + systems</span>
-      </div>
+      <!-- CV BUTTON. To switch on: put the PDF at site/public/basant-kumar-cv.pdf,
+           then delete this comment's markers.
+      <a class="btn" href="basant-kumar-cv.pdf" download>Download CV</a>
+      -->
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="orbit">
-        <div class="core"><div><strong>AI</strong><span>Business · Data · Product</span></div></div>
-        <div class="float-card fc1"><b>99.9%</b><span>Fraud model AUC-ROC</span></div>
-        <div class="float-card fc2"><b>349,155</b><span>CSO records analysed</span></div>
-        <div class="float-card fc3"><b>15%</b><span>Team-reported uptime improvement</span></div>
-      </div>
+
+    <div class="hero-visual">
+      <canvas id="heroGlobe" aria-hidden="true"></canvas>
+      <span class="glabel gl-business" aria-hidden="true">Business</span>
+      <span class="glabel gl-data" aria-hidden="true">Data</span>
+      <span class="glabel gl-ai" aria-hidden="true">AI</span>
+      <span class="glabel gl-product" aria-hidden="true">Product</span>
+      <p class="sr-only">A slowly rotating field of connected data points, representing the link between business, data, AI and product.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
-<div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">01 / Profile</div><h2>Business thinking with technical depth.</h2></div><p>The profile is designed to show the connection between what I understand, what I build and the evidence behind it.</p></div>
-  <div class="about-grid reveal">
-    <div class="about-copy">
-      <p>I completed my MSc Business Analytics at Maynooth University in September 2026, following an engineering background and experience across IoT, analytics and research.</p>
-      <p>My work spans requirements, process analysis, dashboards, predictive modelling, forecasting and AI-enabled products. I am especially interested in roles where business context and technology need to meet in the middle.</p>
+<!-- 02 TRUST / POSITIONING -->
+<section class="trust" aria-label="Positioning">
+  <div class="wrap trust-row">
+    <div class="trust-degree">
+      <strong>MSc Business Analytics</strong>
+      <span>Maynooth University · completed September 2026, award pending</span>
     </div>
-    <div class="mini-grid">
-      <div class="mini-card"><b>15%</b><span>team-reported uptime improvement during Bajaj IoT work</span></div>
-      <div class="mini-card"><b>20%</b><span>reduction in manual reporting effort at Maynooth</span></div>
-      <div class="mini-card"><b>2 days</b><span>faster insight delivery per reporting cycle</span></div>
-      <div class="mini-card"><b>4.0</b><span>core lanes: Business · Data · AI · Engineering</span></div>
-    </div>
+    <ul class="trust-lanes">
+      <li>Business analysis</li>
+      <li>Data &amp; BI</li>
+      <li>AI / ML</li>
+      <li>Product thinking</li>
+    </ul>
   </div>
+</section>
+
+<!-- 03 STORY -->
+<section class="section" id="story">
+<div class="wrap"><div class="section-shell">
+  <div class="section-head">
+    <div><div class="section-kicker">01 / Story</div><h2>Four disciplines, one way of working.</h2></div>
+    <p>Each step added something the one before it could not do on its own.</p>
+  </div>
+  <ol class="story-flow" role="list">
+    <li class="story-step reveal">
+      <span class="story-n" aria-hidden="true">01</span>
+      <h3>Engineering</h3>
+      <p>Electronics and IoT gave me the technical depth to understand how a system actually behaves, not just how it is described.</p>
+    </li>
+    <li class="story-step reveal">
+      <span class="story-n" aria-hidden="true">02</span>
+      <h3>Data</h3>
+      <p>Working with sensor and operational data taught me how messy real information is, and how much of the job is getting it trustworthy.</p>
+    </li>
+    <li class="story-step reveal">
+      <span class="story-n" aria-hidden="true">03</span>
+      <h3>Business</h3>
+      <p>Business analytics moved the question from what the data says to what somebody should do about it, and who has to agree.</p>
+    </li>
+    <li class="story-step reveal">
+      <span class="story-n" aria-hidden="true">04</span>
+      <h3>AI products</h3>
+      <p>AI is where the insight stops being a report and becomes something people can use. That is the part I want to keep building.</p>
+    </li>
+  </ol>
 </div></div>
 </section>
 
+<!-- 04 FEATURED WORK -->
 <section class="section" id="work">
 <div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">02 / Selected work</div><h2>Projects with a clear reason to exist.</h2></div><p>Public evidence where available, private builds labelled honestly, and numbers kept with their context.</p></div>
+  <div class="section-head">
+    <div><div class="section-kicker">02 / Selected work</div><h2>Four pieces of work, each with a reason to exist.</h2></div>
+    <p>Public evidence where it exists, private builds labelled honestly, and every number kept with its context.</p>
+  </div>
+
   <div class="bento">
+
     <article class="project feature reveal">
-      <div class="project-top"><span class="project-tag">AI Product</span><span class="project-status">Private · In development</span></div>
+      <div class="project-top">
+        <span class="project-tag">01 · AI Product</span>
+        <span class="project-status">Private · in development</span>
+      </div>
       <h3>BeBeyond</h3>
-      <p>An AI fitness and nutrition platform combining personalised coaching, nutrition intelligence, readiness analysis, voice interaction and an interactive 3D exercise experience.</p>
-      <div class="project-metric">AI + product engineering <small>React Native · FastAPI · PostgreSQL</small></div>
-      <div class="chips"><span class="chip">AI Coach</span><span class="chip">Recommendation engine</span><span class="chip">3D exercise</span><span class="chip">Readiness</span></div>
-      <div class="project-orb"></div>
+      <p class="project-question">How does personalised fitness guidance become an intelligent product rather than another workout tracker?</p>
+      <p>An AI fitness and nutrition platform I designed and built end to end. A deterministic engine owns every number it reports, readiness, accumulated load and nutrition targets, and the language model is only allowed to explain that decision. It cannot invent a figure.</p>
+      <div class="feature-split">
+        <div class="feature-block">
+          <h4>The intelligence</h4>
+          <ul>
+            <li>Exercise ontology modelling how movements and muscles relate</li>
+            <li>Readiness and accumulated muscle load, each signal carrying a confidence tier</li>
+            <li>Recommendation engine that carries the evidence behind its answer</li>
+            <li>Nutrition engine working off the same state as the training side</li>
+          </ul>
+        </div>
+        <div class="feature-block">
+          <h4>Current state</h4>
+          <ul>
+            <li><b>Built and tested:</b> ontology, readiness, recommendations, nutrition, 3D exercise view</li>
+            <li><b>Simulated:</b> camera form analysis runs on a scripted pose source, not live inference</li>
+            <li><b>Scaffolded:</b> wearable adapters exist, no live data flows yet</li>
+          </ul>
+        </div>
+      </div>
+      <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">TypeScript</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Three.js</span></div>
+      <div class="project-orb" aria-hidden="true"></div>
     </article>
+
     <article class="project reveal">
-      <div class="project-top"><span class="project-tag">AI Automation</span><span class="project-status">Private · In development</span></div>
-      <h3>Maya / AI Creator Studio</h3>
-      <p>AI workflow combining research, generative AI, structured planning, validation and controlled execution for an AI content creator.</p>
-      <div class="chips"><span class="chip">Research</span><span class="chip">Generative AI</span><span class="chip">Automation</span></div>
-    </article>
-    <article class="project reveal">
-      <div class="project-top"><span class="project-tag">Machine Learning</span></div>
-      <h3>Fraud Detection</h3>
-      <p>Independent XGBoost project using behavioural features, SMOTE and SHAP, compared against a logistic regression baseline.</p>
-      <div class="project-metric">99.9% <small>AUC-ROC</small></div>
-      <div class="chips"><span class="chip">97.2% precision</span><span class="chip">81.7% recall</span><span class="chip">87.6% F1</span></div>
-      <a class="project-link" href="https://github.com/basant-kumarr/fraud-detections-xgboost" target="_blank" rel="noopener">View repository →</a>
-    </article>
-    <article class="project reveal">
-      <div class="project-top"><span class="project-tag">Irish Data · MSc consultancy</span></div>
-      <h3>Housing Accessibility · Age Friendly Ireland</h3>
-      <p>Analysis of CSO Census 2022 data and projections to explore future housing accessibility needs in Ireland.</p>
+      <div class="project-top"><span class="project-tag">02 · Data Analytics &amp; BI</span></div>
+      <h3>Housing Accessibility, Age Friendly Ireland</h3>
+      <p class="project-question">How many Irish households will face accessibility problems as the population ages, and where?</p>
+      <p>Analysis of CSO Census 2022 data and official population projections, built as MSc consultancy work, to turn a policy question into something planners can act on.</p>
       <div class="project-metric">349,155 <small>people with mobility difficulties analysed</small></div>
-      <div class="chips"><span class="chip">CSO Census 2022</span><span class="chip">Python</span><span class="chip">Forecasting</span></div>
+      <div class="chips"><span class="chip">CSO Census 2022</span><span class="chip">Python</span><span class="chip">Projections</span><span class="chip">Dashboard</span></div>
       <a class="project-link" href="https://github.com/basant-kumarr/housing-accessibility-ireland" target="_blank" rel="noopener">View repository →</a>
     </article>
+
     <article class="project reveal">
-      <div class="project-top"><span class="project-tag">Forecasting</span></div>
+      <div class="project-top"><span class="project-tag">03 · Machine Learning</span></div>
+      <h3>Fraud Detection</h3>
+      <p class="project-question">Can a model catch the fraud a baseline misses, and explain itself well enough to be acted on?</p>
+      <p>Independent project on a public dataset. XGBoost against a logistic regression baseline, SMOTE for the heavy class imbalance, and SHAP so each flag can be traced to the features behind it.</p>
+      <div class="project-metric">99.9% <small>AUC-ROC on a public dataset</small></div>
+      <div class="chips"><span class="chip">97.2% precision</span><span class="chip">XGBoost</span><span class="chip">SMOTE</span><span class="chip">SHAP</span></div>
+      <p class="project-note">Public dataset, not proprietary card network data. It is cleaner and more separable than real transactions, so the ceiling is higher than production would allow. The useful part is explainability, not the score.</p>
+      <a class="project-link" href="https://github.com/basant-kumarr/fraud-detections-xgboost" target="_blank" rel="noopener">View repository →</a>
+    </article>
+
+    <article class="project reveal compact">
+      <div class="project-top"><span class="project-tag">04 · Forecasting</span></div>
       <h3>Sales Demand Forecasting</h3>
-      <p>Independent comparison of ARIMA and Prophet to explore demand patterns and potential overstock and understock risk.</p>
+      <p>ARIMA against Prophet on the same demand series, looking at where each one holds up for planning and where overstock and stockout risk actually sits.</p>
       <div class="chips"><span class="chip">R</span><span class="chip">ARIMA</span><span class="chip">Prophet</span></div>
       <a class="project-link" href="https://github.com/basant-kumarr/sales-demand-forecasting" target="_blank" rel="noopener">View repository →</a>
     </article>
+
   </div>
 </div></div>
 </section>
 
+<!-- 05 CAPABILITIES -->
+<section class="section" id="capabilities">
+<div class="wrap"><div class="section-shell">
+  <div class="section-head">
+    <div><div class="section-kicker">03 / Capabilities</div><h2>What I do, and what I use to do it.</h2></div>
+    <p>The capability is the identity. The tools underneath are the evidence.</p>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-card reveal">
+      <div class="cap-n" aria-hidden="true">01</div>
+      <b>Understand</b>
+      <p>Framing the problem before touching the data, and getting people to agree on what the answer has to do.</p>
+      <span>Business analysis · Requirements · Problem framing · Process improvement · As-Is / To-Be · Stakeholder management</span>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-n" aria-hidden="true">02</div>
+      <b>Analyse</b>
+      <p>Getting data into a state worth trusting, then answering the question with it.</p>
+      <span>SQL · Python · R · Excel · Power BI · Tableau · Statistics · KPI design · Data visualisation</span>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-n" aria-hidden="true">03</div>
+      <b>Intelligence</b>
+      <p>Models that predict something useful and can show their reasoning to the person acting on it.</p>
+      <span>Machine learning · XGBoost · SHAP · SMOTE · Predictive analytics · Forecasting · Model evaluation</span>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-n" aria-hidden="true">04</div>
+      <b>Build</b>
+      <p>Turning the insight into something people can actually use, end to end.</p>
+      <span>AI products · Automation · FastAPI · PostgreSQL · React Native · TypeScript · IoT</span>
+    </div>
+  </div>
+</div></div>
+</section>
+
+<!-- 06 EXPERIENCE -->
 <section class="section" id="experience">
 <div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">03 / Experience</div><h2>From engineering to analytics.</h2></div><p>A progression from technical systems into business analysis, data and AI-enabled product work.</p></div>
+  <div class="section-head">
+    <div><div class="section-kicker">04 / Experience</div><h2>From engineering to intelligence.</h2></div>
+    <p>A progression from technical systems into business analysis, data and AI product work.</p>
+  </div>
   <div class="experience">
-    <article class="exp-card reveal"><div class="exp-date">Feb 2026 — Present</div><div><div class="exp-title">Customer Service Assistant</div><div class="exp-company">SuperValu · Celbridge</div><p>Customer-facing retail work alongside daily operations, building practical experience in service, accuracy, pace, teamwork and process discipline.</p></div></article>
-    <article class="exp-card reveal"><div class="exp-date">Nov 2024 — Feb 2026</div><div><div class="exp-title">Graduate Research Assistant</div><div class="exp-company">Maynooth University</div><p>Built automated reporting dashboards using Python, R and Tableau; reduced manual reporting effort by approximately 20% and accelerated insight delivery by around two working days per reporting cycle.</p></div></article>
+    <article class="exp-card reveal"><div class="exp-date">Feb 2026 — Present</div><div><div class="exp-title">Customer Service Assistant</div><div class="exp-company">SuperValu · Celbridge</div><p>Customer-facing retail work alongside finishing the MSc and building my own projects.</p></div></article>
+    <article class="exp-card reveal"><div class="exp-date">Nov 2024 — Feb 2026</div><div><div class="exp-title">Graduate Research Assistant</div><div class="exp-company">Maynooth University</div><p>Built automated reporting dashboards using Python, R and Tableau. Reduced manual reporting effort by approximately 20% and brought insight delivery forward by around two working days per reporting cycle.</p></div></article>
     <article class="exp-card reveal"><div class="exp-date">Oct 2022 — Dec 2023</div><div><div class="exp-title">R&amp;D Engineer, IoT &amp; Analytics</div><div class="exp-company">Bajaj Electricals Ltd</div><p>Analysed IoT sensor data, built KPI reporting, applied forecasting and worked with cross-functional teams on requirements and technical deliverables.</p></div></article>
     <article class="exp-card reveal"><div class="exp-date">Jul 2021 — Oct 2022</div><div><div class="exp-title">Junior Engineer, AI &amp; IoT Solutions</div><div class="exp-company">Bajaj Electricals Ltd</div><p>Analysed existing processes, prepared gap-analysis reports and KPI dashboards, and supported performance benchmarking across AI and IoT solutions.</p></div></article>
-    <article class="exp-card reveal"><div class="exp-date">Feb 2018 — Aug 2019</div><div><div class="exp-title">E-commerce Founder &amp; Analytics Lead</div><div class="exp-company">Self-employed · Delhi</div><p>Managed a Shopify business across sales, inventory, suppliers and marketing, using commercial data to understand demand, conversion and stock requirements.</p></div></article>
+    <article class="exp-card reveal"><div class="exp-date">Feb 2018 — Aug 2019</div><div><div class="exp-title">E-commerce Founder &amp; Analytics Lead</div><div class="exp-company">Self-employed · Delhi</div><p>Ran a Shopify business across sales, inventory, suppliers and marketing, using commercial data to understand demand, conversion and stock requirements.</p></div></article>
   </div>
 </div></div>
 </section>
 
-<section class="section" id="skills">
-<div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">04 / Capabilities</div><h2>Technical range, practical focus.</h2></div><p>The tools support the work. They are not the story on their own.</p></div>
-  <div class="skill-grid">
-    <div class="skill-card reveal"><b>Business Analysis</b><span>Requirements gathering · Business requirements · Gap analysis · As-Is / To-Be · Process mapping · User stories · UAT · Stakeholder management · Agile / Scrum</span></div>
-    <div class="skill-card reveal"><b>Data &amp; BI</b><span>SQL · Python · R · Excel · Power BI · Tableau · Power Query · KPI design · Dashboard development · Data visualisation · Data governance</span></div>
-    <div class="skill-card reveal"><b>Analytics &amp; ML</b><span>Statistical analysis · Predictive modelling · XGBoost · SHAP · SMOTE · scikit-learn · Classification · Regression · ARIMA · Prophet</span></div>
-    <div class="skill-card reveal"><b>AI &amp; Engineering</b><span>AI product development · FastAPI · PostgreSQL · TypeScript · React Native · Expo · Three.js · Git · GitHub · IoT</span></div>
-  </div>
-</div></div>
-</section>
-
-<section class="section" id="beyond">
-<div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">05 / Beyond the work</div><h2>Leadership, community and team experience.</h2></div><p>Some of the most useful professional skills are learned outside a job description.</p></div>
-  <div class="beyond-grid">
-    <article class="beyond-card volunteer reveal">
-      <div class="beyond-label">Community · Weekend volunteering</div>
-      <h3>Save the Children, Pune</h3>
-      <p>Volunteering has included different field activities depending on the weekend and the need.</p>
-      <ul class="beyond-list">
-        <li>Raising awareness around the protection and education of girls.</li>
-        <li>Teaching mathematics to children.</li>
-        <li>Helping with community fundraising and collecting donations.</li>
-        <li>Supporting other activities organised for children and families.</li>
-      </ul>
-    </article>
-    <article class="beyond-card reveal">
-      <div class="beyond-label">Leadership</div><h3>Head Boy</h3>
-      <p>Served as Head Boy at higher secondary school, representing students and taking responsibility for school activities.</p>
-    </article>
-    <article class="beyond-card reveal">
-      <div class="beyond-label">College</div><h3>Fashion Show Head</h3>
-      <p>Led college fashion-show activities and mentored team members competing at events around Pune.</p>
-    </article>
-    <article class="beyond-card reveal">
-      <div class="beyond-label">Sport</div><h3>College Cricket</h3>
-      <p>Represented my college in cricket tournaments, learning the value of preparation, communication and team performance.</p>
-    </article>
-  </div>
-</div></div>
-</section>
-
+<!-- 07 EDUCATION -->
 <section class="section" id="education">
 <div class="wrap"><div class="section-shell">
-  <div class="section-head"><div><div class="section-kicker">06 / Education</div><h2>Where the analytical foundation came from.</h2></div></div>
+  <div class="section-head"><div><div class="section-kicker">05 / Education</div><h2>Where the analytical foundation came from.</h2></div></div>
   <div class="split">
     <article class="info-card reveal">
       <h3>Education</h3>
-      <div class="degree"><strong>MSc Business Analytics</strong><span>Maynooth University · 2024–2026</span><em>Programme completed September 2026 · Award pending</em></div>
+      <div class="degree"><strong>MSc Business Analytics</strong><span>Maynooth University · 2024–2026</span><em>Programme completed September 2026 · award pending</em></div>
       <div class="degree"><strong>BEng Electronics &amp; Telecommunication Engineering</strong><span>Savitribai Phule Pune University · 2016–2020</span></div>
     </article>
     <article class="info-card reveal">
@@ -194,15 +259,60 @@
 </div></div>
 </section>
 
+<!-- 08 ABOUT -->
+<section class="section" id="about">
+<div class="wrap"><div class="section-shell">
+  <div class="section-head">
+    <div><div class="section-kicker">06 / About</div><h2>The part that is not on the CV.</h2></div>
+    <p>Most of what I know about getting a group to agree on something came from here.</p>
+  </div>
+  <div class="beyond-grid">
+    <article class="beyond-card volunteer reveal">
+      <div class="beyond-label">Community · weekend volunteering</div>
+      <h3>Save the Children, Pune</h3>
+      <p>What I did depended on the weekend and what was needed.</p>
+      <ul class="beyond-list">
+        <li>Raising awareness around the protection and education of girls</li>
+        <li>Teaching mathematics to children</li>
+        <li>Community fundraising and collecting donations</li>
+        <li>Supporting other activities organised for children and families</li>
+      </ul>
+    </article>
+    <article class="beyond-card reveal">
+      <div class="beyond-label">Leadership</div><h3>Head Boy</h3>
+      <p>Head Boy at my higher secondary school, representing students and taking responsibility for school activities.</p>
+    </article>
+    <article class="beyond-card reveal">
+      <div class="beyond-label">College</div><h3>Fashion Show Head</h3>
+      <p>Led the college fashion show activities and mentored team members competing at events around Pune.</p>
+    </article>
+    <article class="beyond-card reveal">
+      <div class="beyond-label">Sport</div><h3>College cricket</h3>
+      <p>Represented my college in cricket tournaments. Team sport teaches you quickly that your own performance is not the point.</p>
+    </article>
+  </div>
+</div></div>
+</section>
+
+<!-- 09 CONTACT -->
 <section class="section" id="contact">
 <div class="wrap"><div class="contact reveal">
-  <div><div class="section-kicker">07 / Contact</div><h2>Let's talk about the problem behind the data.</h2><p>Open to Business Analyst, AI Business Analyst, Business Systems Analyst and Data Analyst opportunities in Ireland.</p></div>
-  <div class="contact-actions"><a class="btn primary" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry">Email me</a><a class="btn" href="https://www.linkedin.com/in/basantsingh-/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://github.com/basant-kumarr" target="_blank" rel="noopener">GitHub ↗</a></div>
+  <div>
+    <div class="section-kicker">07 / Contact</div>
+    <h2>Let's solve something meaningful.</h2>
+    <p>Business problems. Data. AI. Intelligent products.</p>
+    <p class="contact-note">Open to Business Analyst, AI Business Analyst, Business Systems Analyst and Data Analyst roles in Ireland.</p>
+  </div>
+  <div class="contact-actions">
+    <a class="btn primary" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry%20for%20Basant%20Kumar">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/basantsingh-/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/basant-kumarr" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
 </div></div>
 </section>
 </main>
 
 <footer><div class="wrap footer"><span>© 2026 Basant Kumar · Ireland</span><span><a href="#top">Back to top ↑</a></span></div></footer>
-<script src="/src/modern.js"></script>
+<script type="module" src="/src/modern.js"></script>
 </body>
 </html>

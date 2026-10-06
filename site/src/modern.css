@@ -1,6 +1,7 @@
 :root{
-  --bg:#06070b;
-  --bg2:#0a0d14;
+  --bg:#05070b;
+  --bg2:#080c12;
+  --bg3:#0c111a;
   --glass:rgba(15,20,31,.64);
   --glass-strong:rgba(18,25,39,.78);
   --text:#f5f7fb;
@@ -24,9 +25,8 @@ body{
   margin:0;
   color:var(--text);
   background:
-    radial-gradient(900px 600px at 8% -8%,rgba(94,231,255,.12),transparent 65%),
-    radial-gradient(850px 650px at 95% 18%,rgba(155,140,255,.12),transparent 62%),
-    radial-gradient(700px 500px at 55% 75%,rgba(80,227,164,.06),transparent 60%),
+    radial-gradient(1000px 680px at 78% -6%,rgba(94,231,255,.085),transparent 62%),
+    radial-gradient(820px 620px at 6% 24%,rgba(155,140,255,.06),transparent 60%),
     var(--bg);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
@@ -222,4 +222,230 @@ footer{padding:25px 0 45px;color:var(--muted);font-size:12px}.footer{display:fle
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}.fc1,.fc2,.fc3{animation:none}.btn,.project,.exp-card,.skill-card,.beyond-card{transition:none}
+}
+
+/* ==========================================================================
+   Hero, intelligence field, story, capabilities, light theme
+   ========================================================================== */
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- hero ---------- */
+.hero-copy-col{max-width:620px}
+.hero-name{
+  margin:18px 0 0;font-size:13px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);
+}
+.hero-disciplines{
+  margin:9px 0 0;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);
+}
+.hero-disciplines span{color:var(--muted);margin:0 7px}
+.hero h1{
+  margin:22px 0 0;font-size:clamp(38px,5.6vw,68px);line-height:1.04;letter-spacing:-.025em;font-weight:800;max-width:15ch;
+}
+.hero-sub{margin:20px 0 0;color:var(--soft);font-size:16px}
+.hero-sub span{color:var(--muted);margin:0 6px}
+.hero-actions{margin-top:30px}
+
+/* ---------- intelligence field ---------- */
+.hero-visual{position:relative;min-height:520px;display:block}
+.hero-visual canvas{display:block;width:100%;height:100%;position:absolute;inset:0}
+.hero-visual.globe-failed canvas{display:none}
+
+/* Conceptual labels. Deliberately quiet: they name the idea without turning
+   the hero into a dashboard. */
+.glabel{
+  position:absolute;z-index:2;pointer-events:none;
+  font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(198,207,219,.44);
+}
+.glabel:before{content:"";display:inline-block;width:14px;height:1px;background:currentColor;vertical-align:middle;margin-right:7px;opacity:.7}
+.gl-business{top:11%;left:4%}
+.gl-data{top:33%;right:3%}
+.gl-ai{bottom:28%;left:2%}
+.gl-product{bottom:9%;right:7%}
+.hero-visual.globe-failed .glabel{display:none}
+
+/* ---------- trust strip ---------- */
+.trust{padding:10px 0 30px}
+.trust-row{
+  display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center;justify-content:space-between;
+  padding:20px 24px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.028);
+}
+.trust-degree strong{display:block;font-size:15px}
+.trust-degree span{display:block;color:var(--muted);font-size:12.5px;margin-top:3px}
+.trust-lanes{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.trust-lanes li{
+  font-size:12px;color:var(--soft);padding:7px 13px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(255,255,255,.03);
+}
+
+/* ---------- story ---------- */
+.story-flow{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:story}
+.story-step{
+  position:relative;padding:24px 24px 24px 70px;border:1px solid var(--line);border-radius:22px;
+  background:rgba(255,255,255,.028);transition:.25s ease;
+}
+.story-step:hover{border-color:var(--line2);transform:translateY(-3px)}
+.story-n{
+  position:absolute;left:24px;top:24px;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--cyan);
+}
+.story-step h3{margin:0 0 7px;font-size:19px}
+.story-step p{margin:0;color:var(--muted);font-size:14.5px;max-width:70ch}
+@media(min-width:960px){.story-flow{grid-template-columns:repeat(4,1fr)}.story-step{padding:26px 22px 24px}.story-n{position:static;display:block;margin-bottom:12px}}
+
+/* ---------- capabilities ---------- */
+.cap-grid{display:grid;gap:13px}
+.cap-card{
+  padding:26px;border:1px solid var(--line);border-radius:23px;background:rgba(255,255,255,.032);
+  box-shadow:0 18px 45px rgba(0,0,0,.18);transition:.25s ease;
+}
+.cap-card:hover{transform:translateY(-5px);border-color:var(--line2);box-shadow:var(--shadow-hover)}
+.cap-n{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--cyan)}
+.cap-card b{display:block;font-size:21px;margin:11px 0 9px;letter-spacing:-.01em}
+.cap-card p{margin:0 0 14px;color:var(--soft);font-size:14.5px}
+.cap-card span{display:block;color:var(--muted);font-size:12.5px;line-height:1.75}
+@media(min-width:760px){.cap-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1120px){.cap-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- project extras ---------- */
+.project-question{color:var(--soft);font-size:16px;font-weight:600;margin:0 0 12px;max-width:62ch}
+.project.feature .project-question{font-size:18px}
+.project-note{
+  margin:14px 0 0;padding-left:13px;border-left:2px solid var(--line);
+  color:var(--muted);font-size:12.5px;max-width:70ch;
+}
+.feature-split{display:grid;gap:18px;margin:20px 0 4px}
+@media(min-width:820px){.feature-split{grid-template-columns:1fr 1fr;gap:26px}}
+.feature-block h4{
+  margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);
+}
+.feature-block ul{margin:0;padding-left:17px;color:var(--muted);font-size:13.5px}
+.feature-block li{margin:7px 0}
+.feature-block li b{color:var(--soft);font-weight:700}
+.project.compact{min-height:0}
+.contact-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* ---------- theme toggle ---------- */
+.theme-toggle{
+  display:grid;place-items:center;width:38px;height:38px;flex:none;
+  border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04);
+  color:var(--soft);cursor:pointer;transition:.2s ease;
+}
+.theme-toggle:hover{border-color:var(--line2);color:var(--text)}
+
+/* ---------- light theme ----------
+   Editorial and analytical rather than an inversion of the dark theme:
+   paper surfaces, ink text, and the accent pulled down to a readable depth. */
+:root[data-theme="light"]{
+  --bg:#f7f8fa;
+  --bg2:#ffffff;
+  --bg3:#eef1f5;
+  --glass:rgba(255,255,255,.82);
+  --glass-strong:rgba(255,255,255,.92);
+  --text:#0d1420;
+  --muted:#5a6778;
+  --soft:#2b3647;
+  --line:rgba(13,20,32,.12);
+  --line2:rgba(8,115,160,.34);
+  --cyan:#0b7fa8;
+  --blue:#2f5fd0;
+  --violet:#5b4bd6;
+  --gold:#8a6400;
+  --green:#0e7a52;
+  --shadow:0 18px 44px rgba(14,22,38,.09), inset 0 1px 0 rgba(255,255,255,.7);
+  --shadow-hover:0 26px 60px rgba(14,22,38,.14), inset 0 1px 0 rgba(255,255,255,.8);
+}
+:root[data-theme="light"] body{
+  background:
+    radial-gradient(1000px 680px at 78% -6%,rgba(11,127,168,.07),transparent 62%),
+    radial-gradient(820px 620px at 6% 24%,rgba(91,75,214,.05),transparent 60%),
+    var(--bg);
+}
+:root[data-theme="light"] body:before{
+  background-image:linear-gradient(rgba(13,20,32,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(13,20,32,.045) 1px,transparent 1px);
+}
+:root[data-theme="light"] body:after{background:radial-gradient(circle,rgba(11,127,168,.07),transparent 68%)}
+:root[data-theme="light"] .site-nav{background:rgba(255,255,255,.82)}
+:root[data-theme="light"] .section-shell,
+:root[data-theme="light"] .trust-row,
+:root[data-theme="light"] .story-step,
+:root[data-theme="light"] .cap-card,
+:root[data-theme="light"] .project,
+:root[data-theme="light"] .exp-card,
+:root[data-theme="light"] .info-card,
+:root[data-theme="light"] .beyond-card{background:var(--bg2)}
+:root[data-theme="light"] .brand-mark{color:#fff}
+:root[data-theme="light"] .skip{color:#fff}
+:root[data-theme="light"] .glabel{color:rgba(43,54,71,.5)}
+:root[data-theme="light"] .contact{background:linear-gradient(135deg,#ffffff,#eef3f8)}
+:root[data-theme="light"] .beyond-card.volunteer{background:linear-gradient(145deg,#eefaf4,#ffffff);border-color:rgba(14,122,82,.22)}
+
+/* ---------- responsive for the new blocks ---------- */
+@media(max-width:900px){
+  .hero-visual{min-height:380px}
+  .hero-copy-col{max-width:none}
+  .trust-row{flex-direction:column;align-items:flex-start;gap:14px}
+}
+@media(max-width:620px){
+  .hero-visual{min-height:300px}
+  .glabel{font-size:9.5px;letter-spacing:.16em}
+  .gl-business{left:0}.gl-ai{left:0}.gl-product{right:2%}.gl-data{right:0}
+  .story-step{padding:20px 20px 20px 20px}
+  .story-n{position:static;display:block;margin-bottom:9px}
+  .cap-card{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .story-step,.cap-card{transition:none}
+  .story-step:hover,.cap-card:hover{transform:none}
+}
+
+/* ---------- hero refinements ----------
+   The canvas edge was clipping the globe's atmosphere into a visible rectangle.
+   Masking the canvas lets the field fade into the page instead of ending at a
+   box, which is what makes it read as an object in the page. */
+.hero-visual canvas{
+  mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 42%,rgba(0,0,0,.55) 68%,transparent 86%);
+  -webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 42%,rgba(0,0,0,.55) 68%,transparent 86%);
+}
+
+/* Five lines of headline is not a headline. Hold it to three or four. */
+.hero h1{font-size:clamp(34px,4.3vw,56px);max-width:19ch;line-height:1.06}
+.hero{min-height:auto;padding:40px 0 20px}
+.hero-grid{align-items:center;gap:38px}
+.hero-name{margin-top:14px}
+.hero h1{margin-top:18px}
+.hero-sub{margin-top:16px}
+.hero-actions{margin-top:26px}
+
+@media(min-width:1100px){
+  .hero-grid{grid-template-columns:1.02fr .98fr}
+  .hero-visual{min-height:560px;margin-right:-6%}
+}
+
+/* ---------- light theme: the field keeps its own stage ----------
+   The intelligence field is drawn in light cyan for a dark background. Rather
+   than wash it out on paper, the light theme gives it a deep panel to sit in,
+   so it reads as a window into the data instead of a faded graphic. */
+:root[data-theme="light"] .hero-visual{
+  border-radius:28px;
+  background:radial-gradient(ellipse 70% 70% at 50% 45%,#0b1220,#05070b 72%);
+  box-shadow:0 30px 70px rgba(10,20,40,.22), inset 0 1px 0 rgba(255,255,255,.06);
+  overflow:hidden;
+}
+:root[data-theme="light"] .hero-visual canvas{
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 58%,rgba(0,0,0,.7) 80%,transparent 97%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 58%,rgba(0,0,0,.7) 80%,transparent 97%);
+}
+:root[data-theme="light"] .glabel{color:rgba(198,207,219,.5)}
+@media(min-width:1100px){:root[data-theme="light"] .hero-visual{margin-right:0}}
+
+/* Metric and its caption should sit on one baseline, not break mid-phrase. */
+.project-metric{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 9px}
+.project-metric small{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.01em}
+
+/* The headline gradient is tuned for a dark background; on paper its light end
+   disappears. Give the light theme its own range. */
+:root[data-theme="light"] .gradient{
+  background:linear-gradient(100deg,#0b7fa8 0%,#2f5fd0 48%,#5b4bd6 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
