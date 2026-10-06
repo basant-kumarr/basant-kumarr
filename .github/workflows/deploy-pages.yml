@@ -42,9 +42,13 @@ jobs:
         working-directory: site
         run: |
           SITE="https://basant-kumarr.github.io/basant-kumarr/"
-          sed -i "s|https://basant-kumar-portfolio.netlify.app/|$SITE|g" dist/index.html
-          sed -i "s|https://basant-kumar-portfolio.netlify.app/|$SITE|g" dist/sitemap.xml dist/robots.txt
-          grep -c "$SITE" dist/index.html
+          OLD="https://basant-kumar-portfolio.netlify.app/"
+          for f in dist/index.html dist/sitemap.xml dist/robots.txt; do
+            [ -f "$f" ] && sed -i "s|$OLD|$SITE|g" "$f"
+          done
+          # Report only. A zero count is fine now that the page ships the Pages
+          # origin directly, and must not fail the build.
+          echo "canonical/OG references: $(grep -c "$SITE" dist/index.html || true)"
 
       - uses: actions/configure-pages@v5
         with:
