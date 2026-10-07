@@ -79,7 +79,7 @@
   }
 
   /* scenes */
-  var map = { cvBody: 'body', cvIreland: 'ireland', cvFraud: 'fraud', cvForecast: 'forecast', cvGlobe: 'globe' };
+  var map = { cvForecast: 'forecast' };
   Object.keys(map).forEach(function (id) {
     var cv = document.getElementById(id), f = BK.scenes[map[id]];
     if (cv && f) BK.mount(cv, f);
