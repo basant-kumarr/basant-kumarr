@@ -1,4 +1,4 @@
-/* Page behaviour: menu, active section, reveal, portrait, and scene mounting.
+/* Page behaviour: menu, active section, reveal, starfield and scene mounting.
    Content never depends on this file: with JavaScript off every section is
    still visible and every link still works. */
 (function () {
@@ -44,15 +44,6 @@
     setTimeout(function () { rev.forEach(function (el) { el.classList.add('in'); }); }, 3500);
   }
 
-  /* portrait: shown only if assets/img/portrait.jpg exists, otherwise the monogram */
-  var img = document.getElementById('portraitImg');
-  if (img) {
-    var host = img.closest('.portrait');
-    var ok = function () { if (img.naturalWidth > 0) host.classList.add('has-photo'); };
-    if (img.complete) ok(); else img.addEventListener('load', ok);
-    img.addEventListener('error', function () { img.remove(); });
-  }
-
   /* fixed starfield, drawn once per resize */
   var sky = document.getElementById('sky');
   function paintSky() {
@@ -88,12 +79,13 @@
   }
 
   /* scenes */
-  var map = {
-    cvBrain: 'brain', cvRing: 'ring', cvBody: 'body', cvIreland: 'ireland', cvFraud: 'fraud',
-    cvForecast: 'forecast', cvSkills: 'skills', cvCity: 'city', cvPath: 'path', cvGlobe: 'globe'
-  };
+  var map = { cvBody: 'body', cvIreland: 'ireland', cvFraud: 'fraud', cvForecast: 'forecast', cvGlobe: 'globe' };
   Object.keys(map).forEach(function (id) {
     var cv = document.getElementById(id), f = BK.scenes[map[id]];
     if (cv && f) BK.mount(cv, f);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('canvas[data-scene]'), function (cv) {
+    var f = BK.scenes[cv.getAttribute('data-scene')];
+    if (f) BK.mount(cv, f);
   });
 })();
