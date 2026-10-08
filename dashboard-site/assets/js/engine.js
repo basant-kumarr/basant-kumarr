@@ -92,6 +92,9 @@
   /* Size the canvas backing store to its CSS box. */
   function fit(canvas, ctx) {
     var cap = small ? 1.5 : 1.75;
+    /* soft overlays can ask for a lower pixel ratio with data-dpr */
+    var req = parseFloat(canvas.getAttribute('data-dpr'));
+    if (req > 0) cap = Math.min(cap, req);
     var dpr = Math.min(window.devicePixelRatio || 1, cap);
     var r = canvas.getBoundingClientRect();
     var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));

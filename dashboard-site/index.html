@@ -114,7 +114,7 @@
           <source media="(max-width:760px)" srcset="assets/img/hero-brain-sm.webp" width="490" height="555">
           <img src="assets/img/hero-brain.webp" srcset="assets/img/hero-brain-800.webp 800w, assets/img/hero-brain.webp 1353w" sizes="(max-width:1080px) 100vw, 62vw" width="1353" height="560" alt="" fetchpriority="high" decoding="async">
         </picture>
-        <canvas class="sparks" data-scene="sparks" data-focus="0.36,0.48" aria-hidden="true"></canvas>
+        <canvas class="sparks" data-scene="sparks" data-dpr="1" data-focus="0.36,0.48" aria-hidden="true"></canvas>
         <p class="sr-only">A glowing neural brain above a holographic platform, linked to people, data, analytics, insights, decisions and business impact.</p>
       </div>
       <div class="hero-copy">
@@ -152,7 +152,7 @@
       </div>
       <div class="about-visual">
         <img src="assets/img/about-globe.webp" width="910" height="460" alt="" loading="lazy" decoding="async">
-        <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.45" aria-hidden="true"></canvas>
+        <canvas class="sparks" data-scene="sparks" data-dpr="1" data-focus="0.5,0.45" aria-hidden="true"></canvas>
         <p class="sr-only">A glowing globe linked to data, analytics, AI, business impact, people and solutions.</p>
       </div>
       <figure class="quote-card">
@@ -205,7 +205,7 @@
           <p class="f-kicker">Featured project · AI product</p>
           <h3 id="f-bb" class="f-title">Be<b>Beyond</b></h3>
           <p class="f-kind">AI Fitness Coach</p>
-          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation with AI-powered guidance.</p>
+          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation, with AI that explains each recommendation.</p>
           <ul class="f-chips" role="list"><li><svg><use href="#i-atom"/></svg>React Native</li><li><svg><use href="#i-bolt"/></svg>FastAPI</li><li><svg><use href="#i-brain"/></svg>AI</li><li><svg><use href="#i-cube"/></svg>3D Graphics</li></ul>
           <ul class="f-status" role="list">
             <li><b>Built and tested</b>Exercise ontology, readiness and muscle load with confidence tiers, recommendation and nutrition engines, 3D exercise view</li>
@@ -239,7 +239,7 @@
         </div>
         <figure class="f-visual">
           <img src="assets/img/fraud-core.webp" width="818" height="472" alt="Concept render of an XGBoost model above a payment card, sorting transactions into legitimate and fraudulent streams." loading="lazy" decoding="async">
-          <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.25" aria-hidden="true"></canvas>
+          <canvas class="sparks" data-scene="sparks" data-dpr="1" data-focus="0.5,0.25" aria-hidden="true"></canvas>
           <figcaption>Concept render.</figcaption>
         </figure>
         <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>A logistic regression baseline caught only 59 of 644 fraudulent transactions in the test set. Can a model do better, and explain why it flags what it flags?</dd></div><div><dt>Approach</dt><dd>Behavioural features (spending deviation from the cardholder average, distance to merchant, card-not-present proxy), then tuned XGBoost with a precision-first threshold, explained with SHAP.</dd></div><div><dt>My role</dt><dd>MSc team coursework (MI6228, Maynooth University). My contribution: feature engineering, XGBoost tuning, SHAP analysis and Gradio deployment.</dd></div></dl>
@@ -322,7 +322,7 @@
         <div class="sk-core">
           <div class="sk-core-art">
             <img src="assets/img/skills-core.webp" width="480" height="443" alt="" loading="lazy" decoding="async">
-            <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.32" aria-hidden="true"></canvas>
+            <canvas class="sparks" data-scene="sparks" data-dpr="1" data-focus="0.5,0.32" aria-hidden="true"></canvas>
           </div>
           <p class="sk-thesis">I don't just know tools. I know how to use them to solve <b>business problems</b>.</p>
           <p class="sr-only">A glowing brain on a holographic pedestal reading Data, Insights, Solutions, Impact.</p>
@@ -386,7 +386,7 @@
             <div class="tl-body">
               <h3>Graduate Research Assistant <i>·</i> <em>Maynooth University</em></h3>
               <p class="where"><svg><use href="#i-pin"/></svg>Kildare, Ireland · Nov 2024 – Feb 2026</p>
-              <ul><li>Built automated reporting dashboards using Python, R and Tableau.</li><li>Interviewed HR leads, CEOs and senior managers across several organisations for a faculty-led study on hybrid and remote work.</li></ul>
+              <ul><li>Built automated reporting dashboards using Python, R and Tableau.</li><li>Interviewed HR leads, CEOs and senior managers, then analysed the qualitative data to identify themes.</li></ul>
             </div>
             <span class="tl-tag"><svg><use href="#i-bars"/></svg>Data Analysis</span>
           </li>
@@ -395,7 +395,7 @@
             <span class="wm wm-bj" aria-hidden="true">Bajaj<br>Electricals</span>
             <div class="tl-body">
               <h3>R&amp;D Engineer, IoT &amp; Analytics <i>·</i> <em>Bajaj Electricals</em></h3>
-              <p class="where"><svg><use href="#i-pin"/></svg>Pune, India · Oct 2022 – Dec 2023</p>
+              <p class="where"><svg><use href="#i-pin"/></svg>India · Oct 2022 – Dec 2023</p>
               <ul><li>Analysed IoT sensor data, built KPI reporting and applied forecasting.</li><li>Worked with cross-functional teams on requirements and technical deliverables.</li></ul>
             </div>
             <span class="tl-tag"><svg><use href="#i-gear"/></svg>Engineering</span>
@@ -405,7 +405,7 @@
             <span class="wm wm-bj" aria-hidden="true">Bajaj<br>Electricals</span>
             <div class="tl-body">
               <h3>Junior Engineer, AI &amp; IoT Solutions <i>·</i> <em>Bajaj Electricals</em></h3>
-              <p class="where"><svg><use href="#i-pin"/></svg>Pune, India · Jul 2021 – Oct 2022</p>
+              <p class="where"><svg><use href="#i-pin"/></svg>India · Jul 2021 – Oct 2022</p>
               <ul><li>Analysed processes, prepared gap-analysis reports and KPI dashboards.</li><li>Supported performance benchmarking across AI and IoT solutions.</li></ul>
             </div>
             <span class="tl-tag"><svg><use href="#i-chip"/></svg>AI &amp; IoT</span>
@@ -439,8 +439,8 @@
           <blockquote class="j-quote">Every experience adds a new skill, a new perspective and a stronger version of me.</blockquote>
         </div>
         <div class="journey-city">
-          <img src="assets/img/journey-city.webp" width="488" height="470" alt="" loading="lazy" decoding="async">
-          <canvas class="sparks" data-scene="sparks" data-focus="0.35,0.2" aria-hidden="true"></canvas>
+          <img src="assets/img/journey-city.webp" width="488" height="470" alt="A glowing data globe above a city skyline at dusk, tagged AI, Analytics and Business Impact." loading="lazy" decoding="async">
+          <canvas class="sparks" data-scene="sparks" data-dpr="1" data-focus="0.35,0.2" aria-hidden="true"></canvas>
         </div>
       </div>
       <ol class="milestones">
@@ -457,7 +457,7 @@
           <span class="ms-year">2021 – 2022</span>
           <div class="ms-card">
             <h3>Junior Engineer, AI &amp; IoT</h3>
-            <p class="ms-org"><span class="seal seal-bj" aria-hidden="true">BE</span>Bajaj Electricals<small>Pune, India</small></p>
+            <p class="ms-org"><span class="seal seal-bj" aria-hidden="true">BE</span>Bajaj Electricals<small>India</small></p>
             <ul><li>Process analysis and gap-analysis reports</li><li>KPI dashboards and performance benchmarking</li></ul>
           </div>
           <span class="ms-icon" aria-hidden="true"><svg><use href="#i-brief"/></svg></span>
@@ -466,7 +466,7 @@
           <span class="ms-year">2022 – 2023</span>
           <div class="ms-card">
             <h3>R&amp;D Engineer</h3>
-            <p class="ms-org"><span class="seal seal-bj" aria-hidden="true">BE</span>Bajaj Electricals<small>Pune, India</small></p>
+            <p class="ms-org"><span class="seal seal-bj" aria-hidden="true">BE</span>Bajaj Electricals<small>India</small></p>
             <ul><li>IoT sensor data analysis and KPI reporting</li><li>Forecasting with cross-functional teams</li></ul>
           </div>
           <span class="ms-icon" aria-hidden="true"><svg><use href="#i-gear"/></svg></span>
@@ -498,8 +498,7 @@
           <span class="ms-icon" aria-hidden="true"><svg><use href="#i-trend"/></svg></span>
         </li>
       </ol>
-      <div class="journey-path">
-        <img src="assets/img/journey-path.webp" width="924" height="335" alt="" loading="lazy" decoding="async">
+      <div class="journey-band">
         <ol class="path-chips" role="list" aria-label="Journey">
           <li>Engineering</li><li>Systems</li><li>Technology</li><li>Analytics</li><li>AI</li><li>Business Impact</li>
         </ol>

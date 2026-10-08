@@ -13,15 +13,21 @@
     var motes = [];
     for (var i = 0; i < (env.small ? 26 : 48); i++) motes.push({ x: R(), y: R(), v: 0.008 + R() * 0.02, s: R(), p: R() * TAU, gold: R() < 0.45 });
     var sC = BK.sprite('110,210,255', 24), sG = BK.sprite('255,190,90', 24);
+    var glow = document.createElement('canvas');
+    glow.width = glow.height = 64;
+    var gg = glow.getContext('2d'), gr = gg.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gr.addColorStop(0, 'rgba(80,170,255,0.14)');
+    gr.addColorStop(1, 'rgba(80,170,255,0)');
+    gg.fillStyle = gr; gg.fillRect(0, 0, 64, 64);
     return {
       resize: function (s) { W = s.w; H = s.h; },
       frame: function (t) {
         ctx.globalCompositeOperation = 'lighter';
+        /* the glow is a small pre-rendered sprite scaled up, so the pulse only
+           changes its alpha instead of rebuilding a full-canvas gradient */
         var pulse = 0.5 + 0.5 * Math.sin(t * 1.3), r = Math.min(W, H) * 0.42;
-        var g = ctx.createRadialGradient(W * fx, H * fy, 0, W * fx, H * fy, r);
-        g.addColorStop(0, 'rgba(80,170,255,' + (0.06 + pulse * 0.08).toFixed(3) + ')');
-        g.addColorStop(1, 'rgba(80,170,255,0)');
-        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+        ctx.globalAlpha = 0.43 + pulse * 0.57;
+        ctx.drawImage(glow, W * fx - r, H * fy - r, r * 2, r * 2);
         for (var i = 0; i < motes.length; i++) {
           var m = motes[i];
           var y = ((m.y - t * m.v) % 1 + 1) % 1;
