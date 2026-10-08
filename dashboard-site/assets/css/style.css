@@ -464,6 +464,7 @@ svg{width:1em;height:1em;flex:none}
   .fc-legend{left:12px;gap:10px;font-size:10px}
   .age-map{width:40%}
   .wrap{padding:0 16px}
+  .wrap.foot{padding-top:36px;padding-bottom:32px}
   .brand-name{font-size:16px}
   .nav-right .icon-btn{display:none}
   .sec{padding-top:48px}
