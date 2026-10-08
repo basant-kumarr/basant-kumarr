@@ -71,6 +71,7 @@
     <symbol id="i-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 4h3l2.4 11h11l2-8H6.6"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></g></symbol>
     <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15M5 19l7-7"/></symbol>
     <symbol id="i-atom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M3 11l9-7.5 9 7.5M5.5 9v11h13V9M10 20v-6h4v6"/></symbol>
   </defs>
 </svg>
 
@@ -109,23 +110,27 @@
   <div class="wrap">
     <div class="panel hero">
       <div class="hero-visual">
-        <img src="assets/img/hero-brain.webp" width="1353" height="560" alt="" fetchpriority="high" decoding="async">
+        <picture>
+          <source media="(max-width:760px)" srcset="assets/img/hero-brain-sm.webp" width="490" height="555">
+          <img src="assets/img/hero-brain.webp" srcset="assets/img/hero-brain-800.webp 800w, assets/img/hero-brain.webp 1353w" sizes="(max-width:1080px) 100vw, 62vw" width="1353" height="560" alt="" fetchpriority="high" decoding="async">
+        </picture>
         <canvas class="sparks" data-scene="sparks" data-focus="0.36,0.48" aria-hidden="true"></canvas>
         <p class="sr-only">A glowing neural brain above a holographic platform, linked to people, data, analytics, insights, decisions and business impact.</p>
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">Data · Analytics · AI · Impact</p>
+        <p class="eyebrow">Business Analysis · Data · Analytics · AI · Intelligent Products</p>
         <p class="hello">Hello, I'm</p>
         <h1 id="home-title"><span class="h-name">Basant <b>Kumar</b></span><span class="h-role">AI &amp; Business Analyst</span></h1>
         <span class="rule" aria-hidden="true"></span>
-        <p class="lede">Turning data, AI and technology into intelligent business decisions for a smarter, more human future.</p>
+        <p class="lede">Turning data, AI and technology into intelligent business decisions and practical solutions.</p>
         <div class="actions">
           <a class="btn primary" href="#projects">View My Work <svg><use href="#i-arrow"/></svg></a>
           <a class="btn ghost" href="#contact"><svg><use href="#i-mail"/></svg> Contact Me</a>
         </div>
+        <p class="hero-target"><i></i>Open to Business Analyst, AI Business Analyst and Data Analyst roles in Ireland</p>
       </div>
       <ul class="statbar" role="list">
-        <li><svg><use href="#i-cap"/></svg><div><b>MSc Business Analytics</b><span>Maynooth University</span><small>2024 – 2026 (Completed)</small></div></li>
+        <li><svg><use href="#i-cap"/></svg><div><b>MSc Business Analytics</b><span>Maynooth University</span><small>2024 – 2026 · Completed, award pending</small></div></li>
         <li><svg><use href="#i-bars"/></svg><div><b>Engineering Background</b><span>BEng E&amp;TC</span><small>2016 – 2020</small></div></li>
         <li><svg><use href="#i-layers"/></svg><div><b>10+</b><span>Projects &amp; Analyses</span><small>Real-world Solutions</small></div></li>
         <li><svg><use href="#i-pin"/></svg><div><b>Based in</b><span>Celbridge, Co. Kildare</span><small>Ireland</small></div></li>
@@ -200,62 +205,66 @@
           <p class="f-kicker">Featured project · AI product</p>
           <h3 id="f-bb" class="f-title">Be<b>Beyond</b></h3>
           <p class="f-kind">AI Fitness Coach</p>
-          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation with AI-powered guidance. A deterministic engine owns every number it reports; the language model only explains the decision and cannot invent a figure.</p>
+          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation with AI-powered guidance.</p>
           <ul class="f-chips" role="list"><li><svg><use href="#i-atom"/></svg>React Native</li><li><svg><use href="#i-bolt"/></svg>FastAPI</li><li><svg><use href="#i-brain"/></svg>AI</li><li><svg><use href="#i-cube"/></svg>3D Graphics</li></ul>
           <ul class="f-status" role="list">
             <li><b>Built and tested</b>Exercise ontology, readiness and muscle load with confidence tiers, recommendation and nutrition engines, 3D exercise view</li>
             <li><b>Simulated</b>Camera form analysis runs on a scripted pose source, not live inference</li>
             <li><b>Scaffolded</b>Wearable adapters exist; no live data flows yet</li>
           </ul>
-          <p class="f-note">Private build, in development · React Native, Expo, TypeScript, FastAPI, PostgreSQL, Three.js</p>
+          <p class="f-note">Stack: React Native, Expo, TypeScript, FastAPI, PostgreSQL, Three.js</p>
         </div>
         <figure class="f-visual">
-          <img src="assets/img/bebeyond-app.webp" width="1120" height="941" alt="Concept render of the BeBeyond app on a phone beside an anatomical muscle model, with panels for AI coaching, workout plans, nutrition, 3D exercise visualisation and muscle load." loading="lazy" decoding="async">
+          <img src="assets/img/bebeyond-app.webp" srcset="assets/img/bebeyond-app-700.webp 700w, assets/img/bebeyond-app.webp 1120w" sizes="(max-width:1080px) 100vw, 55vw" width="1120" height="941" alt="Concept render of the BeBeyond app on a phone beside an anatomical muscle model, with panels for AI coaching, workout plans, nutrition, 3D exercise visualisation and muscle load." loading="lazy" decoding="async">
           <figcaption>Concept render. Screen values are illustrative.</figcaption>
         </figure>
+        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>How does personalised fitness guidance become an intelligent product rather than another workout tracker?</dd></div><div><dt>Approach</dt><dd>Deterministic engines own every number (readiness, muscle load, nutrition targets); the language model only explains the decision and cannot invent a figure.</dd></div><div><dt>My role</dt><dd>Designed and built end to end. Private build, in development.</dd></div></dl>
       </article>
 
       <article class="panel feature f-fraud" aria-labelledby="f-fr">
         <div class="f-copy">
-          <p class="f-kicker">Featured project · Machine learning</p>
+          <p class="f-kicker">Featured project · Machine learning · Team project</p>
           <h3 id="f-fr" class="f-title">Fraud <b>Detection</b></h3>
           <p class="f-kind">Machine Learning</p>
-          <p class="f-desc">Built an XGBoost model to detect fraudulent transactions on a public credit card dataset, with SMOTE for the heavy class imbalance and SHAP so every flag can be traced to the features behind it.</p>
+          <p class="f-desc">An explainable model that catches the fraud a standard baseline misses, framed for a fraud operations team rather than a leaderboard.</p>
           <ul class="f-stats" role="list">
             <li><svg><use href="#i-target"/></svg><b>99.9%</b><span>AUC-ROC</span></li>
             <li><svg><use href="#i-shield"/></svg><b>97.2%</b><span>Precision</span></li>
-            <li><svg><use href="#i-trend"/></svg><b>+437</b><span>Fraud cases caught vs baseline</span></li>
-            <li><svg><use href="#i-hbars"/></svg><b>SHAP</b><span>Explainable AI</span></li>
+            <li><svg><use href="#i-trend"/></svg><b>496</b><span>Of 644 frauds caught, 437 more than the baseline</span></li>
+            <li><svg><use href="#i-db"/></svg><b>555,719</b><span>Synthetic transactions analysed</span></li>
           </ul>
-          <p class="f-note">Public dataset, not proprietary card network data. It is cleaner and more separable than real transactions, so the useful part is explainability, not the score. Baseline: logistic regression.</p>
-          <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/fraud-detections-xgboost" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a><span class="f-tech">Python · XGBoost · SMOTE · SHAP · scikit-learn</span></div>
+          <p class="f-note">Public synthetic dataset from Kaggle, not real card-network data. Synthetic data is cleaner than real transactions, so the useful part is the explainable behavioural features, not the headline score.</p>
+          <div class="f-actions"><a class="btn primary" href="https://fraud-detection-xgboost.netlify.app/" target="_blank" rel="noopener">Live Dashboard <svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="https://github.com/basant-kumarr/fraud-detections-xgboost" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Repository</a></div>
+          <p class="f-tech">Python · XGBoost · GridSearchCV · SHAP · scikit-learn · Gradio</p>
         </div>
         <figure class="f-visual">
           <img src="assets/img/fraud-core.webp" width="818" height="472" alt="Concept render of an XGBoost model above a payment card, sorting transactions into legitimate and fraudulent streams." loading="lazy" decoding="async">
           <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.25" aria-hidden="true"></canvas>
           <figcaption>Concept render.</figcaption>
         </figure>
+        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>A logistic regression baseline caught only 59 of 644 fraudulent transactions in the test set. Can a model do better, and explain why it flags what it flags?</dd></div><div><dt>Approach</dt><dd>Behavioural features (spending deviation from the cardholder average, distance to merchant, card-not-present proxy), then tuned XGBoost with a precision-first threshold, explained with SHAP.</dd></div><div><dt>My role</dt><dd>MSc team coursework (MI6228, Maynooth University). My contribution: feature engineering, XGBoost tuning, SHAP analysis and Gradio deployment.</dd></div></dl>
       </article>
 
       <article class="panel feature f-age" aria-labelledby="f-af">
         <div class="f-copy">
-          <p class="f-kicker">Featured project · Data analytics &amp; BI</p>
+          <p class="f-kicker">Featured project · Client consultancy · Team project</p>
           <h3 id="f-af" class="f-title">Age Friendly <b>Ireland</b></h3>
           <p class="f-kind">Data Analysis &amp; Visualisation</p>
-          <p class="f-desc">Analysis of CSO Census 2022 data and official population projections to support an age-friendly and inclusive Ireland, built as MSc consultancy work. The question: how many households will face accessibility problems as the population ages, and where?</p>
+          <p class="f-desc">A real client engagement for Age Friendly Ireland: how ageing will change who struggles with stairs at home, and what national policy should do about it.</p>
           <ul class="f-stats" role="list">
-            <li><svg><use href="#i-team"/></svg><b>349,155</b><span>People with mobility difficulties analysed</span></li>
-            <li><svg><use href="#i-trend"/></svg><b>22.3%</b><span>Projected housing accessibility gap by 2050</span></li>
-            <li><svg><use href="#i-bars"/></svg><b>Census 2022</b><span>Data analysis</span></li>
-            <li><svg><use href="#i-bulb"/></svg><b>Evidence</b><span>For planners and policy</span></li>
+            <li><svg><use href="#i-team"/></svg><b>349,155</b><span>People with mobility difficulties (Census 2022)</span></li>
+            <li><svg><use href="#i-trend"/></svg><b>22.3%</b><span>Households affected by 2050, up from 16.9% in 2022</span></li>
+            <li><svg><use href="#i-home"/></svg><b>100,000+</b><span>Additional households affected by 2050 without policy change</span></li>
+            <li><svg><use href="#i-bulb"/></svg><b>5</b><span>Policy proposals delivered to the client</span></li>
           </ul>
-          <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/housing-accessibility-ireland" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a><span class="f-tech">Python · CSO Census 2022 · Projections · Dashboard</span></div>
+          <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/housing-accessibility-ireland" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a><span class="f-tech">CSO Census 2022 · CSO PEC19 projections · Prevalence modelling · Policy benchmarking</span></div>
         </div>
         <figure class="f-visual f-age-visual">
           <img src="assets/img/age-scene.webp" width="790" height="373" alt="Concept render of an older couple on a riverside bench in an Irish town at sunset, beside signposts for health services, public transport, accessible cities and community inclusion." loading="lazy" decoding="async">
           <img class="age-map" src="assets/img/age-map.webp" width="346" height="306" alt="" loading="lazy" decoding="async">
           <figcaption>Concept render.</figcaption>
         </figure>
+        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>Age Friendly Ireland needed a defensible estimate of how many Irish households face stair-related mobility barriers today and in future decades.</dd></div><div><dt>Approach</dt><dd>Census 2022 prevalence by age and sex, applied to CSO PEC19 population projections and converted to household level, then benchmarked against Australia, Sweden and Denmark.</dd></div><div><dt>Context</dt><dd>Four-person MSc Business Analytics team. Five recommendations delivered to the client in an executive presentation.</dd></div></dl>
       </article>
 
       <article class="panel feature f-sales" aria-labelledby="f-sd">
@@ -263,10 +272,10 @@
           <p class="f-kicker">Featured project · Forecasting</p>
           <h3 id="f-sd" class="f-title">Sales Demand <b>Forecasting</b></h3>
           <p class="f-kind">Business Analytics</p>
-          <p class="f-desc">Time series forecasting to support inventory planning and reduce stockout and overstock risk: ARIMA against Prophet on the same demand series, looking at where each one holds up for planning and where the error is most expensive.</p>
-          <ul class="f-chips" role="list"><li><svg class="c-r"><use href="#i-r"/></svg>R</li><li><svg><use href="#i-trend"/></svg>ARIMA</li><li><svg><use href="#i-wave"/></svg>Prophet</li><li><svg><use href="#i-truck"/></svg>Inventory Planning</li></ul>
-          <ul class="f-goals" role="list"><li>Forecast demand</li><li>Plan inventory</li><li>Reduce stockouts</li><li>Avoid overstock</li></ul>
-          <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/sales-demand-forecasting" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a></div>
+          <p class="f-desc">Forecasting built around a planning decision: too much stock ties up capital, too little loses sales.</p>
+          <ul class="f-chips" role="list"><li><svg class="c-r"><use href="#i-r"/></svg>R</li><li><svg><use href="#i-trend"/></svg>ARIMA</li><li><svg><use href="#i-wave"/></svg>Prophet</li><li><svg><use href="#i-bars"/></svg>ggplot2</li></ul>
+          <ul class="f-goals" role="list" aria-label="What the forecast supports"><li>Forecast demand</li><li>Plan inventory</li><li>Reduce stockouts</li><li>Avoid overstock</li></ul>
+                    <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/sales-demand-forecasting" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a></div>
         </div>
         <figure class="f-visual f-sales-visual">
           <div class="fc-stage" aria-hidden="true"><canvas id="cvForecast"></canvas><span class="fc-tag">Forecast</span>
@@ -274,6 +283,7 @@
           <img src="assets/img/sales-logistics.webp" width="1263" height="228" alt="Concept render of a miniature logistics network: warehouses, trucks and containers linked by glowing routes, with a tablet listing forecast demand, optimise inventory, reduce stockouts and drive business growth." loading="lazy" decoding="async">
           <figcaption>Concept render and illustrative chart, not project output.</figcaption>
         </figure>
+        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>Inaccurate demand forecasts lead to excess inventory or stockouts. Which model gives planners a forecast they can order against?</dd></div><div><dt>Approach</dt><dd>Trend decomposition and ADF stationarity tests, then Auto ARIMA and Prophet in R, evaluated with rolling-window validation on RMSE, MAE and MAPE.</dd></div><div><dt>Finding</dt><dd>Both improved on a naive baseline. Prophet did better on strongly seasonal series with holiday effects; ARIMA on stationary, trend-driven series.</dd></div></dl>
       </article>
     </div>
   </div>
@@ -286,47 +296,61 @@
       <div class="skills-head">
         <p class="kicker"><span>04.</span> Skills</p>
         <h2 id="skills-title" class="big-title">Skills that <b>create impact</b></h2>
-        <p class="sub">A blend of analytical, technical and domain skills to turn data into meaningful solutions.</p>
+        <p class="sub">Five capabilities that work as one system: understand the problem, analyse the data, model it, build the product, and keep learning.</p>
       </div>
       <div class="skills-grid">
-        <article class="sk-card sk-prog">
-          <h3><svg><use href="#i-code"/></svg>Programming &amp; Analytics</h3>
-          <ul role="list"><li><svg class="c-py"><use href="#i-code"/></svg>Python</li><li><svg class="c-r"><use href="#i-r"/></svg>R</li><li><svg class="c-sql"><use href="#i-db"/></svg>SQL</li></ul>
+        <div class="sk-col sk-left">
+        <article class="sk-card sk-a">
+          <p class="sk-n">01</p>
+          <h3><svg><use href="#i-search"/></svg>Business Analysis</h3>
+          <p class="sk-why">Frame the problem and agree what success looks like.</p>
+          <ul class="sk-chips" role="list"><li>Requirements</li><li>Process Improvement</li><li>Stakeholder Management</li><li>KPI Definition</li><li>As-Is / To-Be</li><li>Gap Analysis</li><li>Supply Chain Analytics</li><li>Project Management</li></ul>
         </article>
-        <article class="sk-card sk-tools">
-          <h3><svg><use href="#i-wrench"/></svg>Tools &amp; Platforms</h3>
-          <ul role="list"><li><svg class="c-pbi"><use href="#i-bars"/></svg>Power BI</li><li><svg class="c-mat"><use href="#i-wave"/></svg>MATLAB</li><li><svg class="c-cad"><use href="#i-compass"/></svg>CAD</li></ul>
+        <article class="sk-card sk-b">
+          <p class="sk-n">02</p>
+          <h3><svg><use href="#i-bars"/></svg>Data &amp; Analytics</h3>
+          <p class="sk-why">Get data into a state worth trusting, then answer the question.</p>
+          <ul class="sk-chips" role="list"><li><svg class="c-sql"><use href="#i-db"/></svg>SQL</li><li><svg class="c-py"><use href="#i-code"/></svg>Python</li><li><svg class="c-r"><use href="#i-r"/></svg>R</li><li><svg class="c-xl"><use href="#i-sheet"/></svg>Excel</li><li><svg class="c-pq"><use href="#i-filter"/></svg>Power Query</li><li><svg class="c-pbi"><use href="#i-bars"/></svg>Power BI</li><li><svg class="c-tab"><use href="#i-spark"/></svg>Tableau</li><li><svg class="c-my"><use href="#i-db"/></svg>MySQL</li></ul>
         </article>
-        <article class="sk-card sk-domain">
-          <h3><svg><use href="#i-bars"/></svg>Domain &amp; Analytical Skills</h3>
-          <ul role="list"><li><svg><use href="#i-search"/></svg>Business Analysis</li><li><svg><use href="#i-trend"/></svg>Data Analytics</li><li><svg><use href="#i-truck"/></svg>Supply Chain Analytics</li><li><svg><use href="#i-gear"/></svg>Project Management</li></ul>
+        <article class="sk-card sk-c">
+          <p class="sk-n">03</p>
+          <h3><svg><use href="#i-brain"/></svg>Machine Learning</h3>
+          <p class="sk-why">Models that predict something useful and can explain themselves.</p>
+          <ul class="sk-chips" role="list"><li><svg class="c-ml"><use href="#i-brain"/></svg>Machine Learning</li><li><svg class="c-xgb"><use href="#i-tree"/></svg>XGBoost</li><li><svg class="c-shap"><use href="#i-hbars"/></svg>SHAP</li><li>SMOTE</li><li><svg class="c-skl"><use href="#i-nodes"/></svg>Scikit-learn</li><li>Model Evaluation</li><li><svg><use href="#i-trend"/></svg>Forecasting</li></ul>
         </article>
-        <article class="sk-card sk-viz">
-          <h3><svg><use href="#i-bars"/></svg>Data Visualisation</h3>
-          <ul role="list"><li><svg class="c-pbi"><use href="#i-bars"/></svg>Power BI</li><li><svg class="c-tab"><use href="#i-spark"/></svg>Tableau</li><li><svg class="c-xl"><use href="#i-sheet"/></svg>Excel</li><li><svg class="c-pq"><use href="#i-filter"/></svg>Power Query</li></ul>
-        </article>
+        </div>
         <div class="sk-core">
-          <img src="assets/img/skills-core.webp" width="480" height="443" alt="" loading="lazy" decoding="async">
-          <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.32" aria-hidden="true"></canvas>
+          <div class="sk-core-art">
+            <img src="assets/img/skills-core.webp" width="480" height="443" alt="" loading="lazy" decoding="async">
+            <canvas class="sparks" data-scene="sparks" data-focus="0.5,0.32" aria-hidden="true"></canvas>
+          </div>
+          <p class="sk-thesis">I don't just know tools. I know how to use them to solve <b>business problems</b>.</p>
           <p class="sr-only">A glowing brain on a holographic pedestal reading Data, Insights, Solutions, Impact.</p>
         </div>
-        <article class="sk-card sk-ml">
-          <h3><svg><use href="#i-brain"/></svg>Machine Learning &amp; AI</h3>
-          <ul role="list"><li><svg class="c-skl"><use href="#i-nodes"/></svg>Scikit-learn</li><li><svg class="c-xgb"><use href="#i-tree"/></svg>XGBoost</li><li><svg class="c-shap"><use href="#i-hbars"/></svg>SHAP</li><li><svg class="c-ml"><use href="#i-brain"/></svg>Machine Learning</li></ul>
+        <div class="sk-col sk-right">
+        <article class="sk-card sk-d">
+          <p class="sk-n">04</p>
+          <h3><svg><use href="#i-cube"/></svg>Product &amp; Engineering</h3>
+          <p class="sk-why">Turn the insight into something people can actually use.</p>
+          <ul class="sk-chips" role="list"><li><svg><use href="#i-bolt"/></svg>FastAPI</li><li><svg class="c-pg"><use href="#i-db"/></svg>PostgreSQL</li><li><svg><use href="#i-atom"/></svg>React Native</li><li><svg><use href="#i-code"/></svg>TypeScript</li><li>APIs</li><li>AI Products</li><li><svg><use href="#i-chip"/></svg>IoT</li></ul>
         </article>
-        <article class="sk-card sk-db">
-          <h3><svg><use href="#i-db"/></svg>Databases</h3>
-          <ul role="list"><li><svg class="c-pg"><use href="#i-db"/></svg>PostgreSQL</li><li><svg class="c-my"><use href="#i-db"/></svg>MySQL</li></ul>
+        <article class="sk-card sk-e">
+          <p class="sk-n">05</p>
+          <h3><svg><use href="#i-wrench"/></svg>Engineering Tools</h3>
+          <p class="sk-why">From the electronics and R&amp;D side of the journey.</p>
+          <ul class="sk-chips" role="list"><li><svg class="c-mat"><use href="#i-wave"/></svg>MATLAB</li><li><svg class="c-cad"><use href="#i-compass"/></svg>CAD</li><li><svg><use href="#i-gh"/></svg>Git &amp; GitHub</li></ul>
         </article>
-        <article class="sk-card sk-certs">
+        <article class="sk-card sk-f">
+          <p class="sk-n">06</p>
           <h3><svg><use href="#i-award"/></svg>Certifications</h3>
-          <ul role="list">
-            <li><svg class="c-g"><use href="#i-award"/></svg><span>Google Data Analytics<small>Google · 2024</small></span></li>
-            <li><svg class="c-g2"><use href="#i-award"/></svg><span>Google Project Management<small>Google · 2022</small></span></li>
-            <li><svg class="c-ml"><use href="#i-brain"/></svg><span>Machine Learning Professional<small>Altair / RapidMiner · 2025</small></span></li>
-            <li><svg class="c-bulb"><use href="#i-bulb"/></svg><span>AI For Everyone<small>2023</small></span></li>
+          <ul class="sk-certs" role="list">
+            <li><b>Machine Learning Professional</b><span>Altair / RapidMiner · 2025</span></li>
+            <li><b>Google Data Analytics Professional Certificate</b><span>Google · 2024</span></li>
+            <li><b>AI For Everyone</b><span>2023</span></li>
+            <li><b>Google Project Management Professional Certificate</b><span>Google · 2022</span></li>
           </ul>
         </article>
+        </div>
       </div>
     </div>
   </div>
@@ -358,17 +382,17 @@
           </li>
           <li>
             <span class="tl-date">2024 – Feb 2026</span>
-            <span class="wm wm-mu" aria-hidden="true"><b>Maynooth</b>University</span>
+            <span class="wm wm-mu" aria-hidden="true">Maynooth<br>University</span>
             <div class="tl-body">
               <h3>Graduate Research Assistant <i>·</i> <em>Maynooth University</em></h3>
               <p class="where"><svg><use href="#i-pin"/></svg>Kildare, Ireland · Nov 2024 – Feb 2026</p>
-              <ul><li>Built automated reporting dashboards using Python, R and Tableau, reducing manual reporting effort by approximately 20%.</li><li>Interviewed HR leads, CEOs and senior managers across several organisations for a faculty-led study on hybrid and remote work.</li></ul>
+              <ul><li>Built automated reporting dashboards using Python, R and Tableau.</li><li>Interviewed HR leads, CEOs and senior managers across several organisations for a faculty-led study on hybrid and remote work.</li></ul>
             </div>
             <span class="tl-tag"><svg><use href="#i-bars"/></svg>Data Analysis</span>
           </li>
           <li>
             <span class="tl-date">2022 – 2023</span>
-            <span class="wm wm-bj" aria-hidden="true">BAJAJ</span>
+            <span class="wm wm-bj" aria-hidden="true">Bajaj<br>Electricals</span>
             <div class="tl-body">
               <h3>R&amp;D Engineer, IoT &amp; Analytics <i>·</i> <em>Bajaj Electricals</em></h3>
               <p class="where"><svg><use href="#i-pin"/></svg>Pune, India · Oct 2022 – Dec 2023</p>
@@ -378,7 +402,7 @@
           </li>
           <li>
             <span class="tl-date">2021 – 2022</span>
-            <span class="wm wm-bj" aria-hidden="true">BAJAJ</span>
+            <span class="wm wm-bj" aria-hidden="true">Bajaj<br>Electricals</span>
             <div class="tl-body">
               <h3>Junior Engineer, AI &amp; IoT Solutions <i>·</i> <em>Bajaj Electricals</em></h3>
               <p class="where"><svg><use href="#i-pin"/></svg>Pune, India · Jul 2021 – Oct 2022</p>
@@ -388,7 +412,7 @@
           </li>
           <li>
             <span class="tl-date">2018 – 2019</span>
-            <span class="wm wm-sh" aria-hidden="true">Shopify</span>
+            <span class="wm wm-sh" aria-hidden="true">E-commerce</span>
             <div class="tl-body">
               <h3>E-commerce Founder</h3>
               <p class="where"><svg><use href="#i-pin"/></svg>Independent project · Delhi · Feb 2018 – Aug 2019</p>
@@ -451,8 +475,8 @@
           <span class="ms-year">2024 – 2026</span>
           <div class="ms-card">
             <h3>MSc Business Analytics</h3>
-            <p class="ms-org"><span class="seal seal-mu" aria-hidden="true">MU</span>Maynooth University<small>Completed 2026, award pending</small></p>
-            <ul><li>Graduate Research Assistant, Nov 2024 – Feb 2026</li><li>Reduced manual reporting effort by ~20%</li></ul>
+            <p class="ms-org"><span class="seal seal-mu" aria-hidden="true">MU</span>Maynooth University<small>Kildare, Ireland</small></p>
+            <ul><li>Programme completed 2026, award pending</li><li>Graduate Research Assistant, Nov 2024 – Feb 2026</li></ul>
           </div>
           <span class="ms-icon" aria-hidden="true"><svg><use href="#i-book"/></svg></span>
         </li>
@@ -477,50 +501,47 @@
       <div class="journey-path">
         <img src="assets/img/journey-path.webp" width="924" height="335" alt="" loading="lazy" decoding="async">
         <ol class="path-chips" role="list" aria-label="Journey">
-          <li>Engineering</li><li>Systems</li><li>Technology</li><li>Analytics</li><li>AI</li><li>Business</li>
+          <li>Engineering</li><li>Systems</li><li>Technology</li><li>Analytics</li><li>AI</li><li>Business Impact</li>
         </ol>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07 CONTACT -->
-<section class="sec" id="contact" aria-labelledby="contact-title">
+<!-- 07 LET'S BUILD SOMETHING MEANINGFUL -->
+<section class="finale" id="contact" aria-labelledby="contact-title">
+  <div class="wrap fin-head">
+    <p class="kicker c-kicker"><span>07.</span> What comes next</p>
+    <h2 id="contact-title" class="big-title fin-title">Let's build something <b>meaningful</b></h2>
+  </div>
+  <figure class="fin-art">
+    <picture>
+      <source media="(max-width:760px)" srcset="assets/img/meaningful-core.webp" width="940" height="413">
+      <img src="assets/img/meaningful.webp" srcset="assets/img/meaningful-1000.webp 1000w, assets/img/meaningful.webp 1983w" sizes="100vw" width="1983" height="793" loading="lazy" decoding="async" alt="Let's build something meaningful: turning data, AI and technology into real solutions for a better, healthier and more inclusive world. A glowing globe on a holographic platform sits between a darker industrial city and a riverside town at sunrise, linked to business intelligence, supply chain optimisation, fraud detection, data visualisation, an age-friendly society, AI fitness coaching, sustainable growth and real-world impact. Themes: smarter businesses, inclusive communities, healthier lives, safer digital ecosystems; values: data-driven impact, people first, sustainable growth, AI for good.">
+    </picture>
+    <a class="fin-hotspot" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry%20for%20Basant%20Kumar" tabindex="-1" aria-label="Let's connect by email"></a>
+  </figure>
   <div class="wrap">
-    <div class="panel contact2">
-      <div class="c-head">
-        <p class="kicker c-kicker"><span>07.</span> Contact</p>
-        <p class="c-lets">Let's</p>
-        <h2 id="contact-title" class="big-title c-title">Build something <b>meaningful</b></h2>
-        <p class="sub">Turning data, AI and technology into real solutions for a better, healthier and more inclusive world.</p>
+    <ul class="fin-themes" role="list">
+      <li><svg><use href="#i-trend"/></svg><div><h3>Smarter Businesses</h3><p>Reducing waste, predicting demand, optimising supply chains.</p></div></li>
+      <li><svg><use href="#i-team"/></svg><div><h3>Inclusive Communities</h3><p>Data-driven insights for an age-friendly, healthier society.</p></div></li>
+      <li><svg><use href="#i-heart"/></svg><div><h3>Healthier Lives</h3><p>Personalised fitness, nutrition and AI coaching.</p></div></li>
+      <li><svg><use href="#i-shield"/></svg><div><h3>Safer Digital Ecosystems</h3><p>Detecting fraud and building trust online.</p></div></li>
+    </ul>
+    <div class="panel fin-panel">
+      <div class="fin-story">
+        <p class="fin-lead">I have built across systems, business, data and AI. Now I want to use that combination to build something <b>meaningful</b>.</p>
+        <ol class="fin-path" aria-label="The journey so far"><li><span>Engineering</span></li><li><span>Systems</span></li><li><span>Business</span></li><li><span>Data</span></li><li><span>Analytics</span></li><li><span>AI</span></li><li><span>Intelligent Products</span></li><li class="now"><span>Real-world Impact</span></li></ol>
       </div>
-      <figure class="c-world">
-        <img src="assets/img/contact-world.webp" width="1435" height="413" alt="A glowing globe on a holographic platform linked to business intelligence, supply chain optimisation, fraud detection, data visualisation, an age-friendly society, AI fitness coaching, sustainable growth and real-world impact, beside a riverside town at sunrise." loading="lazy" decoding="async">
-        <canvas class="sparks" data-scene="sparks" data-focus="0.25,0.45" aria-hidden="true"></canvas>
-      </figure>
-      <ul class="c-themes" role="list">
-        <li><svg><use href="#i-trend"/></svg><div><h3>Smarter Businesses</h3><p>Reducing waste, predicting demand, optimising supply chains.</p></div></li>
-        <li><svg><use href="#i-team"/></svg><div><h3>Inclusive Communities</h3><p>Data-driven insights for an age-friendly, healthier society.</p></div></li>
-        <li><svg><use href="#i-heart"/></svg><div><h3>Healthier Lives</h3><p>Personalised fitness, nutrition and AI coaching to help people live better.</p></div></li>
-        <li><svg><use href="#i-shield"/></svg><div><h3>Safer Digital Ecosystems</h3><p>Detecting fraud, building trust and protecting people online.</p></div></li>
-      </ul>
-      <div class="c-bottom">
-        <ul class="c-values" role="list">
-          <li><svg class="v1"><use href="#i-bars"/></svg><div><h3>Data Driven Impact</h3><p>Turning complex data into real solutions.</p></div></li>
-          <li><svg class="v2"><use href="#i-team"/></svg><div><h3>People First</h3><p>Creating inclusive, healthier communities.</p></div></li>
-          <li><svg class="v3"><use href="#i-leaf"/></svg><div><h3>Sustainable Growth</h3><p>Building efficient and resilient systems.</p></div></li>
-          <li><svg class="v4"><use href="#i-brain"/></svg><div><h3>AI for Good</h3><p>Using AI responsibly to solve real problems.</p></div></li>
-        </ul>
-        <div class="c-cta">
-          <blockquote class="c-quote">From engineering systems to intelligent decisions.</blockquote>
-          <a class="btn connect" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry%20for%20Basant%20Kumar">Let's Connect <svg><use href="#i-arrow"/></svg></a>
-          <p>Open to opportunities, collaborations and ideas that create real-world impact.</p>
-          <div class="c-links">
-            <a class="icon-btn round" href="https://www.linkedin.com/in/basantsingh-/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
-            <a class="icon-btn round" href="https://github.com/basant-kumarr" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
-            <a class="icon-btn round" href="mailto:basantsingh607@gmail.com" aria-label="Email basantsingh607@gmail.com"><svg><use href="#i-mail"/></svg></a>
-            <a class="c-email" href="mailto:basantsingh607@gmail.com">basantsingh607@gmail.com</a>
-          </div>
+      <div class="fin-cta">
+        <p class="fin-open"><i></i>Open to opportunities</p>
+        <p class="fin-roles">Business Analytics · Data · AI · Intelligent Products</p>
+        <p class="fin-detail">Business Analyst, AI Business Analyst and Data Analyst roles in Ireland.</p>
+        <a class="btn connect" href="mailto:basantsingh607@gmail.com?subject=Role%20enquiry%20for%20Basant%20Kumar">Let's Connect <svg><use href="#i-arrow"/></svg></a>
+        <div class="c-links">
+          <a class="icon-btn round" href="https://www.linkedin.com/in/basantsingh-/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+          <a class="icon-btn round" href="https://github.com/basant-kumarr" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
+          <a class="c-email" href="mailto:basantsingh607@gmail.com">basantsingh607@gmail.com</a>
         </div>
       </div>
     </div>
