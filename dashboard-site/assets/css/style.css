@@ -495,6 +495,8 @@ svg{width:1em;height:1em;flex:none}
   .pd-panel{padding:22px 16px}
   .pd-grid4{grid-template-columns:1fr}
   .pd-timeline li{grid-template-columns:1fr;gap:2px}
+  .pd-pair figcaption{position:static;display:block;margin-top:6px;background:none;padding:0;text-align:center}
+  .pd-pair img{-webkit-mask-image:none;mask-image:none}
   .pd-design>div,.pd-spec dl>div,.pd-facts>div{grid-template-columns:1fr;gap:4px}
   .pd-sub{letter-spacing:.14em}
   .pd-badge b{font-size:16px}
