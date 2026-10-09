@@ -44,6 +44,16 @@
     setTimeout(function () { rev.forEach(function (el) { el.classList.add('in'); }); }, 3500);
   }
 
+  /* CV download: the buttons stay hidden unless basant-kumar-cv.pdf is
+     actually deployed next to this page, so the site never shows a dead link */
+  var cvLinks = document.querySelectorAll('[data-cv]');
+  if (cvLinks.length && window.fetch && location.protocol.indexOf('http') === 0) {
+    fetch(cvLinks[0].getAttribute('href'), { method: 'HEAD' }).then(function (r) {
+      var type = r.headers.get('content-type') || '';
+      if (r.ok && type.indexOf('pdf') !== -1) cvLinks.forEach(function (a) { a.hidden = false; });
+    }).catch(function () {});
+  }
+
   /* fixed starfield, drawn once per resize */
   var sky = document.getElementById('sky');
   function paintSky() {

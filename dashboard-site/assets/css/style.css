@@ -337,6 +337,10 @@ svg{width:1em;height:1em;flex:none}
 .btn.connect{height:52px;padding:0 30px;border-radius:999px;border:1.5px solid var(--cyan);color:#fff;font-size:15px;letter-spacing:.14em;text-transform:uppercase;background:rgba(6,30,70,.7);box-shadow:0 0 26px rgba(56,198,255,.45),inset 0 0 18px rgba(56,198,255,.2)}
 .btn.connect:hover{transform:translateY(-2px);box-shadow:0 0 38px rgba(56,198,255,.7),inset 0 0 18px rgba(56,198,255,.3)}
 .c-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.cv-link{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:13.5px;color:#cfe0f7}
+.cv-link svg{font-size:18px;color:var(--cyan)}
+.cv-link:hover{color:#fff}
+[data-cv][hidden]{display:none!important}
 .c-email{font-size:13px;color:var(--cyan);margin-left:4px}
 .c-email:hover{color:#fff}
 

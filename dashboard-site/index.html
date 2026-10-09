@@ -71,6 +71,7 @@
     <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15M5 19l7-7"/></symbol>
     <symbol id="i-atom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></g></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M3 11l9-7.5 9 7.5M5.5 9v11h13V9M10 20v-6h4v6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" d="M6 2.5h8l4.5 4.5v14.5h-12.5zM14 2.5V7h4.5M12 11v6M9.5 14.5L12 17l2.5-2.5"/></symbol>
   </defs>
 </svg>
 
@@ -125,6 +126,7 @@
         <div class="actions">
           <a class="btn primary" href="#projects">View My Work <svg><use href="#i-arrow"/></svg></a>
           <a class="btn ghost" href="#contact"><svg><use href="#i-mail"/></svg> Contact Me</a>
+          <a class="btn ghost" href="basant-kumar-cv.pdf" download data-cv hidden><svg><use href="#i-doc"/></svg> Download CV</a>
         </div>
         <p class="hero-target"><i></i>Open to Business Analyst, AI Business Analyst and Data Analyst roles in Ireland</p>
       </div>
@@ -204,12 +206,13 @@
           <p class="f-kicker">Featured project · AI product</p>
           <h3 id="f-bb" class="f-title">Be<b>Beyond</b></h3>
           <p class="f-kind">AI Fitness Coach</p>
-          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation, with AI that explains each recommendation.</p>
+          <p class="f-desc">Personalised training, nutrition and 3D exercise visualisation, with a coaching layer that explains each recommendation.</p>
           <ul class="f-chips" role="list"><li><svg><use href="#i-atom"/></svg>React Native</li><li><svg><use href="#i-bolt"/></svg>FastAPI</li><li><svg><use href="#i-brain"/></svg>AI</li><li><svg><use href="#i-cube"/></svg>3D Graphics</li></ul>
           <ul class="f-status" role="list">
             <li><b>Built and tested</b>Exercise ontology, readiness and muscle load with confidence tiers, recommendation and nutrition engines, 3D exercise view</li>
             <li><b>Simulated</b>Camera form analysis runs on a scripted pose source, not live inference</li>
             <li><b>Scaffolded</b>Wearable adapters exist; no live data flows yet</li>
+            <li><b>Off by default</b>Language-model explanations are written but switched off; a rule-based coach answers without them</li>
           </ul>
           <p class="f-note">Stack: React Native, Expo, TypeScript, FastAPI, PostgreSQL, Three.js</p>
         </div>
@@ -217,7 +220,7 @@
           <img src="assets/img/bebeyond-app.webp" srcset="assets/img/bebeyond-app-700.webp 700w, assets/img/bebeyond-app.webp 1120w" sizes="(max-width:1080px) 100vw, 55vw" width="1120" height="941" alt="Concept render of the BeBeyond app on a phone beside an anatomical muscle model, with panels for AI coaching, workout plans, nutrition, 3D exercise visualisation and muscle load." loading="lazy" decoding="async">
           <figcaption>Concept render. Screen values are illustrative.</figcaption>
         </figure>
-        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>How does personalised fitness guidance become an intelligent product rather than another workout tracker?</dd></div><div><dt>Approach</dt><dd>Deterministic engines own every number (readiness, muscle load, nutrition targets); the language model only explains the decision and cannot invent a figure.</dd></div><div><dt>My role</dt><dd>Designed and built end to end. Private build, in development.</dd></div></dl>
+        <dl class="f-case" aria-label="Case study"><div><dt>Problem</dt><dd>How does personalised fitness guidance become an intelligent product rather than another workout tracker?</dd></div><div><dt>Approach</dt><dd>Deterministic engines own every number (readiness, muscle load, nutrition targets); an optional language model may only explain the decision, never invent a figure.</dd></div><div><dt>My role</dt><dd>Designed and built end to end. Private build, in development.</dd></div></dl>
       </article>
 
       <article class="panel feature f-fraud" aria-labelledby="f-fr">
@@ -346,7 +349,7 @@
           <ul class="sk-certs" role="list">
             <li><b>Machine Learning Professional</b><span>Altair / RapidMiner · 2025</span></li>
             <li><b>Google Data Analytics Professional Certificate</b><span>Google · 2024</span></li>
-            <li><b>AI For Everyone</b><span>2023</span></li>
+            <li><b>AI For Everyone</b><span>2025</span></li>
             <li><b>Google Project Management Certificate</b><span>Google</span></li>
           </ul>
         </article>
@@ -524,6 +527,7 @@
           <a class="icon-btn round" href="https://github.com/basant-kumarr" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
           <a class="c-email" href="mailto:basantsingh607@gmail.com">basantsingh607@gmail.com</a>
         </div>
+        <a class="cv-link" href="basant-kumar-cv.pdf" download data-cv hidden><svg><use href="#i-doc"/></svg> Download CV (PDF)</a>
       </div>
     </div>
   </div>
