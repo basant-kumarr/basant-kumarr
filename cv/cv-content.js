@@ -8,6 +8,7 @@ module.exports = [
   { type: 'name', text: 'BASANT KUMAR' },
   { type: 'tagline', text: 'AI & Business Analyst  |  Business Analytics · Data · AI' },
   { type: 'contact', runs: ['Celbridge, Co. Kildare, Ireland  ·  ', L('basantsingh607@gmail.com', 'mailto:basantsingh607@gmail.com')] },
+  { type: 'contact', runs: ['Portfolio: ', L('basant-kumar-portfoli.netlify.app', 'https://basant-kumar-portfoli.netlify.app/')] },
   { type: 'contact', runs: [L('linkedin.com/in/basantsingh-', 'https://www.linkedin.com/in/basantsingh-/'), '  ·  ', L('github.com/basant-kumarr', 'https://github.com/basant-kumarr')] },
 
   { type: 'heading', text: 'Profile' },
