@@ -68,7 +68,6 @@
     <symbol id="i-compass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M11 6.3L5 21M13 6.3L19 21M7.3 15h9.4"/></g></symbol>
     <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 21.5l5-2.5 5 2.5-1.5-7.5"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
     <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4.5h6V7M3 12.5h18"/></g></symbol>
-    <symbol id="i-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 4h3l2.4 11h11l2-8H6.6"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></g></symbol>
     <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15M5 19l7-7"/></symbol>
     <symbol id="i-atom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></g></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M3 11l9-7.5 9 7.5M5.5 9v11h13V9M10 20v-6h4v6"/></symbol>
@@ -229,11 +228,11 @@
           <p class="f-desc">An explainable model that catches the fraud a standard baseline misses, framed for a fraud operations team rather than a leaderboard.</p>
           <ul class="f-stats" role="list">
             <li><svg><use href="#i-target"/></svg><b>99.9%</b><span>AUC-ROC</span></li>
-            <li><svg><use href="#i-shield"/></svg><b>97.2%</b><span>Precision</span></li>
-            <li><svg><use href="#i-trend"/></svg><b>496</b><span>Of 644 frauds caught, 437 more than the baseline</span></li>
+            <li><svg><use href="#i-shield"/></svg><b>11</b><span>False alerts across 166,072 legitimate test transactions</span></li>
+            <li><svg><use href="#i-trend"/></svg><b>496</b><span>Of 644 test-set frauds caught, 437 more than the baseline</span></li>
             <li><svg><use href="#i-db"/></svg><b>555,719</b><span>Synthetic transactions analysed</span></li>
           </ul>
-          <p class="f-note">Public synthetic dataset from Kaggle, not real card-network data. Synthetic data is cleaner than real transactions, so the useful part is the explainable behavioural features, not the headline score.</p>
+          <p class="f-note">Results from the team's published hold-out evaluation (166,716 test transactions). Public synthetic Kaggle data, not real card-network data, so it is cleaner than production; the useful part is the explainable behavioural features, not the headline score.</p>
           <div class="f-actions"><a class="btn primary" href="https://fraud-detection-xgboost.netlify.app/" target="_blank" rel="noopener">Live Dashboard <svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="https://github.com/basant-kumarr/fraud-detections-xgboost" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Repository</a></div>
           <p class="f-tech">Python · XGBoost · GridSearchCV · SHAP · scikit-learn · Gradio</p>
         </div>
@@ -252,9 +251,9 @@
           <p class="f-kind">Data Analysis &amp; Visualisation</p>
           <p class="f-desc">A real client engagement for Age Friendly Ireland: how ageing will change who struggles with stairs at home, and what national policy should do about it.</p>
           <ul class="f-stats" role="list">
-            <li><svg><use href="#i-team"/></svg><b>349,155</b><span>People with mobility difficulties (Census 2022)</span></li>
-            <li><svg><use href="#i-trend"/></svg><b>22.3%</b><span>Households affected by 2050, up from 16.9% in 2022</span></li>
-            <li><svg><use href="#i-home"/></svg><b>100,000+</b><span>Additional households affected by 2050 without policy change</span></li>
+            <li><svg><use href="#i-team"/></svg><b>349,155</b><span>People with mobility difficulties (observed, Census 2022)</span></li>
+            <li><svg><use href="#i-trend"/></svg><b>22.3%</b><span>Projected share of households affected by 2050 (modelled 16.9% in 2022)</span></li>
+            <li><svg><use href="#i-home"/></svg><b>100,000+</b><span>Additional households projected to be affected by 2050 without policy change</span></li>
             <li><svg><use href="#i-bulb"/></svg><b>5</b><span>Policy proposals delivered to the client</span></li>
           </ul>
           <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/housing-accessibility-ireland" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a><span class="f-tech">CSO Census 2022 · CSO PEC19 projections · Prevalence modelling · Policy benchmarking</span></div>
@@ -274,7 +273,8 @@
           <p class="f-kind">Business Analytics</p>
           <p class="f-desc">Forecasting built around a planning decision: too much stock ties up capital, too little loses sales.</p>
           <ul class="f-chips" role="list"><li><svg class="c-r"><use href="#i-r"/></svg>R</li><li><svg><use href="#i-trend"/></svg>ARIMA</li><li><svg><use href="#i-wave"/></svg>Prophet</li><li><svg><use href="#i-bars"/></svg>ggplot2</li></ul>
-          <ul class="f-goals" role="list" aria-label="What the forecast supports"><li>Forecast demand</li><li>Plan inventory</li><li>Reduce stockouts</li><li>Avoid overstock</li></ul>
+          <p class="f-label">Intended use</p>
+          <ul class="f-goals" role="list" aria-label="Intended use"><li>Forecast demand</li><li>Plan inventory</li><li>Reduce stockouts</li><li>Avoid overstock</li></ul>
                     <div class="f-actions"><a class="btn primary" href="https://github.com/basant-kumarr/sales-demand-forecasting" target="_blank" rel="noopener">View Repository <svg><use href="#i-arrow"/></svg></a></div>
         </div>
         <figure class="f-visual f-sales-visual">
@@ -370,17 +370,7 @@
           <h2 id="exp-title" class="big-title">Professional <b>experience</b></h2>
         </div>
         <ol class="timeline">
-          <li>
-            <span class="tl-date">2026 – Present</span>
-            <span class="wm wm-sv" aria-hidden="true">SuperValu</span>
-            <div class="tl-body">
-              <h3>Customer Service Assistant <i>·</i> <em>SuperValu</em></h3>
-              <p class="where"><svg><use href="#i-pin"/></svg>Celbridge, Ireland · Feb 2026 – Present</p>
-              <ul><li>Working in a fast-paced retail environment while completing my MSc.</li><li>Developed strong communication, teamwork and customer-handling skills.</li></ul>
-            </div>
-            <span class="tl-tag"><svg><use href="#i-cart"/></svg>Customer Service</span>
-          </li>
-          <li>
+                    <li>
             <span class="tl-date">2024 – Feb 2026</span>
             <span class="wm wm-mu" aria-hidden="true">Maynooth<br>University</span>
             <div class="tl-body">
@@ -480,15 +470,7 @@
           </div>
           <span class="ms-icon" aria-hidden="true"><svg><use href="#i-book"/></svg></span>
         </li>
-        <li>
-          <span class="ms-year">2026 – Present</span>
-          <div class="ms-card">
-            <h3>Customer Service Assistant</h3>
-            <p class="ms-org"><span class="seal seal-sv" aria-hidden="true">SV</span>SuperValu<small>Celbridge, Ireland</small></p>
-            <ul><li>Hands-on customer service and retail operations</li><li>Communication, teamwork and customer handling</li></ul>
-          </div>
-          <span class="ms-icon" aria-hidden="true"><svg><use href="#i-team"/></svg></span>
-        </li>
+        
         <li class="ms-goal">
           <span class="ms-year">2026+</span>
           <div class="ms-card">

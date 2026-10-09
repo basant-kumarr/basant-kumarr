@@ -238,7 +238,7 @@ svg{width:1em;height:1em;flex:none}
 .j-quote::before{content:"\201C";position:absolute;left:0;top:-6px;font:800 50px/1 var(--sans);color:var(--cyan);text-shadow:0 0 14px rgba(56,198,255,.7)}
 .journey-city{position:relative}
 .journey-city img{display:block;width:100%;height:auto;border-radius:16px;-webkit-mask-image:radial-gradient(ellipse 80% 85% at 50% 45%,#000 65%,transparent 100%);mask-image:radial-gradient(ellipse 80% 85% at 50% 45%,#000 65%,transparent 100%)}
-.milestones{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:30px;padding-bottom:40px}
+.milestones{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:30px;padding-bottom:40px}
 .milestones::after{content:"";position:absolute;left:4%;right:4%;bottom:19px;height:2px;background:linear-gradient(90deg,rgba(255,179,71,.2),var(--gold),var(--cyan),rgba(56,198,255,.3));box-shadow:0 0 12px rgba(255,179,71,.5)}
 .milestones>li{position:relative;display:flex;flex-direction:column}
 .ms-year{display:flex;align-items:center;gap:8px;font:700 16px var(--sans);color:var(--cyan);margin-bottom:8px}
@@ -249,7 +249,7 @@ svg{width:1em;height:1em;flex:none}
 .ms-org{display:flex;flex-direction:column;padding-left:52px;position:relative;min-height:44px;justify-content:center;font-size:13px;font-weight:600;line-height:1.25;color:#e6eefc;margin-bottom:10px}
 .ms-org small{font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
 .seal{position:absolute;left:0;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#16305e,#08142e);color:#dff4ff;font:700 11px var(--sans);letter-spacing:.04em;border:1px solid var(--cyan);box-shadow:0 0 14px rgba(56,198,255,.45)}
-.seal-bj,.seal-sv{font-size:12px}
+.seal-bj{font-size:12px}
 .ms-card ul{display:flex;flex-direction:column;gap:5px}
 .ms-card li{position:relative;padding-left:13px;font-size:12.5px;line-height:1.45;color:#cbd8ee}
 .ms-card li::before{content:"";position:absolute;left:1px;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--cyan)}
@@ -293,6 +293,7 @@ svg{width:1em;height:1em;flex:none}
 .f-fraud .f-stats li:nth-child(3) svg{color:var(--gold);filter:drop-shadow(0 0 8px rgba(255,179,71,.6))}
 .f-fraud .f-stats li:nth-child(4) svg{color:#c38bff;filter:drop-shadow(0 0 8px rgba(195,139,255,.6))}
 .f-age .f-stats svg{color:#4ff0b8;filter:drop-shadow(0 0 8px rgba(79,240,184,.55))}
+.f-label{font:700 11.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:-6px}
 .f-goals{display:flex;flex-wrap:wrap;gap:8px 18px}
 .f-goals li{position:relative;padding-left:16px;font-size:14px;color:#d6e2f4}
 .f-goals li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
