@@ -504,6 +504,40 @@ svg{width:1em;height:1em;flex:none}
   .pd-reflect .actions .btn{flex:1 1 auto}
 }
 
+/* ---------- locked split layout (matches the BeBeyond project panel) ----------
+   Text on the left, artwork filling the right edge to edge at full height,
+   and a full-width strip along the bottom. Used by Home, About, Skills and
+   Experience. */
+.hero,.about,.skills{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:0;padding:0;align-items:stretch;min-height:0}
+.hero{grid-template-areas:"copy visual" "stats stats";grid-template-rows:auto auto}
+.hero-copy{padding:40px 30px 36px 44px;align-self:center}
+.hero-visual,.about-visual,.sk-art,.exp-visual{position:relative;overflow:hidden;margin:0;align-self:stretch}
+.hero-visual{min-height:560px}
+.hero-visual picture{position:absolute;inset:0}
+.hero-visual img,.about-visual>img,.sk-art img,.exp-visual img{position:absolute;inset:0;top:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;border-radius:0;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%);mask-image:linear-gradient(90deg,transparent 0,#000 16%);-webkit-mask-composite:source-over;mask-composite:add}
+.hero-visual img{object-position:66% 50%}
+.statbar{margin:0;border:0;border-top:1px solid var(--line);background:rgba(2,8,22,.55);border-radius:0;box-shadow:none}
+.about{display:grid;grid-template-areas:"copy visual" "cards cards"}
+.about-copy{padding:40px 30px 36px 40px;justify-content:center}
+.about-visual{min-height:540px}
+.about-visual>img{object-position:78% 50%;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 14%,#000 38%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.25) 14%,#000 38%)}
+.about-visual .quote-card{position:absolute;right:22px;bottom:22px;z-index:2;max-width:250px;padding:18px 20px;background:linear-gradient(180deg,#0a1a3c,#050d22);box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.about-visual .quote-card blockquote{font-size:24px}
+.about-visual .quote-card blockquote::before{font-size:44px;margin-bottom:8px}
+.about-visual .quote-card .rule{margin:14px 0 12px}
+.about-cards{padding:24px 36px 30px;border-top:1px solid var(--line);background:rgba(2,8,22,.55)}
+.skills{display:grid;grid-template-areas:"head art" "cards cards"}
+.skills-head{grid-area:head;margin:0;padding:40px 30px 36px 40px;display:flex;flex-direction:column;justify-content:center}
+.skills-head .sk-thesis{text-align:left;max-width:30ch;margin-top:22px;font-size:20px}
+.sk-art{grid-area:art;min-height:460px}
+.sk-art img{object-position:50% 38%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%),linear-gradient(180deg,#000 84%,transparent);mask-image:linear-gradient(90deg,transparent 0,#000 16%),linear-gradient(180deg,#000 84%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
+.skills-grid{grid-area:cards;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:none;gap:16px;padding:24px 36px 30px;border-top:1px solid var(--line);background:rgba(2,8,22,.55)}
+.exp{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
+.exp-visual img{object-position:62% 50%}
+.timeline>li{grid-template-columns:132px minmax(0,1fr);grid-template-areas:"date body" "wm body" "tag body";column-gap:22px;row-gap:10px}
+.tl-date{grid-area:date}.wm{grid-area:wm}.tl-body{grid-area:body}.tl-tag{grid-area:tag;justify-self:start}
+.wm{height:52px}
+
 /* ---------- responsive ---------- */
 @media (max-width:1240px){
   .hero{grid-template-columns:minmax(0,370px) minmax(0,1fr)}
@@ -624,4 +658,51 @@ svg{width:1em;height:1em;flex:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js [data-reveal]{opacity:1;transform:none}
+}
+
+/* locked split layout: tablet and phone */
+@media (max-width:1240px){
+  .hero,.about,.skills{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+  .hero{grid-template-areas:"copy visual" "stats stats"}
+  .about{grid-template-areas:"copy visual" "cards cards"}
+  .quote-card{display:block}
+  .about-cards{grid-template-columns:1fr 1fr}
+  .timeline>li{grid-template-columns:120px minmax(0,1fr);grid-template-areas:"date body" "wm body" "tag body"}
+  .skills-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1080px){
+  .hero,.about,.skills,.exp{grid-template-columns:1fr}
+  .hero{grid-template-areas:"visual" "copy" "stats";padding:0}
+  .hero-visual{margin:0;min-height:0;height:380px}
+  .hero-visual img{-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent);mask-image:linear-gradient(180deg,#000 78%,transparent);object-position:50% 50%}
+  .hero-copy{padding:8px 28px 26px}
+  .statbar{grid-template-columns:1fr 1fr}
+  .about{grid-template-areas:"visual" "copy" "cards";padding:0}
+  .about-visual{min-height:0}
+  .about-visual>img{position:relative;height:340px;object-position:48% 50%;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent)}
+  .about-visual .quote-card{position:relative;right:auto;bottom:auto;max-width:none;margin:-40px 24px 0}
+  .about-copy{padding:24px 28px 26px}
+  .about-cards{grid-template-columns:1fr;padding:22px 24px 26px}
+  .about-cards .colourful{grid-column:auto}
+  .skills{grid-template-areas:"art" "head" "cards";padding:0}
+  .sk-art{min-height:0;height:360px}
+  .sk-art img{-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent);-webkit-mask-composite:source-over;mask-composite:add;object-position:50% 45%}
+  .skills-head{padding:8px 28px 24px}
+  .skills-head .sk-thesis{max-width:none}
+  .skills-grid{padding:22px 24px 26px}
+  .exp-visual{height:340px}
+  .exp-visual img{object-position:50% 40%;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent)}
+}
+@media (max-width:760px){
+  .hero-visual{height:330px}
+  .hero-copy{padding:6px 16px 22px}
+  .statbar{grid-template-columns:1fr}
+  .about-visual>img{height:280px}
+  .about-visual .quote-card{margin:-30px 16px 0}
+  .about-copy,.skills-head{padding-left:16px;padding-right:16px}
+  .about-cards,.skills-grid{padding:18px 16px 22px}
+  .skills-grid{grid-template-columns:1fr}
+  .sk-art{height:300px}
+  .exp-visual{height:280px}
+  .timeline>li{grid-template-columns:1fr;grid-template-areas:"date" "wm" "body" "tag"}
 }
