@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Swarm Drone Coordination | Basant Kumar</title>
-<meta name="description" content="Swarm Drone Coordination: a Bachelor's engineering project by Basant Kumar exploring multi-drone coordination for disaster response. Qualifier, DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018.">
+<meta name="description" content="Swarm Drone Coordination: a two-drone Bachelor's engineering team project (2018 – 2020) by Basant Kumar exploring multi-drone coordination for disaster response. Qualifier, DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018.">
 <meta name="theme-color" content="#030814">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Swarm Drone Coordination | Basant Kumar">
@@ -105,23 +105,23 @@
     <!-- A. HERO -->
     <section class="panel pd-hero" aria-labelledby="pd-title">
       <div class="pd-hero-copy">
-        <p class="kicker"><span>BEng</span> Bachelor's engineering project</p>
+        <p class="kicker"><span>2018 – 2020</span> Bachelor's engineering team project</p>
         <h1 id="pd-title" class="big-title">Swarm drone <b>coordination</b></h1>
         <p class="pd-sub">Multi-drone system for disaster response</p>
-        <p class="pd-lede">A Bachelor's engineering project exploring how multiple drones could be coordinated through a single remote-control system to support disaster-response operations.</p>
+        <p class="pd-lede">A Bachelor's engineering project, developed over about two years, exploring how multiple drones could be coordinated through a single remote-control system to support disaster-response operations. The prototype used two drones built on simple wooden frames.</p>
         <a class="pd-badge" href="#certificate">
           <svg><use href="#i-trophy"/></svg>
           <span><small>DST &amp; Texas Instruments</small><b>India Innovation Challenge 2018</b><em>Qualifying round · Design Contest anchored by IIM Bangalore</em></span>
         </a>
-        <ul class="f-chips" role="list"><li><svg><use href="#i-cap"/></svg>BEng Electronics &amp; Telecommunication</li><li><svg><use href="#i-cube"/></svg>Wooden-frame prototype</li></ul>
+        <ul class="f-chips" role="list"><li><svg><use href="#i-cap"/></svg>BEng Electronics &amp; Telecommunication</li><li><svg><use href="#i-cube"/></svg>Two wooden-frame drones</li></ul>
       </div>
       <figure class="pd-hero-art">
         <picture>
           <source media="(max-width:760px)" srcset="assets/img/swarm-drone-prototype-sm.webp" width="700" height="375">
-          <img src="assets/img/swarm-drone-lab.webp" srcset="assets/img/swarm-drone-lab-700.webp 700w, assets/img/swarm-drone-lab.webp 988w" sizes="(max-width:1080px) 100vw, 55vw" width="988" height="740" fetchpriority="high" decoding="async" alt="Concept render of a student-built quadcopter with a wooden frame on an engineering workbench: exposed motors, propellers, wiring and a battery pack, with more wooden-frame drones behind it and a whiteboard sketch of the swarm system and its block diagram (GPS, gyroscope and battery monitor feeding a flight controller, motors, and a remote-control transmitter).">
+          <img src="assets/img/swarm-drone-pair.webp" srcset="assets/img/swarm-drone-pair-700.webp 700w, assets/img/swarm-drone-pair.webp 972w" sizes="(max-width:1080px) 100vw, 55vw" width="972" height="441" fetchpriority="high" decoding="async" alt="Concept render of a student-built quadcopter with a simple wooden frame on an engineering workbench: exposed motors, propellers, wiring and a battery pack.">
         </picture>
         <canvas class="sparks" data-scene="sparks" data-focus="0.4,0.62" data-dpr="1" aria-hidden="true"></canvas>
-        <figcaption>Concept render of the original wooden-frame prototype, not a photograph of it.</figcaption>
+        <figcaption>Concept render of the wooden-frame prototype, not a photograph of it.</figcaption>
       </figure>
     </section>
 
@@ -134,9 +134,17 @@
         </div>
         <div class="pd-prose">
           <p>Disaster-response operations can be complicated by difficult terrain, inaccessible locations and the challenge of getting essential supplies where they are needed quickly.</p>
-          <p>This Bachelor's engineering project explored a multi-drone coordination concept for those situations, built around a centralised remote-control approach. It brought together drone hardware, navigation-related sensing, battery monitoring and operational safety considerations to investigate how coordinated unmanned systems could assist emergency-response work, such as delivering supplies and supporting search and rescue.</p>
+          <p>This Bachelor's engineering project explored a multi-drone coordination concept for those situations, built around a centralised remote-control approach. Developed from 2018 to 2020, it brought together two wooden-frame drones, Arduino-based control hardware, GPS, gyroscope and RF modules, battery monitoring and operational safety considerations to investigate how coordinated unmanned systems could assist emergency-response work, such as delivering supplies and supporting search and rescue.</p>
+          <ol class="pd-timeline" role="list" aria-label="Project timeline">
+            <li><b>2018</b><span>Qualifier in the qualifying round of the DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018, anchored by IIM Bangalore.</span></li>
+            <li><b>2019 – 2020</b><span>Development continued as the Bachelor's final-year engineering team project, with a two-drone prototype on simple wooden frames.</span></li>
+          </ol>
           <p class="muted">This was a student prototype for investigation and competition. It was not deployed in a real disaster.</p>
         </div>
+        <figure class="pd-pair">
+          <img src="assets/img/swarm-drone-pair.webp" srcset="assets/img/swarm-drone-pair-700.webp 700w, assets/img/swarm-drone-pair.webp 972w" sizes="(max-width:1080px) 100vw, 1200px" width="972" height="441" loading="lazy" decoding="async" alt="Concept render of the two wooden-frame prototype drones on a workbench: one in the foreground with its battery pack, flight electronics and GPS mount visible, the second behind it to the right.">
+          <figcaption>Concept render of the two-drone prototype, not a photograph.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -156,8 +164,9 @@
       <div class="sec-head"><div><p class="kicker"><span>03.</span> System design</p><h2 id="pd-system" class="pd-h2">How the system was <b>designed</b></h2></div></div>
       <div class="pd-sys">
         <dl class="panel pd-panel pd-design">
-          <div><dt><svg><use href="#i-team"/></svg>Centralised control</dt><dd>A single remote-control approach intended to manage multiple drones through a common control interface.</dd></div>
+          <div><dt><svg><use href="#i-team"/></svg>Centralised control</dt><dd>A single remote-control approach intended to manage multiple drones through a common control interface, built on Arduino-based control hardware.</dd></div>
           <div><dt><svg><use href="#i-pin"/></svg>GPS integration</dt><dd>Location information intended to support navigation and location-aware operation.</dd></div>
+          <div><dt><svg><use href="#i-wave"/></svg>RF modules</dt><dd>Radio-frequency modules as part of the communication between the control side and the drones.</dd></div>
           <div><dt><svg><use href="#i-target"/></svg>Gyroscope integration</dt><dd>Orientation sensing intended to support stable movement and control.</dd></div>
           <div><dt><svg><use href="#i-bolt"/></svg>Battery monitoring</dt><dd>Monitoring battery condition as part of the project's operational safety considerations.</dd></div>
           <div><dt><svg><use href="#i-shield"/></svg>Fail-safe behaviour <span class="pd-tag">Design objective</span></dt><dd>A return-to-origin behaviour proposed for communication loss or low battery. Treated here as a design objective: its implementation and testing are not documented.</dd></div>
@@ -165,16 +174,19 @@
         <div class="panel pd-panel pd-spec">
           <h3 id="pd-spec-h">Specification</h3>
           <dl>
-            <div><dt>Project type</dt><dd>Student engineering prototype</dd></div>
+            <div><dt>Project type</dt><dd>Student engineering prototype, Bachelor's final-year team project</dd></div>
+            <div><dt>Timeline</dt><dd>2018 – 2020; final-year project 2019 – 2020</dd></div>
+            <div><dt>Drones</dt><dd>Two</dd></div>
             <div><dt>Degree</dt><dd>BEng Electronics &amp; Telecommunication, SPPU (2016 – 2020)</dd></div>
-            <div><dt>Frame</dt><dd>Wooden construction</dd></div>
-            <div><dt>Control</dt><dd>Centralised remote-control concept</dd></div>
+            <div><dt>Frame</dt><dd>Simple wooden frame</dd></div>
+            <div><dt>Control</dt><dd>Centralised remote-control concept; Arduino-based control hardware</dd></div>
+            <div><dt>Communication</dt><dd>RF modules</dd></div>
             <div><dt>Navigation</dt><dd>GPS integration</dd></div>
             <div><dt>Orientation</dt><dd>Gyroscope integration</dd></div>
             <div><dt>Power</dt><dd>Battery monitoring</dd></div>
             <div><dt>Application</dt><dd>Disaster response: supply delivery, search and rescue support</dd></div>
           </dl>
-          <p class="pd-note">Range, payload and the number of drones flown together are not listed because no project record confirms them.</p>
+          <p class="pd-note">Range, payload, flight time and positioning accuracy are not listed because no project record confirms them.</p>
         </div>
       </div>
     </section>
@@ -184,10 +196,10 @@
       <div class="sec-head"><div><p class="kicker"><span>04.</span> Engineering workflow</p><h2 id="pd-flow" class="pd-h2">From problem to <b>recognition</b></h2></div></div>
       <ol class="panel pd-panel pd-flow" role="list">
         <li><span class="pd-step">01</span><h3>Problem identification</h3><p>The potential role of coordinated drones in disaster response and essential-supply delivery.</p></li>
-        <li><span class="pd-step">02</span><h3>System concept</h3><p>A centralised coordination approach and the components needed for navigation and monitoring.</p></li>
-        <li><span class="pd-step">03</span><h3>Prototype engineering</h3><p>A wooden-frame drone integrating motors, propellers, a battery pack, GPS and gyroscope sensing.</p></li>
-        <li><span class="pd-step">04</span><h3>Operational safety</h3><p>Battery monitoring, with return-to-origin on signal loss or low battery as a safety objective.</p></li>
-        <li class="pd-goal"><span class="pd-step">05</span><h3>Innovation recognition</h3><p>Qualifier, DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018.</p></li>
+        <li><span class="pd-step">02</span><h3>System concept</h3><p>A centralised coordination approach and the components needed for navigation, communication and monitoring.</p></li>
+        <li class="pd-goal"><span class="pd-step">03</span><h3>Innovation recognition · 2018</h3><p>Qualifier, DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018.</p></li>
+        <li><span class="pd-step">04</span><h3>Final-year prototype · 2019 – 2020</h3><p>Two wooden-frame drones integrating Arduino-based control, GPS, gyroscope and RF modules, motors and battery packs.</p></li>
+        <li><span class="pd-step">05</span><h3>Operational safety</h3><p>Battery monitoring, with return-to-origin on signal loss or low battery as a safety objective.</p></li>
       </ol>
     </section>
 
@@ -198,7 +210,7 @@
           <p class="kicker"><span>05.</span> Recognition</p>
           <h2 id="pd-cert" class="pd-h2">Recognised at the India Innovation <b>Challenge</b></h2>
           <p>The project received qualifying-round recognition in the DST &amp; Texas Instruments India Innovation Challenge Design Contest 2018, anchored by IIM Bangalore.</p>
-          <p>It was an important milestone in my undergraduate engineering journey, and in my interest in technology-driven solutions to practical problems.</p>
+          <p>The qualification came in 2018, two years before the project's completion; development continued as my Bachelor's final-year team project in 2019 – 2020. It was an important milestone in my undergraduate engineering journey, and in my interest in technology-driven solutions to practical problems.</p>
           <dl class="pd-facts">
             <div><dt>Organisers</dt><dd>Department of Science &amp; Technology (DST) and Texas Instruments</dd></div>
             <div><dt>Contest</dt><dd>India Innovation Challenge Design Contest 2018</dd></div>
@@ -221,7 +233,7 @@
       <div class="pd-end">
         <div class="panel pd-panel">
           <h3 class="pd-h3">Engineering skills</h3>
-          <ul class="sk-chips" role="list"><li>Electronics &amp; telecommunication engineering</li><li>Hardware integration</li><li>GPS integration</li><li>Gyroscope integration</li><li>Battery monitoring</li><li>Remote-control systems</li><li>System design</li><li>Engineering problem-solving</li></ul>
+          <ul class="sk-chips" role="list"><li>Electronics &amp; telecommunication engineering</li><li>Hardware integration</li><li>Arduino-based control</li><li>GPS integration</li><li>Gyroscope integration</li><li>RF modules</li><li>Battery monitoring</li><li>Remote-control systems</li><li>System design</li><li>Engineering problem-solving</li></ul>
         </div>
         <div class="panel pd-panel pd-reflect">
           <p class="kicker"><span>06.</span> Reflection</p>

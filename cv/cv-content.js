@@ -15,7 +15,7 @@ module.exports = [
 
   { type: 'heading', text: 'Education' },
   { type: 'entry', title: 'MSc Business Analytics, Maynooth University, Ireland', right: '2024 – 2026', sub: 'Programme completed 2026; award pending' },
-  { type: 'entry', title: 'BEng Electronics & Telecommunication Engineering', right: '2016 – 2020', sub: 'Savitribai Phule Pune University, India' },
+  { type: 'entry', title: 'BEng Electronics & Telecommunication Engineering', right: 'Aug 2016 – Apr 2020', sub: 'Savitribai Phule Pune University, India' },
 
   { type: 'heading', text: 'Professional Experience' },
   { type: 'entry', title: 'Graduate Research Assistant, Maynooth University', right: 'Nov 2024 – Feb 2026', sub: 'Kildare, Ireland' },
@@ -46,6 +46,11 @@ module.exports = [
   { type: 'entry', title: 'Sales Demand Forecasting: ARIMA vs Prophet', right: '', sub: 'R, forecast, prophet, dplyr, ggplot2' },
   { type: 'bullet', runs: ['Compared Auto ARIMA and Prophet on product sales data with rolling-window validation on RMSE, MAE and MAPE.'] },
   { type: 'bullet', runs: ['Prophet performed better on strongly seasonal series with holiday effects; ARIMA on stationary, trend-driven series.'] },
+  { type: 'entry', title: 'Swarm Drone Coordination System', right: '2019 – 2020', sub: "Bachelor's final-year team project · Arduino, GPS, gyroscope, RF modules" },
+  { type: 'bullet', runs: [B('Achievement (2018): '), 'Qualified in the DST & Texas Instruments India Innovation Challenge Design Contest 2018, anchored by IIM Bangalore.'] },
+  { type: 'bullet', runs: ['Developed a two-drone coordination prototype for disaster-response applications, exploring coordinated operations for supply delivery and search-and-rescue support.'] },
+  { type: 'bullet', runs: ['Integrated Arduino-based control hardware with GPS, gyroscope and RF modules as part of the engineering system.'] },
+  { type: 'bullet', runs: ['Explored navigation, drone coordination and operational safety considerations for a practical disaster-response application.'] },
 
   { type: 'heading', text: 'Skills' },
   { type: 'labelled', label: 'Business analysis', text: 'requirements, process improvement, stakeholder management, KPI definition, As-Is / To-Be, gap analysis, supply chain analytics, project management' },
