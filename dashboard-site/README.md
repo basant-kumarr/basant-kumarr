@@ -9,6 +9,7 @@ tab of an existing Netlify site.
 - `index.html` all content: Home, About, Projects, Skills, Experience,
   Education & Journey, Let's Build Something Meaningful
 - `404.html` Netlify serves this for unknown paths
+- `basant-kumar-cv.pdf` two-page CV behind the Download CV buttons; built from `../cv/`
 - `_headers` security headers (CSP allows only same-origin assets)
 - `assets/css/style.css` layout and theme
 - `assets/js/engine.js` shared canvas engine (pauses offscreen, honours

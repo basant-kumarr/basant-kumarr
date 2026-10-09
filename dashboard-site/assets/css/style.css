@@ -340,7 +340,6 @@ svg{width:1em;height:1em;flex:none}
 .cv-link{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:13.5px;color:#cfe0f7}
 .cv-link svg{font-size:18px;color:var(--cyan)}
 .cv-link:hover{color:#fff}
-[data-cv][hidden]{display:none!important}
 .c-email{font-size:13px;color:var(--cyan);margin-left:4px}
 .c-email:hover{color:#fff}
 

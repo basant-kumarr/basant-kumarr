@@ -1,12 +1,8 @@
+# Netlify settings for a Git-connected deploy of this repository.
+# The portfolio in dashboard-site/ is a static site with no build step;
+# its _headers and 404.html are picked up from that folder.
+# (A manual drag-and-drop upload of the release zip ignores this file.)
 [build]
-  base    = "site"
-  command = "npm run build"
-  publish = "site/dist"
-
-[build.environment]
-  NODE_VERSION = "22"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  base    = "dashboard-site"
+  publish = "."
+  command = ""
