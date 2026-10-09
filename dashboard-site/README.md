@@ -9,6 +9,7 @@ tab of an existing Netlify site.
 - `index.html` all content: Home, About, Projects, Skills, Experience,
   Education & Journey, Let's Build Something Meaningful
 - `404.html` Netlify serves this for unknown paths
+- `swarm-drone-coordination.html` project page for the Bachelor's swarm drone project, with the India Innovation Challenge 2018 qualifying-round certificate (`assets/img/iic-2018-*.jpg`)
 - `basant-kumar-cv.pdf` two-page CV behind the Download CV buttons; built from `../cv/`
 - `_headers` security headers (CSP allows only same-origin assets)
 - `assets/css/style.css` layout and theme

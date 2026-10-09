@@ -20,7 +20,9 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && links.classList.contains('open')) { closeMenu(); btn.focus(); } });
 
   /* active section in the nav */
-  var navA = Array.prototype.slice.call(links.querySelectorAll('a'));
+  /* only in-page links take part; on project pages the nav points back to
+     index.html and the 'active' marker is set in the markup instead */
+  var navA = Array.prototype.slice.call(links.querySelectorAll('a[href^="#"]'));
   var secs = navA.map(function (a) { return document.querySelector(a.getAttribute('href')); });
   function setActive() {
     var y = window.scrollY + window.innerHeight * 0.35, cur = 0;
@@ -31,8 +33,7 @@
       if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
   }
-  window.addEventListener('scroll', setActive, { passive: true });
-  setActive();
+  if (navA.length) { window.addEventListener('scroll', setActive, { passive: true }); setActive(); }
 
   /* reveal, with a failsafe so nothing can stay hidden */
   var rev = document.querySelectorAll('.sec-head, .panel, .footnote');
