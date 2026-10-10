@@ -102,14 +102,18 @@ An engineering team project exploring how two drones could be coordinated throug
 
 ## Technical skills
 
-| Area | Skills | Where it shows |
-|---|---|---|
-| Programming and data analysis | Python · SQL · R · Excel · Power Query · MySQL | Fraud Detection, Sales Forecasting, research reporting |
-| Business intelligence and visualisation | Power BI · Tableau · ggplot2 · dashboard design | Research dashboards, Age Friendly Ireland and fraud dashboards |
-| Machine learning and forecasting | XGBoost · scikit-learn · SHAP · model evaluation · ARIMA · Prophet | Fraud Detection, Sales Forecasting |
-| Business analysis and delivery | Requirements · stakeholder management · KPI definition · process improvement · As-Is / To-Be · gap analysis · supply chain analytics · project management | Bajaj Electricals, Age Friendly Ireland |
-| Software and APIs | FastAPI · PostgreSQL · React Native · TypeScript · APIs · Git and GitHub | BeBeyond |
-| IoT and engineering tools | IoT · Arduino · GPS · RF modules · MATLAB · CAD | Bajaj Electricals, Swarm Drone Coordination |
+- **Programming and data analysis:** Python · SQL · R · Excel · Power Query · MySQL  
+  <sub>Used in: Fraud Detection, Sales Forecasting, research reporting</sub>
+- **Business intelligence and visualisation:** Power BI · Tableau · ggplot2 · dashboard design  
+  <sub>Used in: Research dashboards, Age Friendly Ireland and fraud dashboards</sub>
+- **Machine learning and forecasting:** XGBoost · scikit-learn · SHAP · model evaluation · ARIMA · Prophet  
+  <sub>Used in: Fraud Detection, Sales Forecasting</sub>
+- **Business analysis and delivery:** Requirements · stakeholder management · KPI definition · process improvement · As-Is / To-Be · gap analysis · supply chain analytics · project management  
+  <sub>Used in: Bajaj Electricals, Age Friendly Ireland</sub>
+- **Software and APIs:** FastAPI · PostgreSQL · React Native · TypeScript · APIs · Git and GitHub  
+  <sub>Used in: BeBeyond</sub>
+- **IoT and engineering tools:** IoT · Arduino · GPS · RF modules · MATLAB · CAD  
+  <sub>Used in: Bajaj Electricals, Swarm Drone Coordination</sub>
 
 ---
 
