@@ -51,7 +51,7 @@ A training, nutrition and coaching app in which a deterministic engine owns ever
 
 ### Fraud Detection · explainable XGBoost classifier
 
-<a href="https://github.com/basant-kumarr/fraud-detections-xgboost"><img src="assets/profile/card-fraud.webp" width="100%" alt="Fraud Detection project card: the tuned XGBoost model caught 496 of 644 fraud cases against 59 for the baseline, with 11 false alerts across 166,072 legitimate test transactions. The visual is a screenshot of the project dashboard's dot grids."></a>
+<a href="https://github.com/basant-kumarr/fraud-detections-xgboost"><img src="assets/profile/card-fraud.webp" width="100%" alt="Fraud Detection project card: the tuned XGBoost model caught 496 of 644 fraud cases against 59 for the baseline, with 11 false alerts across 166,072 legitimate test transactions. Portfolio artwork, a concept illustration."></a>
 
 An MSc team project that compares a logistic regression baseline with a tuned XGBoost model on a severely imbalanced synthetic dataset (0.4% fraud), and explains its decisions with SHAP.
 
@@ -63,7 +63,7 @@ An MSc team project that compares a logistic regression baseline with a tuned XG
 
 ### Housing Accessibility · client project for Age Friendly Ireland
 
-<a href="https://github.com/basant-kumarr/housing-accessibility-ireland"><img src="assets/profile/card-housing.webp" width="100%" alt="Housing Accessibility project card: households affected by stair-related mobility difficulty projected to rise from 16.94 percent in 2022 to 22.35 percent in 2050, about 580,000 people. The visual is a screenshot of the project dashboard."></a>
+<a href="https://github.com/basant-kumarr/housing-accessibility-ireland"><img src="assets/profile/card-housing.webp" width="100%" alt="Housing Accessibility project card: households affected by stair-related mobility difficulty projected to rise from 16.94 percent in 2022 to 22.35 percent in 2050, about 580,000 people. Portfolio artwork: an older couple on a bench by a river beside accessibility signposts."></a>
 
 A four-person consultancy project that estimates how many Irish households will include someone who struggles with stairs, projects it to 2050, and benchmarks housing policy in Ireland, Australia, Sweden and Denmark.
 
@@ -75,7 +75,7 @@ A four-person consultancy project that estimates how many Irish households will 
 
 ### Sales Demand Forecasting · ARIMA vs Prophet
 
-<a href="https://github.com/basant-kumarr/sales-demand-forecasting"><img src="assets/profile/card-sales.webp" width="100%" alt="Sales Demand Forecasting project card: Auto ARIMA and Prophet compared with rolling-window validation on RMSE, MAE and MAPE, in R. The image is a concept render with an illustrative chart, not project output."></a>
+<a href="https://github.com/basant-kumarr/sales-demand-forecasting"><img src="assets/profile/card-sales.webp" width="100%" alt="Sales Demand Forecasting project card: Auto ARIMA and Prophet compared with rolling-window validation on RMSE, MAE and MAPE, in R. Portfolio artwork of a logistics scene, a concept illustration."></a>
 
 Two time-series models built in R and compared like for like, to show which suits which kind of product demand.
 

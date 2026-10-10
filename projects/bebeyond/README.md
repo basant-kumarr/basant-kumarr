@@ -7,8 +7,7 @@ Personal product · in active development · private repository · React Native 
 [← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/)
 
 <p align="center">
-  <img src="images/concept-render.webp" width="100%" alt="Concept render of the BeBeyond app on a phone next to a 3D anatomical figure, with panels for the AI coach, workout plan, muscle load and progress analytics. Screen values in the render are illustrative.">
-  <br><sub>Concept render. Screen values are illustrative, not real app data.</sub>
+  <img src="images/hero.webp" width="100%" alt="BeBeyond: AI fitness and nutrition platform in development, with 17 database tables and 35 backend plus 71 mobile test files. Portfolio artwork of the app on a phone beside a 3D anatomical figure; screen values are illustrative.">
 </p>
 
 ---
@@ -84,7 +83,7 @@ Every signal carries a confidence tier: `measured`, `calculated`, `estimated` or
 - Camera form analysis has no on-device pose provider in this build. Real-time pose needs a frame-processor camera stack that conflicts with a dependency the app already uses.
 - Wearable integrations are scaffolding only.
 - Live language-model explanations are off unless a provider is configured.
-- There are no app screenshots here yet. The image at the top is a concept render, and the diagrams are drawn from the codebase.
+- There are no app screenshots here yet. The artwork at the top is from the portfolio, and the diagrams are drawn from the codebase.
 
 ## Code
 

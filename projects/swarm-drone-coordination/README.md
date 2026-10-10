@@ -7,8 +7,7 @@ BEng Electronics & Telecommunication Engineering, Savitribai Phule Pune Universi
 [← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/)
 
 <p align="center">
-  <img src="images/concept-render.webp" width="100%" alt="Concept render of two wooden-frame quadcopter drones on a workbench, with wiring, battery packs and tools. Not a photograph of the actual prototype.">
-  <br><sub>Concept render of the two wooden-frame drones. Not a photograph of the prototype.</sub>
+  <img src="images/hero.webp" width="100%" alt="Swarm Drone Coordination: 2018 qualifying round of the DST and Texas Instruments India Innovation Challenge, then a 2019 to 2020 final-year team project with two wooden-frame drones. Portfolio artwork, not a photograph of the prototype.">
 </p>
 
 ---
@@ -84,7 +83,7 @@ Range, payload, flight time and positioning accuracy are not listed because no p
 
 - A student prototype built for investigation and competition. It was not deployed in a real disaster.
 - No flight logs, telemetry or test results survive in the project record, so none are reported.
-- No photographs of the physical prototype are available; the image at the top is a concept render.
+- No photographs of the physical prototype are available; the artwork at the top is a concept render from the portfolio.
 
 ## What I took from it
 
