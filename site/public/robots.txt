@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://basant-kumar-portfolio.netlify.app/sitemap.xml
