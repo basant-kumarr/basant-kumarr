@@ -83,7 +83,7 @@ li{margin-bottom:1.5pt;padding-left:2pt}
 .lab{margin-bottom:2pt}
 .cert{display:flex;justify-content:space-between;margin-bottom:1.5pt}
 .cert span{color:#${MUTED}}
-.keep{break-inside:avoid}
+.keep{}
 </style></head><body>
 ${(() => {
   let out = '', list = null, group = null;

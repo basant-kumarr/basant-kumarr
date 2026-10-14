@@ -666,3 +666,9 @@ svg{width:1em;height:1em;flex:none}
   .skills-grid{grid-template-columns:1fr}
   .exp-head{padding:16px 16px 4px}
 }
+
+/* Certification list: courses and workshops read as grouped lines, not as
+   separate professional certificates. */
+.sk-certs .sk-courses{border-left-color:rgba(169,186,214,.4)}
+.sk-certs .sk-courses b{color:var(--muted);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+.sk-certs .sk-courses span{color:#cfdcf2}

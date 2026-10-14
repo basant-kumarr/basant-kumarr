@@ -54,16 +54,16 @@ module.exports = [
 
   { type: 'heading', text: 'Skills' },
   { type: 'labelled', label: 'Business analysis', text: 'requirements, process improvement, stakeholder management, KPI definition, As-Is / To-Be, gap analysis, supply chain analytics, project management' },
-  { type: 'labelled', label: 'Data & analytics', text: 'SQL, Python, R, Excel, Power Query, Power BI, Tableau, MySQL' },
+  { type: 'labelled', label: 'Data & analytics', text: 'Python (analysis, feature engineering, ML), SQL (querying, data extraction), R (statistics, visualisation, forecasting), Tableau (dashboards, reporting), Power BI, Excel, Power Query, MySQL' },
   { type: 'labelled', label: 'Machine learning', text: 'XGBoost, SHAP, scikit-learn, model evaluation, forecasting (ARIMA, Prophet)' },
   { type: 'labelled', label: 'Product & engineering', text: 'FastAPI, PostgreSQL, React Native, TypeScript, APIs, IoT, Git and GitHub' },
   { type: 'labelled', label: 'Engineering tools', text: 'MATLAB, CAD' },
 
   { type: 'heading', text: 'Certifications' },
-  { type: 'cert', title: 'Machine Learning Professional', right: 'Altair / RapidMiner, 2025' },
   { type: 'cert', title: 'Google Data Analytics Professional Certificate', right: 'Google, 2024' },
-  { type: 'cert', title: 'AI For Everyone', right: '2025' },
-  { type: 'cert', title: 'Google Project Management Certificate', right: 'Google' },
+  { type: 'cert', title: 'Google Project Management Professional Certificate (six courses)', right: 'Google, 2022' },
+  { type: 'cert', title: 'Machine Learning Professional', right: 'Altair / RapidMiner, 2025' },
+  { type: 'labelled', label: 'Courses', text: 'AI For Everyone, DeepLearning.AI (2023) \u00b7 Programming for Everybody, University of Michigan (2019) \u00b7 Six Sigma Principles, University System of Georgia (2023) \u00b7 Supply Chain Management Strategy, Rutgers (2022) \u00b7 Power BI, be10x one-day workshop (2023)' },
 
   { type: 'heading', text: 'Leadership & Volunteering' },
   { type: 'bullet', runs: [B('Save the Children, Pune: '), 'weekend volunteer raising awareness of girls’ education, teaching mathematics to children and fundraising in the community.'] },
