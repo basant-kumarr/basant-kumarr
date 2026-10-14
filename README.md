@@ -102,10 +102,21 @@ An engineering team project exploring how two drones could be coordinated throug
 
 ## Technical skills
 
-- **Programming and data analysis:** Python · SQL · R · Excel · Power Query · MySQL  
-  <sub>Used in: Fraud Detection, Sales Forecasting, research reporting</sub>
-- **Business intelligence and visualisation:** Power BI · Tableau · ggplot2 · dashboard design  
-  <sub>Used in: Research dashboards, Age Friendly Ireland and fraud dashboards</sub>
+**Core toolkit** — the four I work with most, across research, coursework and projects:
+
+- **Python** — data analysis, feature engineering, machine learning and automation  
+  <sub>Used in: Fraud Detection (behavioural features, XGBoost tuning, SHAP) · research reporting at Maynooth · BeBeyond backend</sub>
+- **SQL** — querying, data extraction and relational data modelling  
+  <sub>Used in: BeBeyond's PostgreSQL data model (17 tables, versioned migrations) · MySQL</sub>
+- **R** — statistical analysis, data visualisation and time-series forecasting  
+  <sub>Used in: Sales Demand Forecasting (Auto ARIMA, Prophet, ggplot2) · research reporting at Maynooth</sub>
+- **Tableau** — dashboards, reporting and data visualisation  
+  <sub>Used in: automated reporting dashboards built as Graduate Research Assistant at Maynooth University</sub>
+
+**Alongside these**
+
+- **Business intelligence and visualisation:** Power BI · Excel · Power Query · dashboard design  
+  <sub>Used in: research dashboards, Age Friendly Ireland and fraud dashboards</sub>
 - **Machine learning and forecasting:** XGBoost · scikit-learn · SHAP · model evaluation · ARIMA · Prophet  
   <sub>Used in: Fraud Detection, Sales Forecasting</sub>
 - **Business analysis and delivery:** Requirements · stakeholder management · KPI definition · process improvement · As-Is / To-Be · gap analysis · supply chain analytics · project management  
@@ -114,6 +125,7 @@ An engineering team project exploring how two drones could be coordinated throug
   <sub>Used in: BeBeyond</sub>
 - **IoT and engineering tools:** IoT · Arduino · GPS · RF modules · MATLAB · CAD  
   <sub>Used in: Bajaj Electricals, Swarm Drone Coordination</sub>
+
 
 ---
 
@@ -144,10 +156,22 @@ An engineering team project exploring how two drones could be coordinated throug
 
 ## Certifications
 
-- **Machine Learning Professional**, Altair / RapidMiner, 2025
-- **Google Data Analytics Professional Certificate**, Google, 2024
-- **AI For Everyone**, 2025
-- **Google Project Management Certificate**, Google
+**Professional certificates**
+
+- **Google Data Analytics Professional Certificate** — Google · 2024
+- **Google Project Management Professional Certificate** — Google · 2022 · six courses
+- **Machine Learning Professional** — Altair / RapidMiner · 2025
+
+**Courses**
+
+- **AI For Everyone** — DeepLearning.AI, via Coursera · 2023
+- **Programming for Everybody (Getting Started with Python)** — University of Michigan · 2019
+- **Six Sigma Principles** — University System of Georgia · 2023
+- **Supply Chain Management Strategy** — Rutgers University · 2022
+
+**Workshop**
+
+- **Power BI** — be10x, one-day workshop · November 2023
 
 ## Leadership and volunteering
 
