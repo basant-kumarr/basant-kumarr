@@ -59,7 +59,7 @@ An MSc team project that compares a logistic regression baseline with a tuned XG
 - **Result:** 496 of 644 fraud cases caught on the hold-out set, against 59 for the baseline, with 11 false alerts.
 - **Stack:** Python · XGBoost · scikit-learn · SHAP · Gradio
 
-**[Project write-up →](https://github.com/basant-kumarr/fraud-detections-xgboost)** &nbsp;·&nbsp; [Live dashboard](https://fraud-detection-xgboost.netlify.app/)
+**[Project write-up →](https://github.com/basant-kumarr/fraud-detections-xgboost)** &nbsp;·&nbsp; [Live dashboard](https://fraud-detection-xgboost.netlify.app/) <sub>(its metric table predates the reconciliation noted in the write-up)</sub>
 
 ### Housing Accessibility · client project for Age Friendly Ireland
 
@@ -68,7 +68,7 @@ An MSc team project that compares a logistic regression baseline with a tuned XG
 A four-person consultancy project that estimates how many Irish households will include someone who struggles with stairs, projects it to 2050, and benchmarks housing policy in Ireland, Australia, Sweden and Denmark.
 
 - **My role:** Business Analytics Consultant. I chose the prevalence × projection method and built the dashboard that presents it.
-- **Result:** 16.94% of households in 2022, projected to 22.35% by 2050; five policy recommendations delivered to the client.
+- **Result:** 16.94% of households in 2022, projected to 22.35% by 2050. The team delivered five policy recommendations to the client.
 - **Stack:** CSO Census 2022 · CSO PEC19 projections · HTML, CSS, JavaScript and SVG
 
 **[Project write-up →](https://github.com/basant-kumarr/housing-accessibility-ireland)** &nbsp;·&nbsp; [Live dashboard](https://age-friendly-ireland.netlify.app/) &nbsp;·&nbsp; [Dashboard source](https://github.com/basant-kumarr/ireland-stair-accessibility-dashboard)
@@ -138,7 +138,7 @@ An engineering team project exploring how two drones could be coordinated throug
 ## Education
 
 **MSc Business Analytics** · Maynooth University, Ireland · *2024 – 2026*
-Programme completed in 2026; award pending.
+<br>Programme completed in 2026; award pending.
 
 **BEng Electronics & Telecommunication Engineering** · Savitribai Phule Pune University, India · *2016 – 2020*
 
