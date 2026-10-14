@@ -126,7 +126,6 @@ An engineering team project exploring how two drones could be coordinated throug
 - **IoT and engineering tools:** IoT · Arduino · GPS · RF modules · MATLAB · CAD  
   <sub>Used in: Bajaj Electricals, Swarm Drone Coordination</sub>
 
-
 ---
 
 ## Experience
@@ -156,22 +155,19 @@ An engineering team project exploring how two drones could be coordinated throug
 
 ## Certifications
 
-**Professional certificates**
-
-- **Google Data Analytics Professional Certificate** — Google · 2024
+**Professional certificate**
 - **Google Project Management Professional Certificate** — Google · 2022 · six courses
-- **Machine Learning Professional** — Altair / RapidMiner · 2025
 
 **Courses**
-
 - **AI For Everyone** — DeepLearning.AI, via Coursera · 2023
 - **Programming for Everybody (Getting Started with Python)** — University of Michigan · 2019
 - **Six Sigma Principles** — University System of Georgia · 2023
 - **Supply Chain Management Strategy** — Rutgers University · 2022
 
 **Workshop**
-
 - **Power BI** — be10x, one-day workshop · November 2023
+
+---
 
 ## Leadership and volunteering
 
