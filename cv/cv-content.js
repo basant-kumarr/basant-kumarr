@@ -11,10 +11,10 @@ module.exports = [
   { type: 'contact', runs: [L('Portfolio', 'https://basant-kumar-portfoli.netlify.app/'), '  ·  ', L('LinkedIn', 'https://www.linkedin.com/in/basantsingh-/'), '  ·  ', L('GitHub', 'https://github.com/basant-kumarr')] },
 
   { type: 'heading', text: 'Profile' },
-  { type: 'para', runs: ['Business analytics graduate with an electronics engineering background, working across business problems, data and AI. I completed the MSc in Business Analytics at Maynooth University in 2026 (award pending), after R&D work in IoT and analytics and research reporting at Maynooth. I like framing the problem with stakeholders first, getting the data into a state worth trusting, modelling it, and turning the result into something people can use. Seeking Business Analyst, Data Analyst, BI Analyst and AI/Product Analyst roles in Ireland.'] },
+  { type: 'para', runs: ['Business analytics graduate with an electronics engineering background, working across business problems, data and AI. I hold an MSc in Business Analytics from Maynooth University, awarded in 2026, after R&D work in IoT and analytics and research reporting at Maynooth. I like framing the problem with stakeholders first, getting the data into a state worth trusting, modelling it, and turning the result into something people can use. Seeking Business Analyst, Data Analyst, BI Analyst and AI/Product Analyst roles in Ireland.'] },
 
   { type: 'heading', text: 'Education' },
-  { type: 'entry', title: 'MSc Business Analytics, Maynooth University, Ireland', right: '2024 – 2026', sub: 'Programme completed 2026; award pending' },
+  { type: 'entry', title: 'MSc Business Analytics, Maynooth University, Ireland', right: '2024 – 2026', sub: 'Awarded October 2026 · Second Class Honours, Grade I' },
   { type: 'entry', title: 'BEng Electronics & Telecommunication Engineering', right: 'Aug 2016 – Apr 2020', sub: 'Savitribai Phule Pune University, India' },
 
   { type: 'heading', text: 'Professional Experience' },
@@ -60,9 +60,7 @@ module.exports = [
   { type: 'labelled', label: 'Engineering tools', text: 'MATLAB, CAD' },
 
   { type: 'heading', text: 'Certifications' },
-  { type: 'cert', title: 'Google Data Analytics Professional Certificate', right: 'Google, 2024' },
   { type: 'cert', title: 'Google Project Management Professional Certificate (six courses)', right: 'Google, 2022' },
-  { type: 'cert', title: 'Machine Learning Professional', right: 'Altair / RapidMiner, 2025' },
   { type: 'labelled', label: 'Courses', text: 'AI For Everyone, DeepLearning.AI (2023) \u00b7 Programming for Everybody, University of Michigan (2019) \u00b7 Six Sigma Principles, University System of Georgia (2023) \u00b7 Supply Chain Management Strategy, Rutgers (2022) \u00b7 Power BI, be10x one-day workshop (2023)' },
 
   { type: 'heading', text: 'Leadership & Volunteering' },
