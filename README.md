@@ -67,7 +67,7 @@ An MSc team project that compares a logistic regression baseline with a tuned XG
 
 A four-person consultancy project that estimates how many Irish households will include someone who struggles with stairs, projects it to 2050, and benchmarks housing policy in Ireland, Australia, Sweden and Denmark.
 
-- **My role:** Business Analytics Consultant. I chose the prevalence × projection method and built the dashboard that presents it.
+- **My role:** Business Analytics Consultant. I chose the prevalence × projection method, built the dashboard that presents it, and wrote the individual Business Consulting Project report submitted for this engagement (MI6274, 15,400 words). Policy benchmarking and the client presentation were delivered with the project team.
 - **Result:** 16.94% of households in 2022, projected to 22.35% by 2050. The team delivered five policy recommendations to the client.
 - **Stack:** CSO Census 2022 · CSO PEC19 projections · HTML, CSS, JavaScript and SVG
 
