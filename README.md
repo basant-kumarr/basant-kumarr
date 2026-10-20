@@ -7,7 +7,7 @@
 <h3 align="center">Business Analytics &nbsp;|&nbsp; Data Analytics &nbsp;|&nbsp; Applied AI</h3>
 
 <p align="center">
-MSc Business Analytics (Maynooth University, award pending) with an electronics engineering background. I frame the problem with stakeholders, get the data into a state worth trusting, model it, and turn the result into something people can use.
+MSc Business Analytics from Maynooth University, with an electronics engineering background. I frame the problem with stakeholders, get the data into a state worth trusting, model it, and turn the result into something people can use.
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@ MSc Business Analytics (Maynooth University, award pending) with an electronics 
 - **Engineering foundation.** BEng in Electronics & Telecommunication Engineering, including a two-drone final-year team project.
 - **Industry R&D.** At Bajaj Electricals I analysed IoT sensor data, built KPI reporting, applied forecasting and prepared gap analyses for AI and IoT solutions.
 - **Research.** As a Graduate Research Assistant at Maynooth University I built automated reporting dashboards in Python, R and Tableau, and analysed interviews with HR leads, CEOs and senior managers.
-- **Business analytics.** MSc Business Analytics at Maynooth University: programme completed in 2026, award pending.
+- **Business analytics.** MSc Business Analytics, Maynooth University, awarded October 2026 with Second Class Honours, Grade I.
 - **What I bring.** Business analysis, data visualisation, forecasting and applied machine learning, plus the product engineering to make results usable.
 
 ---
@@ -149,7 +149,7 @@ An engineering team project exploring how two drones could be coordinated throug
 ## Education
 
 **MSc Business Analytics** · Maynooth University, Ireland · *2024 – 2026*
-<br>Programme completed in 2026; award pending.
+<br>Awarded October 2026 · Second Class Honours, Grade I
 
 **BEng Electronics & Telecommunication Engineering** · Savitribai Phule Pune University, India · *2016 – 2020*
 
