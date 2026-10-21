@@ -4,7 +4,7 @@
 
 BEng Electronics & Telecommunication Engineering, Savitribai Phule Pune University · 2018 – 2020 · Arduino · GPS · gyroscope · RF modules
 
-[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/)
+[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar.netlify.app/)
 
 <p align="center">
   <img src="images/hero.webp" width="100%" alt="Swarm Drone Coordination: 2018 qualifying round of the DST and Texas Instruments India Innovation Challenge, then a 2019 to 2020 final-year team project with two wooden-frame drones. Portfolio artwork, not a photograph of the prototype.">
@@ -91,4 +91,4 @@ The project taught me how hardware, navigation, monitoring and control have to w
 
 ---
 
-[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/basantsingh-/)
+[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/basantsingh-/)

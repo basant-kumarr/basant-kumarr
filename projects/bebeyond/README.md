@@ -4,7 +4,7 @@
 
 Personal product · in active development · private repository · React Native (Expo) · FastAPI · PostgreSQL · Three.js
 
-[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/)
+[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar.netlify.app/)
 
 <p align="center">
   <img src="images/hero.webp" width="100%" alt="BeBeyond: AI fitness and nutrition platform in development, with 17 database tables and 35 backend plus 71 mobile test files. Portfolio artwork of the app on a phone beside a 3D anatomical figure; screen values are illustrative.">
@@ -91,4 +91,4 @@ The repository is private while the product is in development, so this page is t
 
 ---
 
-[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar-portfoli.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/basantsingh-/)
+[← Back to profile](../../README.md) · [Portfolio](https://basant-kumar.netlify.app/) · [LinkedIn](https://www.linkedin.com/in/basantsingh-/)

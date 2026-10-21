@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://basant-kumar-portfoli.netlify.app/">
+  <a href="https://basant-kumar.netlify.app/">
     <img src="assets/profile/banner.webp" width="100%" alt="Basant Kumar. Business Analytics, Data Analytics, Applied AI. Turning data, AI and technology into intelligent business decisions and practical solutions.">
   </a>
 </p>
@@ -11,7 +11,7 @@ MSc Business Analytics from Maynooth University, with an electronics engineering
 </p>
 
 <p align="center">
-  <a href="https://basant-kumar-portfoli.netlify.app/"><b>Portfolio</b></a> &nbsp;·&nbsp;
+  <a href="https://basant-kumar.netlify.app/"><b>Portfolio</b></a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/basantsingh-/"><b>LinkedIn</b></a> &nbsp;·&nbsp;
   <a href="mailto:basantsingh607@gmail.com"><b>Email</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/basant-kumarr?tab=repositories"><b>Repositories</b></a>
@@ -181,7 +181,7 @@ An engineering team project exploring how two drones could be coordinated throug
 </p>
 
 <p align="center">
-  <a href="https://basant-kumar-portfoli.netlify.app/">Portfolio</a> &nbsp;·&nbsp;
+  <a href="https://basant-kumar.netlify.app/">Portfolio</a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/basantsingh-/">LinkedIn</a> &nbsp;·&nbsp;
   <a href="mailto:basantsingh607@gmail.com">basantsingh607@gmail.com</a>
 </p>
