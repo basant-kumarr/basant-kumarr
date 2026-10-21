@@ -8,7 +8,7 @@ module.exports = [
   { type: 'name', text: 'BASANT KUMAR' },
   { type: 'tagline', text: 'AI & Business Analyst  |  Business Analytics · Data · AI' },
   { type: 'contact', runs: ['Celbridge, Co. Kildare, Ireland  ·  ', L('basantsingh607@gmail.com', 'mailto:basantsingh607@gmail.com')] },
-  { type: 'contact', runs: [L('Portfolio', 'https://basant-kumar-portfoli.netlify.app/'), '  ·  ', L('LinkedIn', 'https://www.linkedin.com/in/basantsingh-/'), '  ·  ', L('GitHub', 'https://github.com/basant-kumarr')] },
+  { type: 'contact', runs: [L('Portfolio', 'https://basant-kumar.netlify.app/'), '  ·  ', L('LinkedIn', 'https://www.linkedin.com/in/basantsingh-/'), '  ·  ', L('GitHub', 'https://github.com/basant-kumarr')] },
 
   { type: 'heading', text: 'Profile' },
   { type: 'para', runs: ['Business analytics graduate with an electronics engineering background, working across business problems, data and AI. I hold an MSc in Business Analytics from Maynooth University, awarded in 2026, after R&D work in IoT and analytics and research reporting at Maynooth. I like framing the problem with stakeholders first, getting the data into a state worth trusting, modelling it, and turning the result into something people can use. Seeking Business Analyst, Data Analyst, BI Analyst and AI/Product Analyst roles in Ireland.'] },
