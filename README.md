@@ -102,6 +102,8 @@ An engineering team project exploring how two drones could be coordinated throug
 
 ## Technical skills
 
+<img src="assets/profile/skills.webp" width="100%" alt="Technical skills: the four tools used every day. Python for feature engineering, XGBoost and SHAP; SQL for querying, extraction and data modelling; R for ARIMA, Prophet and ggplot2; Tableau for research dashboards at Maynooth. Alongside them Power BI, FastAPI and PostgreSQL, scikit-learn and SHAP, Excel and Power Query.">
+
 **Core toolkit** — the four I work with most, across research, coursework and projects:
 
 - **Python** — data analysis, feature engineering, machine learning and automation  
@@ -129,6 +131,8 @@ An engineering team project exploring how two drones could be coordinated throug
 ---
 
 ## Experience
+
+<img src="assets/profile/experience.webp" width="100%" alt="Professional experience timeline: Graduate Research Assistant at Maynooth University, Nov 2024 to Feb 2026; R&D Engineer, IoT and Analytics at Bajaj Electricals, Oct 2022 to Dec 2023; Junior Engineer, AI and IoT at Bajaj Electricals, Jul 2021 to Oct 2022; E-commerce Founder, independent, Feb 2018 to Aug 2019.">
 
 **Graduate Research Assistant** · Maynooth University, Kildare, Ireland · *Nov 2024 – Feb 2026*
 - Built automated reporting dashboards using Python, R and Tableau.
